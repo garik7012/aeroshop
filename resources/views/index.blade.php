@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+@include('front-side.index.slider')
 <section class="ie9_all">
     <div class="container">
         <div class="row">

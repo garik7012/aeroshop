@@ -719,10 +719,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 var app = {};
 window.$ = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a;
+
 __webpack_require__("./resources/assets/js/nivo-slider.js");
 __webpack_require__("./resources/assets/js/jq_easing.1.3.js");
 __webpack_require__("./resources/assets/js/totop.js");
 __webpack_require__("./resources/assets/js/js_top.js");
+
 __WEBPACK_IMPORTED_MODULE_0_jquery___default()('document').ready(function () {
     __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.ajaxSetup({
         headers: { 'X-CSRF-TOKEN': __WEBPACK_IMPORTED_MODULE_0_jquery___default()('meta[name="csrf-token"]').attr('content') }
@@ -735,101 +737,6 @@ app.Base = function () {
         //  toTop();
     };
 
-    var toTop = function toTop() {
-        __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.fn.tmStickUp == function (options) {
-
-            var getOptions = {
-                correctionSelector: __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.correctionSelector')
-            };
-            __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.extend(getOptions, options);
-
-            var _this = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this),
-                _window = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(window),
-                _document = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document),
-                thisOffsetTop = 0,
-                thisOuterHeight = 0,
-                thisMarginTop = 0,
-                thisPaddingTop = 0,
-                documentScroll = 0,
-                pseudoBlock,
-                lastScrollValue = 0,
-                scrollDir = '',
-                tmpScrolled;
-
-            init();
-
-            function init() {
-                thisOffsetTop = parseInt(_this.offset().top);
-                thisMarginTop = parseInt(_this.css("margin-top"));
-                thisOuterHeight = parseInt(_this.outerHeight(true));
-
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<div class="pseudoStickyBlock"></div>').insertAfter(_this);
-                pseudoBlock = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.pseudoStickyBlock');
-                pseudoBlock.css({ "position": "relative", "display": "block" });
-                addEventsFunction();
-            } //end init
-
-            function addEventsFunction() {
-                _document.on('scroll', function () {
-                    tmpScrolled = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).scrollTop();
-                    if (tmpScrolled > lastScrollValue) {
-                        scrollDir = 'down';
-                    } else {
-                        scrollDir = 'up';
-                    }
-                    lastScrollValue = tmpScrolled;
-
-                    correctionValue = getOptions.correctionSelector.outerHeight(true);
-                    documentScroll = parseInt(_window.scrollTop());
-
-                    if (thisOffsetTop - correctionValue < documentScroll) {
-                        _this.addClass('isStuck');
-                        _this.css({ position: "fixed", top: correctionValue });
-                        pseudoBlock.css({ "height": thisOuterHeight });
-                    } else {
-                        _this.removeClass('isStuck');
-                        _this.css({ position: "relative", top: 0 });
-                        pseudoBlock.css({ "height": 0 });
-                    }
-                }).trigger('scroll');
-            }
-        }; //end tmStickUp function
-        __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
-            if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()(window).width() > 768) {
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#dropMenu .level3').addClass('desktop');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-9 .levels .level2 > li').eq(4).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-9 .levels .level2 > li').eq(9).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-8 .levels .level2 > li').eq(3).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-8 .levels .level2 > li').eq(7).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-7 .levels .level2 > li').eq(3).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-7 .levels .level2 > li').eq(7).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-6 .levels .level2 > li').eq(2).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-6 .levels .level2 > li').eq(5).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-6 .levels .level2 > li').eq(8).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-5 .levels .level2 > li').eq(1).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-5 .levels .level2 > li').eq(3).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-5 .levels .level2 > li').eq(5).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-5 .levels .level2 > li').eq(7).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-5 .levels .level2 > li').eq(9).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-5 .levels .level2 > li').eq(11).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-4 .levels .level2 > li').eq(1).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-4 .levels .level2 > li').eq(3).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-4 .levels .level2 > li').eq(5).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-4 .levels .level2 > li').eq(7).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-4 .levels .level2 > li').eq(9).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-4 .levels .level2 > li').eq(11).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".last").after("<div class='clearfix'></div>");
-            } else {
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#dropMenu .level1').removeClass('desktop');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#dropMenu .level1').addClass('mobile');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-9 .firstcolumn .levels .level2 > li').eq(1).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-9 .firstcolumn .levels .level2 > li').eq(3).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-9 .firstcolumn .levels .level2 > li').eq(5).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.dropdown.col-9 .firstcolumn .levels .level2 > li').eq(7).addClass('last');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".last").after("<div class='clearfix'></div>");
-            }
-        });
-    };
     return {
         init: init
     };
@@ -885,6 +792,13 @@ __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/assets/sass/admin.scss":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/assets/sass/app.scss":
 /***/ (function(module, exports) {
 
@@ -904,6 +818,7 @@ __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
 
 __webpack_require__("./resources/assets/js/scripts.js");
 __webpack_require__("./resources/assets/sass/app.scss");
+__webpack_require__("./resources/assets/sass/admin.scss");
 module.exports = __webpack_require__("./resources/assets/sass/extras.scss");
 
 

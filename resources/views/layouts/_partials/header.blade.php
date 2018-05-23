@@ -3,30 +3,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-7 col-lg-7 fright">
-                    <div id="currencies-block-top" class="top_dropdown_menu">
+                    <div id="langs_block" class="top_dropdown_menu">
                         <!-- ========== LOCALES ========= -->
-                        <form name="currencies" id="currencies_form" action="/" method="get">
-                            <input type="hidden" name="currency" id="currency_value" value="">
-                            <input type="hidden" name="main_page" value="index">
-                            <div class="btn-group">
-                          <span class="trigger_down dropdown-toggle" data-toggle="dropdown">
-                            <span class="lbl">{{strtoupper(App::getLocale())}} </span>
-                          </span>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li class="current_cur"><a href="<?= route('setlocale', ['lang' => 'en']) ?>">Eng</a></li>
-                                    <li><a href="<?= route('setlocale', ['lang' => 'ru']) ?>">Рус</a></li>
-                                    <li><a href="<?= route('setlocale', ['lang' => 'uk']) ?>">Укр</a></li>
-                                </ul>
-                            </div>
-                        </form>
+                        <span class="trigger_down dropdown-toggle" data-toggle="dropdown"><span class="lbl">{{strtoupper(App::getLocale())}}</span></span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="<?= route('setlocale', ['lang' => 'en']) ?>">Eng</a></li>
+                            <li><a href="<?= route('setlocale', ['lang' => 'ru']) ?>">Рус</a></li>
+                            <li><a href="<?= route('setlocale', ['lang' => 'uk']) ?>">Укр</a></li>
+                        </ul>
                         <!-- ====================================== -->
                     </div>
-                    <ul class="header_user_info customer_links">
-                        <!-- ========== NAVIGATION LINKS ========== -->
-                        <li><a class="login " href="#"></a></li>                        
-                        <li><a class="" href="#">My Account</a></li>
-                        <!-- ====================================== -->
-                    </ul>
                 </div>
                 <div class="col-xs-12 col-md-5 col-lg-5">
                     <div class="phone">

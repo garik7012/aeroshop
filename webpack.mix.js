@@ -27,6 +27,8 @@ mix.extract(vendors, 'public/js/vendor.js')
     });
 
 mix.js(config.assets + "/js/scripts.js", 'public/js/scripts.js').version();
+mix.js(config.assets + "/js/admin.js", 'public/js/admin.js').version();
 
 mix.sass('resources/assets/sass/app.scss', 'public/css')
+    .sass('resources/assets/sass/admin.scss', 'public/css')
     .sass('resources/assets/sass/extras.scss', 'public/css').options({ processCssUrls: false }).version();
