@@ -10,13 +10,12 @@
                             <input type="hidden" name="main_page" value="index">
                             <div class="btn-group">
                           <span class="trigger_down dropdown-toggle" data-toggle="dropdown">
-                            <span class="lbl">EN </span>
+                            <span class="lbl">{{strtoupper(App::getLocale())}} </span>
                           </span>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li class="current_cur">
-                                        <a href="javascript:void(0);" onclick='document.getElementById("currency_value").value="EN"'>EN</a>
-                                    </li>
-                                    <li><a href='javascript:void(0);' onclick='document.getElementById("currency_value").value="RU";document.getElementById("currencies_form").submit();'>RU</a></li>
+                                    <li class="current_cur"><a href="<?= route('setlocale', ['lang' => 'en']) ?>">Eng</a></li>
+                                    <li><a href="<?= route('setlocale', ['lang' => 'ru']) ?>">Рус</a></li>
+                                    <li><a href="<?= route('setlocale', ['lang' => 'uk']) ?>">Укр</a></li>
                                 </ul>
                             </div>
                         </form>
@@ -43,7 +42,7 @@
             <div class="row clearfix">
                 <div id="header_logo" class="col-xs-12 col-sm-3">
                     <!-- ========== LOGO ========== -->
-                    <a href=""><img src="http://placehold.it/270X113" alt="logo"></a>
+                    <a href=""><img src="http://placehold.in/270x117" alt="logo"></a>
                     <!-- ========================== -->
                 </div>
                 <div class="col-xs-12 col-sm-9 col-md-9">
@@ -103,13 +102,27 @@
                                                             <a href="#">Nullam eget</a></li></ul></li><li data-match-height="cat-ul-gen" class="submenu col-inner last" style="">
                                                     <a href="#">Tools</a><ul class="level3"><li>
                                                             <a href="#">Facilisis pur</a></li><li>
-                                                            <a href="#">Finibus mi</a></li></ul></li><div class="clearfix"></div>
-                                                <div class="clearfix"></div>
-                                            </ul>
+                                                            <a href="#">Finibus mi</a></li></ul></li><div class="clearfix"></div><li>
+                                                    <a href="#">Water Heaters</a></li><li>
+                                                    <a href="#">Supplies</a></li><li>
+                                                    <a href="#">Sinks</a></li><li>
+                                                    <a href="#">Water Taps</a></li><li class="last">
+                                                    <a href="#">Accessories</a></li><div class="clearfix"></div></ul>
                                         </div>
+
                                         <div class="clearfix"></div>
+
                                     </div>
                                     <span class="plus"></span></li><!-- eof categories  -->
+
+                                <li class="quicklinks-li1">
+                                    <a class="drop">sdf</a>
+                                    <div class="dropdown col-2 ">
+                                        <div class="firstcolumn">
+                                            <h2>3213131</h2>
+                                        </div>
+                                    </div>
+                                </li><!-- eof quick links -->
                                 <li class="quicklinks-li"><a class="drop">Quick Links</a><span class="label"></span><!-- bof quick links  -->
                                     <div class="dropdown col-2 ">
                                         <div class="firstcolumn">
@@ -152,6 +165,9 @@
                                         </div>
                                     </div>
                                     <span class="plus"></span></li><!-- eof quick links -->
+
+
+
                                 <li class="information-li"><a class="drop">Info<span class="label"></span></a><!-- bof information -->
 
                                     <div class="dropdown col-3">
@@ -178,6 +194,7 @@
                                     </div>
 
                                     <span class="plus"></span></li><!-- eof information -->
+
                                 <li class="customer_service"><a class="drop">Shipping &amp; Returns<span class="label"></span></a><!-- bof customer service -->
 
                                     <div class="dropdown col-5">
@@ -199,6 +216,7 @@
                                     </div><!-- eof customer service -->
 
                                     <span class="plus"></span></li>
+
                             </ul><!-- eof mega-menu -->
 
                         </div><!-- eof mega-wrapper -->
