@@ -7,6 +7,7 @@ require('./nivo-slider.js');
 require('./jq_easing.1.3.js');
 require('./totop');
 require('./js_top');
+require('./libs/matchHeight.js');
 
 $('document').ready(function () {
     $.ajaxSetup({

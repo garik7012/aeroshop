@@ -40,8 +40,6 @@
 				font:600 17px/21px $font-custom;
 				text-transform:uppercase;
 				cursor:pointer;
-				-webkit-text-shadow:0 1px 1px #000;
-				-moz-text-shadow:0 1px 1px #000;
 				text-shadow:0 1px 1px #000;
 			}
 		}
@@ -168,8 +166,7 @@
 		.level2{
 			>li{
 				>a{
-					text-transform:uppercase;
-					font:600 16px/18px $font-custom;
+					font:600 14px/16px $font-custom;
 					color:#999;
 					&:hover{
 						color:$color;
@@ -206,7 +203,7 @@
 					width:100%;
 					padding:0;
 					a{
-						font:400 13px/18px $font-custom;
+						font:400 12px/16px $font-custom;
 						color:#999;
 						&:hover{
 							color:$color;

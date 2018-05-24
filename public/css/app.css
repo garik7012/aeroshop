@@ -5230,8 +5230,6 @@ div.pull-left.info-block {
   font: 600 17px/21px "Open Sans", sans-serif;
   text-transform: uppercase;
   cursor: pointer;
-  -webkit-text-shadow: 0 1px 1px #000;
-  -moz-text-shadow: 0 1px 1px #000;
   text-shadow: 0 1px 1px #000;
 }
 
@@ -5366,8 +5364,7 @@ div.pull-left.info-block {
 
 /*-- level2 --*/
 .mega-menu .dropdown .level2 > li > a {
-  text-transform: uppercase;
-  font: 600 16px/18px "Open Sans", sans-serif;
+  font: 600 14px/16px "Open Sans", sans-serif;
   color: #999;
 }
 
@@ -5395,7 +5392,7 @@ div.pull-left.info-block {
 }
 
 .mega-menu li.categories-li .dropdown ul.level3 > li a {
-  font: 400 13px/18px "Open Sans", sans-serif;
+  font: 400 12px/16px "Open Sans", sans-serif;
   color: #999;
 }
 
