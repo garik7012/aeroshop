@@ -39,6 +39,10 @@ class CategoriesTableSeeder extends Seeder
         }
     }
 
+    /**
+     * get parent categories. now we have 8
+     * @return array
+     */
     public function getParentCategories()
     {
         return [
@@ -53,6 +57,10 @@ class CategoriesTableSeeder extends Seeder
         ];
     }
 
+    /**
+     * get categories
+     * @return array
+     */
     public function getCategories()
     {
         return [

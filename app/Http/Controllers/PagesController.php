@@ -18,14 +18,14 @@ class PagesController extends Controller
 
     public function test()
     {
-        $arr = $this->getArr();
-        $brands = [];
-        foreach ($arr as $item) {
-            if (!in_array($item[24], $brands)) {
-                $brands[] = $item[24];
+        $products = $this->getArr();
+        $need = [];
+        foreach ($products as $product) {
+            if (!in_array($product, $need)) {
+                $need[] = $product;
             }
         }
-        var_export($brands);
+        var_export($need);
     }
 
     public function getArr()
