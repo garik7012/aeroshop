@@ -15,4 +15,21 @@ class PagesController extends Controller
     {
         return view('index');
     }
+
+    public function test()
+    {
+        $arr = $this->getArr();
+        $brands = [];
+        foreach ($arr as $item) {
+            if (!in_array($item[24], $brands)) {
+                $brands[] = $item[24];
+            }
+        }
+        var_export($brands);
+    }
+
+    public function getArr()
+    {
+        return [];
+    }
 }

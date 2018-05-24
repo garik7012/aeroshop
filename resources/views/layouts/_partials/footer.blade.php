@@ -50,7 +50,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <!-- ========== COPYRIGHT ========== -->
-                    <p>Copyright © 2018 <a href="#" target="_blank">Plumbing Supplies Store</a>
+                    <p>Copyright © 2018 <a href="#" target="_blank">Aeroshop</a>
                     </p>
                     <!-- =============================== -->
                 </div>

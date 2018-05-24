@@ -166,7 +166,7 @@
 		.level2{
 			>li{
 				>a{
-					font:600 14px/16px $font-custom;
+					font:600 16px/16px $font-custom;
 					color:#999;
 					&:hover{
 						color:$color;
@@ -203,7 +203,7 @@
 					width:100%;
 					padding:0;
 					a{
-						font:400 12px/16px $font-custom;
+						font:400 13px/14px $font-custom;
 						color:#999;
 						&:hover{
 							color:$color;
@@ -376,8 +376,9 @@
 			>.col-inner{
 				width:20%;
 				float:left;
-				margin-top:1%;
+				margin-top:1.5%;
 				margin-bottom:1%;
+				padding-right: 5px;
 				.last{
 					margin-right:0;
 				}

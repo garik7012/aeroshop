@@ -1,5 +1,7 @@
 <?php
 
 return [
-    'test' => 'Test',
+    'menu' => [
+        'quick' => 'Quick links'
+    ],
 ];

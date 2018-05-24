@@ -33,18 +33,18 @@
                 </div>
                 <div class="col-xs-12 col-sm-9 col-md-9">
                     <div class="header_cust_block clearfix">
-                        <p>Free Shipping</p>
+                        <p>@lang('3% discount')</p>
                         <div>
-                            <span>on orders over $499.</span>
-                            <span>This offer is valid on all our store items.</span>
+                            <span>@lang('on orders over') 10 000 UAN.</span>
+                            <span>@lang('This offer is valid on all our store items').</span>
                         </div>
                     </div>
                     <div class="shopping_cart" id="shopping_cart">
                         <!-- ========== SHOPPING CART ========== -->
                         <div class="shop-box-wrap">
-                            <span class="cart_title">Cart</span><span class="st3"> (empty) </span>                                </div>
+                            <span class="cart_title">@lang('g.Cart')</span><span class="st3"> (@lang('g.empty')) </span>                                </div>
                         <div class="shopping_cart_content" id="shopping_cart_content">
-                            <div class="none"> Your cart is empty</div>                                </div>
+                            <div class="none"> @lang('Your cart is empty')</div>                                </div>
                     </div>
                     <!-- =================================== -->
                     <div id="search_block" class="clearfix">
@@ -62,7 +62,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="top_menu clearfix">
                         <div class="cat-title">MENU</div><!--bof-mega menu display-->
-                        @include('layouts._partials._mega-menu', ['categories' => \App\Models\Category::all()])
+                        @include('layouts._partials._mega-menu', [
+                            'categories' => \App\Models\Category::all(),
+                            'brands' => \App\Models\Brand::all()
+                            ])
                         <div class="clearBoth"></div>
                     </div>
                 </div>
