@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('uk_title');
             $table->string('images', 750);
             $table->string('price');
+            $table->string('old_price')->nullable();
             $table->string('currency')->default('UAH');
             $table->integer('brand_id')->nullable();
             $table->integer('category_id')->default(1);
@@ -36,10 +37,11 @@ class CreateProductsTable extends Migration
         Schema::create('product_lang_properties', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('product_id');
-            $table->string('locale');
-            $table->string('key');
-            $table->string('unit')->default('');
-            $table->string('value')->default('');
+            $table->string('key_id');
+            $table->string('unit_id')->default('');
+            $table->string('ru_value')->default('');
+            $table->string('en_value')->default('');
+            $table->string('uk_value')->default('');
 
             $table->foreign('product_id')
                 ->references('id')

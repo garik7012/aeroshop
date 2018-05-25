@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Unit;
+use App\Models\Availability;
 
 class AvailabilityTableSeeder extends Seeder
 {
@@ -12,9 +12,9 @@ class AvailabilityTableSeeder extends Seeder
      */
     public function run()
     {
-        $availabilities = $this->getUnits();
+        $availabilities = $this->getAvailabilities();
         foreach ($availabilities as $id => $availability) {
-            Unit::firstOrCreate(
+            Availability::firstOrCreate(
                 ['id' => $id],
                 [
                     'ru_title' => $availability['ru'],
@@ -29,7 +29,7 @@ class AvailabilityTableSeeder extends Seeder
      * get availabilities
      * @return array
      */
-    protected function getUnits()
+    protected function getAvailabilities()
     {
         return [
             1 => ['ru' => 'В наличии', 'en' => 'In stock', 'uk' => 'В наявності'],

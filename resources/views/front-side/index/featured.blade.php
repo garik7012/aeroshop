@@ -1,14 +1,14 @@
 <div class="centerBoxWrapper clearfix" id="featuredProducts">
     <h2 class="centerBoxHeading">Featured Products</h2>
     <ul class="prod-list1 clearfix w25">
-        @for($i = 1; $i < 9; $i++)
-        <li class="centerBoxContentsFeatured centeredContent back  i{{$i < 5 ? $i: $i - 4}}" style="width:25%;">
+        @foreach($products as $product)
+        <li class="centerBoxContentsFeatured centeredContent back  i{{$loop->iteration < 5 ? $loop->iteration: $loop->iteration - 4}}" style="width:25%;">
             <div class="product-col" data-match-height="featured">
-                <h5><a class="product-name name" href="#">Lorem ipsum dolor sit amet.</a></h5>
+                <h5><a class="product-name name" href="#">{{$product[$locale . '_title']}}</a></h5>
                 <div class="img">
-                    <a href="#"><img src="http://placehold.it/300x300" class="img-responsive" alt="Lorem ipsum dolor sit amet." title=" Lorem ipsum dolor sit amet." width="200" height="200"></a>
+                    <a href="#"><img src="{{explode(', ', $product->images)[0]}}" class="img-responsive" alt="Lorem ipsum dolor sit amet." title=" Lorem ipsum dolor sit amet." width="200" height="200"></a>
                     <div class="price">
-                        <strong><span class="productSalePrice">$241.00</span></strong>
+                        <strong><span class="productSalePrice">{{$product->price}} {{$product->currency}}</span></strong>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -20,6 +20,6 @@
                 </div>
             </div>
         </li>
-        @endfor
+        @endforeach
     </ul>
 </div>
