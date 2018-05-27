@@ -63,7 +63,6 @@
                     <div class="top_menu clearfix">
                         <div class="cat-title">MENU</div><!--bof-mega menu display-->
                         @include('layouts._partials._mega-menu', [
-                            'categories' => \App\Models\Category::all(),
                             'brands' => \App\Models\Brand::all()
                             ])
                         <div class="clearBoth"></div>

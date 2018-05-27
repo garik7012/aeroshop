@@ -1,9 +1,9 @@
 <div class="slider">
     <div class="slider-wrapper theme-default">
         <div id="slider" class="nivoSlider">
-            <a href="#" class="nivo-imageLink"><img src="http://placehold.it/2000x500" class="img-responsive"></a>
-            <a href="#" class="nivo-imageLink"><img src="http://placehold.it/1900x500" class="img-responsive"></a>
-            <a href="#" class="nivo-imageLink"><img src="http://placehold.it/2000x550" class="img-responsive"></a>
+            <a href="#" class="nivo-imageLink"><img src="/img/slide1.jpg" class="img-responsive"></a>
+            <a href="#" class="nivo-imageLink"><img src="/img/slide2.jpg" class="img-responsive"></a>
+            <a href="#" class="nivo-imageLink"><img src="/img/slide3.jpg" class="img-responsive"></a>
         </div>
     </div>
 </div>

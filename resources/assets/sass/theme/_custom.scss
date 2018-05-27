@@ -2436,8 +2436,7 @@ div.buttonRow.forward {
     width: 100%;
 }
 #productMainImage img {
-    width: 100%;
-    height: auto;
+    height: 400px;
 }
 #productMainImage a, #reviewsInfoDefaultProductImage a, #productReviewsDefaultProductImage a, #reviewWriteMainImage a {}
 #productMainImage a:hover, #reviewsInfoDefaultProductImage a:hover, #productReviewsDefaultProductImage a:hover, #reviewWriteMainImage a:hover{ }
@@ -2505,10 +2504,10 @@ div.buttonRow.forward {
 .breadcrumb {
 	@include breadcrumb_bg;
 	padding: 16px 13px 15px;
-	font: 400 14px/22px $font-custom;
+	font: 400 15px/22px $font-custom;
 	margin-bottom: 30px;
+	margin-top: 31px;
     box-sizing: border-box;
-    text-transform: uppercase;
     color:$color-heading;
 	border:1px solid #e6e6e6;
 	border-top-color:#f5f5f5;
@@ -2604,7 +2603,7 @@ div#socialIcons > iframe {
 	padding: 0 15px;
 }
 .pb-center-column{
-	h2{
+	&>h2, &>h1{
 		margin:0;
 		padding:0;
 		text-transform: uppercase;
@@ -2639,6 +2638,11 @@ div#socialIcons > iframe {
 		}
 	}
 }
+#productDescription {
+	h2 {
+		font-size: 16px;
+	}
+}
 .btn-default-small{
 	padding: 10px 0;
 	margin-right: 0;
@@ -2661,7 +2665,7 @@ div#socialIcons > iframe {
 		.wrapperAttribsOptions{
 			overflow:hidden;
 			border-bottom:$border-main;
-			padding-bottom:15px;
+			padding: 10px;
 			color: #555;
 			h4{
 				font-size: 16px;
@@ -2836,6 +2840,9 @@ div#socialIcons > iframe {
 #relatedProducts{
 	.product-col{
 		margin-bottom:30px;
+		.img {
+			padding: 0 25px 15px;
+		}
 		img.img-responsive{
 			margin:15px auto !important;
 		}
@@ -2939,11 +2946,10 @@ ul.instock {
 	li{
 		padding: 4px 0px;
 		border-bottom: $border-main;
-		text-align: right;
 		color:#777;
 		font:400 13px/18px $font-custom;
 		strong {
-			float:left;
+			padding-right: 30px;
 			font:400 13px/18px $font-custom;
 		}
 	}
