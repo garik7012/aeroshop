@@ -12835,7 +12835,7 @@ return jQuery;
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__("./node_modules/jquery/dist/jquery.js");
@@ -12844,4 +12844,4 @@ module.exports = __webpack_require__("./node_modules/bootstrap/dist/js/npm.js");
 
 /***/ })
 
-},[2]);
+},[3]);

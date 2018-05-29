@@ -42,7 +42,7 @@ class ProductPropertyKeysSeeder extends Seeder
             ['ru' => "Ограничитель подачи краски", 'en' => 'Paint stopper', 'uk' => 'Обмежувач подачі фарби'],
             ['ru' => "Рабочее давление", 'en' => 'Operating pressure', 'uk' => 'Робочий тиск'],
             ['ru' => "Размер сопла", 'en' => 'Nozzle size', 'uk' => 'Розмір сопла'],
-            ['ru' => "Объём ёмкости", 'en' => 'Volume of capacity', 'uk' => 'Об’єм ємності'],
+            ['ru' => "Объем емкости", 'en' => 'Volume of capacity', 'uk' => 'Об’єм ємності'],
             ['ru' => "Размер штуцера", 'en' => 'Nipple size', 'uk' => 'Розмір штуцера'],
             ['ru' => "Air control", 'en' => 'Air control', 'uk' => 'Повітряний контроль'],
             ['ru' => "Подача краски", 'en' => 'Paint supply', 'uk' => 'Подача фарби'],

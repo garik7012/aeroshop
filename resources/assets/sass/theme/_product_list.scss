@@ -19,8 +19,15 @@
 	padding-top: 15px;
 	.img{
 		padding:0 25px 51px;
+		display: table;
+		height: 80%;
+		width: 100%;
 		img{
-			padding-top: 20px;
+			padding-top: 0px;
+		}
+		a {
+			display: table-cell;
+			vertical-align: middle;
 		}
 	}
 	.price{
@@ -78,6 +85,7 @@
 	.img{
 		padding:0 25px 51px;
 		text-align: center;
+		z-index: 1;
 		img{
 			padding-top: 20px;
 		}
@@ -114,6 +122,8 @@
 		}
 	}
 	.prod-info{
+		position: relative;
+		z-index: 10;
 		background: #f6f6f6;
 		background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y4ZjhmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQyJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
 		background: linear-gradient(to bottom,  #f6f6f6 12%,#ffffff 29%);
@@ -160,9 +170,34 @@
 		}
 	}
 }
+.grid li .product-col {
+	.img {
+		height: 200px;
+		line-height: 200px;
+		padding-right: 20px;
+		padding-left: 20px;
+		img {
+			padding-top: 0;
+			max-height: 200px;
+			display: inline-block;
+		}
+	}
+	.price {
+		display: inline-block;
+		line-height: 50px;
+		height: 50px;
+		top: -40px;
+		font-size: 21px;
+		position: absolute;
+		overflow: hidden;
+	}
+	.grid-desc {
+		height: 38px;
+	}
+}
 .grid li .product-col .prod-info h5,
 .product-col .prod-info h5 {
-	max-height: 38px;
+	height: 42px;
 	overflow: hidden;
 }
 .grid li .product-col .prod-info .text{
@@ -182,6 +217,9 @@
 		}
 		.list-desc{
 			text-align: justify;
+			h1, h2, h3, h4 {
+				font-size: 16px;
+			}
 		}
 	}
 	.right-block{
@@ -598,7 +636,7 @@
 		.product-col {
 			padding:20px 0;
 			.img{
-				padding:0 15px;
+				padding:0 25px;
 			}
 			.text{
 				@include description-text;

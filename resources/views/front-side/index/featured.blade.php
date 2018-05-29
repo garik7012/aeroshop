@@ -1,5 +1,5 @@
 <div class="centerBoxWrapper clearfix" id="featuredProducts">
-    <h2 class="centerBoxHeading">Featured Products</h2>
+    <h1 class="centerBoxHeading main-page_heading">Featured Products</h1>
     <ul class="prod-list1 clearfix w25">
         @foreach($products as $product)
         <li class="centerBoxContentsFeatured centeredContent back  i{{$loop->iteration < 5 ? $loop->iteration: $loop->iteration - 4}}" style="width:25%;">

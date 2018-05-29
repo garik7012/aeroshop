@@ -28,7 +28,7 @@
             <div class="row clearfix">
                 <div id="header_logo" class="col-xs-12 col-sm-3">
                     <!-- ========== LOGO ========== -->
-                    <a href=""><img src="http://placehold.in/270x117" alt="logo"></a>
+                    <a href="{{route('index')}}"><img src="http://placehold.in/270x117" alt="logo"></a>
                     <!-- ========================== -->
                 </div>
                 <div class="col-xs-12 col-sm-9 col-md-9">

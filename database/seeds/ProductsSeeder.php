@@ -20,7 +20,6 @@ class ProductsSeeder extends Seeder
     {
         $products = $this->getProducts();
         $units = Unit::all()->pluck('ru_title', 'id')->toArray();
-        $productKeys = ProductPropertyKey::all()->pluck('ru_title', 'id')->toArray();
         $countries = [1 => 'США', 2 => 'Китай', 3 => 'Украина', 4 => 'Германия', 5 => 'Россия', 6 => 'Тайвань', 7 => 'Италия', 8 => 'Япония'];
 
         foreach ($products as $product) {
@@ -82,7 +81,10 @@ class ProductsSeeder extends Seeder
 
             $productProperty = new ProductLangProperty();
             $productProperty->product_id = $id;
-            $productProperty->key_id = array_search($product[$i], $productKeys);
+            $productProperty->key_id = array_search(
+                str_replace('ё', 'е', mb_strtolower($product[$i])),
+                array_map('mb_strtolower', $productKeys)
+            );
             $productProperty->ru_value = $product[$i+2];
             $productProperty->en_value = $product[$i+2];
             $productProperty->uk_value = $product[$i+2];

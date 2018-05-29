@@ -28,6 +28,7 @@ mix.extract(vendors, 'public/js/vendor.js')
 
 mix.js(config.assets + "/js/scripts.js", 'public/js/scripts.js').version();
 mix.js(config.assets + "/js/admin.js", 'public/js/admin.js').version();
+mix.js(config.assets + "/js/list-greed.js", 'public/js/list-greed.js').version();
 
 mix.copy('node_modules/fancybox/dist/img', config.public + '/img', false);
 

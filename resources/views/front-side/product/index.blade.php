@@ -7,10 +7,10 @@
                 <div class="col-xs-12">
                     <div id="navBreadCrumb" class="breadcrumb">  <a class="home" href="{{route('index')}}"></a>
                         @if ($product->category->parent_id)
-                        <a href="{{route('category', $product->category->parent_id)}}">{{$categories->where('id', $product->category->parent_id)->first()[$lt]}}</a>
+                        <a href="{{route('category', $product->category->parent_id)}}">{{$categories->where('id', $product->category->parent_id)->first()[$_lt]}}</a>
                         @endif
-                        <a href="{{route('category', $product->category->id)}}">{{$product->category[$lt]}}</a>
-                        <span> {{$product[$lt]}}</span>
+                        <a href="{{route('category', $product->category->id)}}">{{$product->category[$_lt]}}</a>
+                        <span> {{$product[$_lt]}}</span>
                     </div>
                 </div>
                 <div class="main-col left_column">
@@ -59,7 +59,7 @@
                                                 <div class="pb-center-column col-xs-12 col-sm-6">
                                                     <!--bof free ship icon  -->
                                                     <!--eof free ship icon  -->
-                                                    <h1 class="title_product">{{$product[$lt]}}</h1>
+                                                    <h1 class="title_product">{{$product[$_lt]}}</h1>
                                                     <!--bof Product description -->
                                                     <div id="productDescription" class="description biggerText col-sm-12 col-xs-12 col-sm-12 ">
                                                         {!! ($product->pageLang->description) !!}
@@ -68,7 +68,7 @@
                                                     <!--bof Product details list  -->
                                                     @if ($product->country_id)
                                                     <ul class="instock">
-                                                        <li><strong>@lang('Manufactured by'): </strong>{{$product->country[$lt]}}</li>
+                                                        <li><strong>@lang('Manufactured by'): </strong>{{$product->country[$_lt]}}</li>
                                                     </ul>
                                                     @endif
                                                     <!--eof Product details list  -->
@@ -78,7 +78,7 @@
                                                         <div id="productAttributes">
                                                             @foreach($product->properties as $property)
                                                             <div class="wrapperAttribsOptions">
-                                                                <strong>{{$property->key[$lt]}}:</strong> {{$property[App::getLocale() . '_value']}} {{$property->unit[$lt] ?? ''}}
+                                                                <strong>{{$property->key[$_lt]}}:</strong> {{$property[App::getLocale() . '_value']}} {{$property->unit[$_lt] ?? ''}}
                                                             </div>
                                                             @endforeach
                                                         </div>
