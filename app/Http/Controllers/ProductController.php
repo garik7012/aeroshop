@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -17,6 +18,12 @@ class ProductController extends Controller
     |
     */
 
+    /**
+     * show single product
+     * @param $url
+     * @param Product $products
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showProduct($url, Product $products)
     {
         $product = $products->where('url', $url)->firstOrFail();
@@ -25,6 +32,12 @@ class ProductController extends Controller
         return view('front-side.product.index', compact('product', 'relatedProducts'));
     }
 
+    /**
+     * show main category or products or category
+     * @param $id
+     * @param Category $categories
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showCategory($id, Category $categories)
     {
         $category = $categories->findOrFail($id);
@@ -33,5 +46,17 @@ class ProductController extends Controller
         } else {
             return view('front-side.category.main-category', compact('category'));
         }
+    }
+
+    public function showBrands(Brand $brand)
+    {
+        return view('front-side.brand.brands', ['brands' => $brand->all()]);
+    }
+
+    public function showBrandProducts($id, Brand $brands)
+    {
+        $brand = $brands->findOrFail($id);
+
+        return view('front-side.brand.index', compact('brand'));
     }
 }

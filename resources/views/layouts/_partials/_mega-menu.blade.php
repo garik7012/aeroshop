@@ -61,7 +61,7 @@
                 <div class="firstcolumn">
                     <ul>
                         @foreach($brands as $brand)
-                        <li><a href="#">{{$brand->title}}</a></li>
+                        <li><a href="{{route('brand-products', $brand->id)}}">{{$brand->title}}</a></li>
                         @endforeach
                     </ul>
 

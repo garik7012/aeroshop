@@ -73,7 +73,6 @@ class ProductPropertyKeysSeeder extends Seeder
             ['ru' => "Производительность компрессора", 'en' => "Compressor capacity", 'uk' => "Продуктивність компресора"],
             ['ru' => "Потребляемая мощность", 'en' => "Power Consumption", 'uk' => "Споживана потужність"],
             ['ru' => "код", 'en' => "code", 'uk' => "Код"],
-            ['ru' => "обьом", 'en' => 'Volume', 'uk' => 'Об’єм'],
             ['ru' => "Количество цветов в наборе", 'en' => "Number of colors in the set", 'uk' => "Кількість кольорів в наборі"],
             ['ru' => "Фасовка", 'en' => "Packing", 'uk' => "Фасовка"],
             ['ru' => "Особенность краски", 'en' => "Peculiarity of paint", 'uk' => "Особливість фарби"],

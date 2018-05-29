@@ -28,7 +28,7 @@
             <div class="row clearfix">
                 <div id="header_logo" class="col-xs-12 col-sm-3">
                     <!-- ========== LOGO ========== -->
-                    <a href="{{route('index')}}"><img src="http://placehold.in/270x117" alt="logo"></a>
+                    <a href="{{route('index')}}"><img src="/img/logo.png" alt="logo"></a>
                     <!-- ========================== -->
                 </div>
                 <div class="col-xs-12 col-sm-9 col-md-9">
@@ -49,7 +49,7 @@
                     <!-- =================================== -->
                     <div id="search_block" class="clearfix">
                         <!-- ========== SEARCH ========== -->
-                        <form name="quick_find_header" action="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=advanced_search_result" method="get" class="form-inline form-search pull-right">
+                        <form name="quick_find_header" action="/" method="get" class="form-inline form-search pull-right">
                             <input type="hidden" name="main_page" value="advanced_search_result"><input type="hidden" name="search_in_description" value="1"><input type="hidden" name="zenid" value="ob0ch2vq2sgrisn45b5st0t236">                                        <label class="sr-only" for="searchInput">Search</label>
                             <input class="form-control" id="searchInput" type="text" name="keyword" autocomplete="off"><div id="suggestions" style="left: -81px;"></div>
                             <button type="submit" class="button-search"><i class="fa fa-search"></i><b>Search</b></button>

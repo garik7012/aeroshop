@@ -14,5 +14,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'mi
     Route::get('/', 'PagesController@index')->name('index');
     Route::get('/item/{url}', 'ProductController@showProduct')->name('product');
     Route::get('/category/{id}', 'ProductController@showCategory')->name('category');
+    Route::get('/brand', 'ProductController@showBrands')->name('brands');
+    Route::get('/brand/{id}', 'ProductController@showBrandProducts')->name('brand-products');
 });
 

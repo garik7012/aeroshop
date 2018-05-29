@@ -26,7 +26,7 @@ class ProductsSeeder extends Seeder
             $url = (substr($product[34], 24, -5));
             if (!Product::where('url', $url)->first()) {
                 $newProduct = new Product();
-                $newProduct->code = $product[0];
+                $newProduct->code = $product[20];
                 $newProduct->url = $url;
                 $newProduct->ru_title = $product[1];
                 $newProduct->en_title = $product[1];

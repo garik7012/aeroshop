@@ -12,3 +12,6 @@ npm-debug.log
 yarn-error.log
 .env
 /public/old_img
+/www/hot
+/www/storage
+/www/old_img

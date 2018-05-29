@@ -1,5 +1,7 @@
 @extends('layouts.main')
-
+@section('title', $product[$_lt])
+@section('keywords', $product->pageLang->keywords)
+@section('description', $product->pageLang->seo_description ? $product->pageLang->seo_description: substr(strip_tags($product->pageLang->description), 0, 255))
 @section('content')
     <section class="ie9_all">
         <div class="container">
