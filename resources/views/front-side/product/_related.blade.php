@@ -1,5 +1,5 @@
 <div class="centerBoxWrapper" id="relatedProducts">
-    <h2 class="centerBoxHeading clearfix">Related Products</h2>
+    <h2 class="centerBoxHeading clearfix">@lang('Related products')</h2>
     <div class="row">
         @foreach($relatedProducts as $related)
         <div class="col-xs-12 col-sm-4 col-md-2">

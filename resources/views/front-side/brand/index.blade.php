@@ -54,12 +54,12 @@
                                                                         <div class="clearfix"></div>
                                                                         <div class="button">
                                                                             <a class="btn add-to-cart" href="">
-                                                                                <span class="cssButton normal_button button  button_add_to_cart" onmouseover="this.className='cssButtonHover normal_button button  button_add_to_cart button_add_to_cartHover'" onmouseout="this.className='cssButton normal_button button  button_add_to_cart'">&nbsp;Add to Cart&nbsp;</span>
+                                                                                <span class="cssButton normal_button button  button_add_to_cart" onmouseover="this.className='cssButtonHover normal_button button  button_add_to_cart button_add_to_cartHover'" onmouseout="this.className='cssButton normal_button button  button_add_to_cart'">&nbsp;@lang('Add to Cart')&nbsp;</span>
                                                                             </a>
                                                                         </div>
                                                                         <div class="button1">
                                                                             <a class="btn" href="{{route('product', $product->url)}}">
-                                                                                <span class="cssButton normal_button button  button_goto_prod_details" onmouseover="this.className='cssButtonHover normal_button button  button_goto_prod_details button_goto_prod_detailsHover'" onmouseout="this.className='cssButton normal_button button  button_goto_prod_details'">&nbsp;Details&nbsp;</span>
+                                                                                <span class="cssButton normal_button button  button_goto_prod_details" onmouseover="this.className='cssButtonHover normal_button button  button_goto_prod_details button_goto_prod_detailsHover'" onmouseout="this.className='cssButton normal_button button  button_goto_prod_details'">&nbsp;@lang('g.Details')&nbsp;</span>
                                                                             </a>
                                                                         </div>
                                                                     </div>

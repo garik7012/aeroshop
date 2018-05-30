@@ -9,7 +9,7 @@
 
     <title>@yield('title', 'AeroShop')</title>
     <!-- Fonts -->
-    <link href="/fonts.css" rel="stylesheet" type="text/css">
+    <link href="/css/fonts.css" rel="stylesheet" type="text/css">
 
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">

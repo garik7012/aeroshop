@@ -25,7 +25,7 @@ class PagesController extends Controller
 
     public function test()
     {
-
+        return view('front-side.category.all');
     }
 
     public function getArr()

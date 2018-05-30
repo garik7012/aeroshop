@@ -6,9 +6,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div id="navBreadCrumb" class="breadcrumb"><a class="home" href="{{route('index')}}"></a>
-                        @if ($category->parent_id)
-                            <a href="{{route('category', $category->parent_id)}}">{{$categories->where('id', $category->parent_id)->first()[_lt()]}}</a>
-                        @endif
+                        <a href="{{route('all-categories')}}">@lang('g.categories')</a>
                         <span> {{$category[_lt()]}}</span>
                     </div>
                 </div>
@@ -19,7 +17,8 @@
                                 <h1 class="centerBoxHeading">{{$category[_lt()]}}</h1>
                                 <div class="content_scene_cat_bg">
                                     <div id="category-image" class="categoryImg">
-                                        <img src="http://placehold.it/1170x450" class="img-responsive" alt="" width="1040" height="400">              <div class="cat_desc">
+                                        <img src="/img/cat/big/{{$category->id}}.jpg" class="img-responsive" alt="" width="1040" height="400">
+                                        <div class="cat_desc">
                                             <div class="catDescContent">
                                                 The supplies we sell in our store are of premium quality and will serve you for years. We enrich our Plumbing Supplies Store only with the well tested models which have won trust and are known thanks to their resistance to depreciation. Modern and reliable they will cause you no troubles in further exploitation. Trust our plumbing experience and we will justify it.
                                             </div>
@@ -34,7 +33,7 @@
                                         <li class="categoryListBoxContents col-md-3 col-sm-6 col-xs-12">
                                             <a href="{{route('category', $categ->id)}}">
                                                 <div data-match-height="catRow" class="subcategory-image " style="height: 116px;">
-                                                    <img src="http://placehold.it/1170x450" class="img-responsive" alt="Lorem" title=" Lorem " width="158" height="61">
+                                                    <img src="/img/cat/small/{{$categ->old_number}}.jpg" class="img-responsive" alt="{{$categ[_lt()]}}">
                                                 </div>
                                                 <span>{{$categ[_lt()]}}</span>
                                             </a>

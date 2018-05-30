@@ -16,5 +16,7 @@ return [
     'new' => 'new',
     'Cart' => 'Cart',
     'empty' => 'empty',
-    'Subcategories' => 'Subcategories'
+    'Subcategories' => 'Subcategories',
+    'featured' => 'Featured Products',
+    'Details' => 'Details'
 ];

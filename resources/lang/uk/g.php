@@ -16,5 +16,7 @@ return [
     'new' => 'new',
     'Cart' => 'Кошик',
     'empty' => 'пусто',
-    'Subcategories' => 'Подкатегории'
+    'Subcategories' => 'Подкатегории',
+    'featured' => 'Рекомендовані товари',
+    'Details' => 'Детальніше'
 ];

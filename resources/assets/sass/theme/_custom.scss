@@ -1798,7 +1798,20 @@ footer{
 #indexCategories .product-col .buttons {
 	display:none;
 }
-
+.allCategories {
+	.product-categories {
+		list-style-type: none;
+		padding: 0;
+		font-size: 16px;
+		margin-bottom: 20px;
+		&>li {
+			margin-bottom: 10px;
+		}
+		.sub-categories {
+			font-size: 14px;
+		}
+	}
+}
 .categoryColumn {
 	#category-image {
 		position:relative;
@@ -1821,8 +1834,7 @@ footer{
 	}
 	#category-image.categoryImg{
 		img{
-			width: 100%;
-			height: auto;
+			width: initial;
 		}
 	}
 	#subcategories {
@@ -2852,6 +2864,7 @@ div#socialIcons > iframe {
 		.prod-info{
 			padding-left: 15px;
 			padding-right: 15px;
+			text-align: center;
 		}
 	}
 }

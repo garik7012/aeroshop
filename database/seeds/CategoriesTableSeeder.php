@@ -52,9 +52,9 @@ class CategoriesTableSeeder extends Seeder
                 'en' => 'Ready-made airbrush kits',
             ],
             2 => [
-                'ru' => 'Аэрографы и запчасти Harder&Steenbeck/Hansa',
-                'uk' => 'Аерографи і запчастини Harder & Steenbeck / Hansa',
-                'en' => 'Airbrushes and spare parts Harder & Steenbeck / Hansa',
+                'ru' => 'Аэрографы и запчасти H&S/Hansa',
+                'uk' => 'Аерографи і запчастини H&S/Hansa',
+                'en' => 'Airbrushes and spare parts H&S/Hansa',
             ],
             3 => [
                 'ru' => 'Аэрографы и компрессоры Fengda',
@@ -85,6 +85,11 @@ class CategoriesTableSeeder extends Seeder
                 'ru' => 'Краски для аэрографии Auto Air Colors',
                 'uk' => 'Фарби для аерографії Auto Air Colors',
                 'en' => 'Paints for airbrushing Auto Air Colors'
+            ],
+            9 => [
+                'ru' => 'Дополнительное оборудование и аксессуары для аэрографии',
+                'uk' => 'Додаткове обладнання та аксесуари для аерографії',
+                'en' => 'Additional equipment and accessories for airbrushing'
             ]
         ];
     }
@@ -166,13 +171,13 @@ class CategoriesTableSeeder extends Seeder
                 'ru' => 'Подставки для аэрографов',
                 'uk' => 'Підставки для аерографів',
                 'en' => 'Stands for airbrushing',
-                'parent_id' => 0
+                'parent_id' => 9
             ],
             6682476 => [
                 'ru' => 'Емкости и бачки для аэрографов',
                 'uk' => 'Ємності і бачки для аерографів',
                 'en' => 'Tanks and tanks for airbrushing',
-                'parent_id' => 0
+                'parent_id' => 9
             ],
             4831323 => [
                 'ru' => 'Краски для аэрографии Airbrush Sector (Украина)',
@@ -196,31 +201,31 @@ class CategoriesTableSeeder extends Seeder
                 'ru' => 'Приспособления для очистки аэрографа',
                 'uk' => 'Пристосування для очищення аерографа',
                 'en' => 'Airbrush cleaners',
-                'parent_id' => 0
+                'parent_id' => 9
             ],
             6682450 => [
                 'ru' => 'Шланги',
                 'uk' => 'Шланги',
                 'en' => 'Hoses',
-                'parent_id' =>
-                    0],
+                'parent_id' => 9
+            ],
             18357952 => [
                 'ru' => 'Основные цвета',
                 'uk' => 'Основні кольори',
                 'en' => 'Primary colors',
-                'parent_id' => 0
+                'parent_id' => 4
             ],
             6682471 => [
                 'ru' => 'Переходники, разветвители',
                 'uk' => 'Перехідники, розгалужувачі',
                 'en' => 'Adapters, splitters',
-                'parent_id' => 0
+                'parent_id' => 9
             ],
             6682537 => [
                 'ru' => 'Запчасти для аэрографа',
                 'uk' => 'Запчастини для аерографа',
                 'en' => 'Spare parts for the airbrush',
-                'parent_id' => 0
+                'parent_id' => 9
             ],
             8674005 => [
                 'ru' => 'Товары для моделизма',
@@ -316,7 +321,7 @@ class CategoriesTableSeeder extends Seeder
                 'ru' => 'Краска для ногтей POLYURETHANE',
                 'uk' => 'Фарба для нігтів POLYURETHANE',
                 'en' => 'Paint for nails POLYURETHANE',
-                'parent_id' => 0
+                'parent_id' => 4
             ],
             12618770 => [
                 'ru' => 'Наборы для аэромакияжа, бодиарта',

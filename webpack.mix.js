@@ -18,7 +18,8 @@ const config = {
 
 mix.options({
     purifyCss: false,
-    postCss: []
+    postCss: [],
+    publicPath: 'www'
 });
 
 mix.extract(vendors, 'www/js/vendor.js')

@@ -33,6 +33,15 @@ class ProductController extends Controller
     }
 
     /**
+     * show all categories
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showAllCategories()
+    {
+        return view('front-side.category.all');
+    }
+
+    /**
      * show main category or products or category
      * @param $id
      * @param Category $categories

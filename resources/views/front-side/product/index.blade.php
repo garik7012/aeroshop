@@ -103,7 +103,7 @@
                                                                                         value="4"></strong><span
                                                                     class="buttonRow"><input type="submit"
                                                                                              class="btn btn-success add-to-cart"
-                                                                                             value="Add to Cart"></span>
+                                                                                             value="@lang('Add to Cart')"></span>
                                                         </div>
                                                     </div>
                                                     <!-- bof Social Media Icons -->
