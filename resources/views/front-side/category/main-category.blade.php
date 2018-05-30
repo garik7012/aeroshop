@@ -7,16 +7,16 @@
                 <div class="col-xs-12">
                     <div id="navBreadCrumb" class="breadcrumb"><a class="home" href="{{route('index')}}"></a>
                         @if ($category->parent_id)
-                            <a href="{{route('category', $category->parent_id)}}">{{$categories->where('id', $category->parent_id)->first()[$lt]}}</a>
+                            <a href="{{route('category', $category->parent_id)}}">{{$categories->where('id', $category->parent_id)->first()[_lt()]}}</a>
                         @endif
-                        <span> {{$category[$_lt]}}</span>
+                        <span> {{$category[_lt()]}}</span>
                     </div>
                 </div>
                 <div class="main-col left_column col-sm-12 ">
                     <div class="row">
                         <div class="center_column col-xs-12 col-sm-12 with_col ">
                             <div class="centerColumn categoryColumn" id="indexCategories">
-                                <h1 class="centerBoxHeading">{{$category[$_lt]}}</h1>
+                                <h1 class="centerBoxHeading">{{$category[_lt()]}}</h1>
                                 <div class="content_scene_cat_bg">
                                     <div id="category-image" class="categoryImg">
                                         <img src="http://placehold.it/1170x450" class="img-responsive" alt="" width="1040" height="400">              <div class="cat_desc">
@@ -28,7 +28,7 @@
                                 </div>
 
                                 <div id="subcategories">
-                                    <p class="subcategory-heading">Subcategories</p>
+                                    <p class="subcategory-heading">@lang('g.Subcategories')</p>
                                     <ul class="row">
                                         @foreach($categories->where('parent_id', $category->id) as $categ)
                                         <li class="categoryListBoxContents col-md-3 col-sm-6 col-xs-12">
@@ -36,7 +36,7 @@
                                                 <div data-match-height="catRow" class="subcategory-image " style="height: 116px;">
                                                     <img src="http://placehold.it/1170x450" class="img-responsive" alt="Lorem" title=" Lorem " width="158" height="61">
                                                 </div>
-                                                <span>{{$categ[$_lt]}}</span>
+                                                <span>{{$categ[_lt()]}}</span>
                                             </a>
                                         </li>
                                         @endforeach

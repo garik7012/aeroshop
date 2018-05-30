@@ -19,6 +19,7 @@ class ProductsSeeder extends Seeder
     public function run()
     {
         $products = $this->getProducts();
+        $productTitles = $this->getProductTitles();
         $units = Unit::all()->pluck('ru_title', 'id')->toArray();
         $countries = [1 => 'США', 2 => 'Китай', 3 => 'Украина', 4 => 'Германия', 5 => 'Россия', 6 => 'Тайвань', 7 => 'Италия', 8 => 'Япония'];
 
@@ -26,11 +27,11 @@ class ProductsSeeder extends Seeder
             $url = (substr($product[34], 24, -5));
             if (!Product::where('url', $url)->first()) {
                 $newProduct = new Product();
-                $newProduct->code = $product[20];
+                $newProduct->code = $product[0];
                 $newProduct->url = $url;
-                $newProduct->ru_title = $product[1];
-                $newProduct->en_title = $product[1];
-                $newProduct->uk_title = $product[1];
+                $newProduct->ru_title = $productTitles[$product[20]]['ru'];
+                $newProduct->en_title = $productTitles[$product[20]]['en'];
+                $newProduct->uk_title = $productTitles[$product[20]]['uk'];
                 $newProduct->images = str_replace('https://images.ua.prom.st', '/old_img', $product[11]);
                 $newProduct->price = $product[5];
                 $newProduct->currency = $product[6];
@@ -133,6 +134,20 @@ class ProductsSeeder extends Seeder
             ["4609","Краски для аэрографии Auto Air Colors 4609 Series Candy Pigment-  Emerald Green","краски для аэрографии, аэрография, аэрограф, купить краски для аэрографии, какие краски для аэрографии","<p><iframe frameborder=\"0\" height=\"340\" src=\"//www.youtube.com/embed/kQELNdkRpG8?rel=0&amp;wmode=transparent\" width=\"560\"></iframe></p>\n\n<h3>Краски для аэрографии Auto Air Colors 4609 Series Candy Pigment- <span style=\"font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: normal;\">&nbsp;Emerald Green&nbsp;(</span>изумрудно-зеленый<span style=\"font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: normal;\">)-120 мл.</span></h3>\n\n<p>&nbsp;</p>\n\n<p>Концентрированная &ndash; требуется развести в пропорции 3:1 4011 Flash разбавителем .</p>\n\n<p>Candy-Pigment &ndash; прозрачные краски, используемые для покрытия вторым слоем поверх серий красок 4100 или 4300. Пигментная краска, дающая прозрачные цвета, не содержащая красителей (за исключением 4604 Brite Red), минимизирует потеки.&nbsp;</p>\n\n<p>Эффект &laquo;леденца&raquo; замечается после верхнего слоя, и применения глянцевого лака. Добавьте 4501 Hot Rod sparkle White в любую краску Candy - Pigment и получите &nbsp;ярко-перламутровый леденцовый цвет.</p>\n\n<p>При засыхании краски образуют матовое покрытие; эффект леденца проявляется после лакировки.</p>\n\n<p>Краскопульт : диаметр сопла 1.0мм &ndash; 1.2мм.</p>\n\n<p>Аэрограф: диаметр сопла 0.5мм</p>\n\n<p>Наносится многократными легкими слоями, требуется 5-6 слоев для полного покрытия.  После полного высыхания, покройте сверху катализированным, уретановым лаком.</p>\n\n<p>&nbsp;</p>\n","r",274,"UAH","шт.","","","","https://images.ua.prom.st/95575614_w640_h640_4609_emerald_green.jpg","+","",4424893,"Candy Pigment","https://prom.ua/Avtomobilnye-kraski","","","",43324532,"",81103,"","","","США","","","","","","","","https://spektr-v.com.ua/p43324532-kraski-dlya-aerografii.html","Форма выпуска","","Банка","Объем","мл","120.0","Код краски","","4609","Тип","","Краска","цвет","","изумрудно-зеленый","вид","","водорастворимые|нетоксичны","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""  ],
             ["4611","Краски для аэрографии Auto Air Colors 4611 Series Candy Pigment-  Magenta","краски для аэрографии, аэрография, аэрограф, купить краски для аэрографии, какие краски для аэрографии","<p><iframe frameborder=\"0\" height=\"340\" src=\"//www.youtube.com/embed/H2GkMYFOAR8?rel=0&amp;wmode=transparent\" width=\"560\"></iframe></p>\n\n<h3>Краски для аэрографии Auto Air Colors 4611 Series Candy Pigment- <span style=\"font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: normal;\">Magenta&nbsp;(пурпурный)-120 мл.</span></h3>\n\n<p>&nbsp;</p>\n\n<p>Концентрированная &ndash; требуется развести в пропорции 3:1 4011 Flash разбавителем .</p>\n\n<p>Candy-Pigment &ndash; прозрачные краски, используемые для покрытия вторым слоем поверх серий красок 4100 или 4300. Пигментная краска, дающая прозрачные цвета, не содержащая красителей (за исключением 4604 Brite Red), минимизирует потеки.&nbsp;</p>\n\n<p>Эффект &laquo;леденца&raquo; замечается после верхнего слоя, и применения глянцевого лака. Добавьте 4501 Hot Rod sparkle White в любую краску Candy - Pigment и получите &nbsp;ярко-перламутровый леденцовый цвет.</p>\n\n<p>При засыхании краски образуют матовое покрытие; эффект леденца проявляется после лакировки.</p>\n\n<p>Краскопульт : диаметр сопла 1.0мм &ndash; 1.2мм.</p>\n\n<p>Аэрограф: диаметр сопла 0.5мм</p>\n\n<p>Наносится многократными легкими слоями, требуется 5-6 слоев для полного покрытия.  После полного высыхания, покройте сверху катализированным, уретановым лаком.</p>\n\n<p>&nbsp;</p>\n","r",274,"UAH","шт.","","","","https://images.ua.prom.st/95577641_w640_h640_4611_magenta.jpg","-","",4424893,"Candy Pigment","https://prom.ua/Avtomobilnye-kraski","","","",43324656,"",81103,"","","","США","","","","","","","","https://spektr-v.com.ua/p43324656-kraski-dlya-aerografii.html","Форма выпуска","","Банка","Объем","мл","120.0","Код краски","","4611","Тип","","Краска","цвет","","пурпурный","вид","","водорастворимые|нетоксичны","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""  ],
         ];
+    }
+
+    /**
+     * array (
+     * code => ['ru' => 'ru_title', 'uk' => 'uk_title', 'en' => 'en_title'],
+     * code2 => ['ru' => 'ru_title', 'uk' => 'uk_title', 'en' => 'en_title'],
+     * )
+     * @return mixed
+     */
+    protected function getProductTitles()
+    {
+        $productTitles = @include('product-titles.php');
+
+        return $productTitles;
     }
 
     /**

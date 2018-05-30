@@ -42,7 +42,7 @@
                                                             </div>
                                                             <div class="prod-info">
                                                                 <h5 itemprop="name">
-                                                                    <a class="" href="#">{{$product[$_lt]}}</a>
+                                                                    <a class="" href="#">{{$product[_lt()]}}</a>
                                                                 </h5>
                                                                 <div itemprop="description" class="text">
                                                                     <span class="grid-desc">{!! substr(strip_tags($product->pageLang->description), 0, 255) !!}</span>

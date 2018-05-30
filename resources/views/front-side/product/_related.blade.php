@@ -10,7 +10,7 @@
                     </a>
                 </div>
                 <div class="prod-info">
-                    <a class="product-name name" href="{{route('product', ['url' => $related->url])}}">{{$related[$_lt]}}</a>
+                    <a class="product-name name" href="{{route('product', ['url' => $related->url])}}">{{$related[_lt()]}}</a>
                 </div>
             </div>
         </div>

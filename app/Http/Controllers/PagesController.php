@@ -25,9 +25,7 @@ class PagesController extends Controller
 
     public function test()
     {
-        $units = ProductPropertyKey::all()->pluck('ru_title', 'id')->toArray();
-        $units1 = array_search(mb_strtolower('ЦвеТ'), array_map('mb_strtolower', $units));
-        dd($units1);
+
     }
 
     public function getArr()

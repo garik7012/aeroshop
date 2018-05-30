@@ -16,9 +16,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $categories = Category::all();
-        //locale title (en_title or ru_title or uk_title)
-        $_lt = \App::getLocale() . '_title';
-        View::share(compact('categories', '_lt'));
+
+        View::share(compact('categories'));
     }
 
     /**
@@ -28,6 +27,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        require_once __DIR__ . '/../helpers.php';
     }
 }

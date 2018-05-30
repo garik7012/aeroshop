@@ -7,10 +7,10 @@
                     @foreach($categories->where('parent_id', 0) as $category)
                     @if ($category->old_number === null)
                         <li data-match-height="cat-ul-gen" class="submenu col-inner">
-                            <a href="{{route('category', $category->id)}}">{{$category[$_lt]}}</a>
+                            <a href="{{route('category', $category->id)}}">{{$category[_lt()]}}</a>
                             <ul class="level3">
                                 @foreach($categories->where('parent_id', $category->id) as $child)
-                                    <li><a href="{{route('category', $child->id)}}">{{$child[$_lt]}}</a></li>
+                                    <li><a href="{{route('category', $child->id)}}">{{$child[_lt()]}}</a></li>
                                 @endforeach
                             </ul>
                         </li>
@@ -19,7 +19,7 @@
                     @foreach($categories->where('parent_id', 0) as $category)
                     @if ($category->old_number)
                     <li data-match-height="cat-ul-gen" class="submenu col-inner">
-                        <a href="{{route('category', $category->id)}}">{{$category[$_lt]}}</a>
+                        <a href="{{route('category', $category->id)}}">{{$category[_lt()]}}</a>
                     </li>
                     @endif
                     @endforeach

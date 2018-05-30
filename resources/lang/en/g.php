@@ -15,5 +15,6 @@ return [
     'gallery' => 'Gallery',
     'new' => 'new',
     'Cart' => 'Cart',
-    'empty' => 'empty'
+    'empty' => 'empty',
+    'Subcategories' => 'Subcategories'
 ];

@@ -15,5 +15,6 @@ return [
     'gallery' => 'Галерея',
     'new' => 'new',
     'Cart' => 'Кошик',
-    'empty' => 'пусто'
+    'empty' => 'пусто',
+    'Subcategories' => 'Подкатегории'
 ];
