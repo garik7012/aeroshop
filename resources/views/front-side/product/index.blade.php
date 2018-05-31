@@ -59,9 +59,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="pb-center-column col-xs-12 col-sm-6">
-                                                    <!--bof free ship icon  -->
-                                                    <!--eof free ship icon  -->
                                                     <h1 class="title_product">{{$product[_lt()]}}</h1>
+                                                    <h3 class="sub_title">{{$product->availability[_lt()]}}</h3>
                                                     <!--bof Product description -->
                                                     <div id="productDescription" class="description biggerText col-sm-12 col-xs-12 col-sm-12 ">
                                                         {!! ($product->pageLang->description) !!}
@@ -80,7 +79,7 @@
                                                         <div id="productAttributes">
                                                             @foreach($product->properties as $property)
                                                             <div class="wrapperAttribsOptions">
-                                                                <strong>{{$property->key[_lt()]}}:</strong> {{$property[App::getLocale() . '_value']}} {{$property->unit[_lt()] ?? ''}}
+                                                                <strong>{{$property->key[_lt()]}}:</strong> {{$property[app()->getLocale() . '_value']}} {{$property->unit[_lt()] ?? ''}}
                                                             </div>
                                                             @endforeach
                                                         </div>

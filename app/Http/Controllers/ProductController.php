@@ -47,11 +47,13 @@ class ProductController extends Controller
      * @param Category $categories
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showCategory($id, Category $categories)
+    public function showCategory($id, Category $categories, Product $product)
     {
         $category = $categories->findOrFail($id);
         if ($category->old_number) {
-            return view('front-side.category.index', compact('category'));
+            $categoryProducts = $category->products;
+
+            return view('front-side.category.index', compact('category', 'categoryProducts'));
         } else {
             return view('front-side.category.main-category', compact('category'));
         }

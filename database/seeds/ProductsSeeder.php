@@ -105,9 +105,18 @@ class ProductsSeeder extends Seeder
      */
     protected function getProductAvailabilityId($oldValue)
     {
-        $id = 1;
-        if ($oldValue === '-' or $oldValue === 0) {
-            $id = 2;
+        switch ($oldValue) {
+            case '+':
+                $id = 1;
+                break;
+            case '-':
+                $id = 5;
+                break;
+            case 5:
+                $id = 4;
+                break;
+            default:
+                $id = 3;
         }
 
         return $id;

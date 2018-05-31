@@ -667,173 +667,6 @@ div#header_logo a{
 	}
 }
 
-/*==============================
-         -- Banners -- 
-==============================*/
-
-.banners1{
-	width:100%;
-	overflow:hidden;
-	position: relative;
-	z-index: 10;
-	margin:-80px 0 19px;
-	.item{
-		position: relative;
-		overflow: hidden;
-		a{
-			overflow:hidden;
-			display:block;
-			position:relative;
-			-webkit-border-radius: 7px;
-			-moz-border-radius: 7px;
-			border-radius: 7px;
-/*			&:before{
-				content:url(../images/ban_hover.png);
-				width: 100%;
-				height: auto;
-				top: 62px;
-				opacity: 0;
-				left: 65px;
-				display: inline-block;
-				position: absolute;
-				z-index: 1;
-				@include transition1;
-			}
-			&:hover:before{
-				opacity: .3;
-				left: 45px;
-			}*/
-			img{
-				position: relative;
-			}
-		}
-		.title{
-			position:relative;
-			left:0px;
-			top:0;
-			width: 100%;
-			text-align:left;
-			text-decoration:none;
-			.capt{
-				padding: 15px 17px 22px;
-				border-top: 3px solid $color;
-				background:$color1;
-				display:block;
-				width:100%;
-				@include transition;
-				h3{
-					color:#fff;
-					font:600 32px/32px $font-custom;
-					text-transform:uppercase;
-					padding:0;
-					margin:0;
-					z-index: 2;
-					b{
-						color: $color;
-						font-weight: 600;
-						@include transition1;
-					}
-				}
-				p{
-					font-style:normal;
-					font:400 14px/19px $font-custom;
-					color:#fff;
-					margin: 5px 0 0;
-					position: relative;
-					z-index: 1;
-					@include transition;
-					&:after{
-						content:"\f138";
-						position: absolute;
-						right: 3px;
-						bottom: -4px;
-						font-size: 17px;
-						color: #fff;
-						font-family: $font-icon;
-						display: inline-block;
-					}
-				}
-			}
-			.link{
-				position: relative;
-
-				&:hover{
-					color:$color;
-				}
-			}
-		}
-		&:hover{
-			.title{
-				.capt{
-					@include transition1;
-					h3 b{
-						color: #000;
-						@include transition1;
-					}
-					p{
-						color: #fff!important;
-					}
-				}
-			}
-		}
-	}
-}
-
-
-
-.banners2{
-	width:100%;
-	overflow:hidden;
-	margin-bottom:30px;
-	div{
-		position:relative;
-		.title{
-			position:absolute;
-			left:8.57%;
-			top:22%;
-			text-align:left;
-			text-decoration:none;
-			strong{
-				font:400 14px/18px $font-custom;
-				text-decoration:underline;
-				color:#333333;
-				text-transform:uppercase;
-				display:block;
-				@include transition;
-			}
-		}
-		.capt{
-			h3{
-				color:#333333;
-				font:700 53px/54px $font-custom;
-				text-transform:uppercase;
-				padding:0;
-				margin:0 0 4px;
-			}
-			em{
-				font-style:normal;
-				font:700 28px/28px $font-custom;
-				color:$color;
-				text-transform:uppercase;
-				background:#232323;
-				display:inline-block;
-				padding:4px 8px 7px 9px;
-				margin-bottom:14px;
-				span{
-					color:#fff;
-				}
-			}
-		}
-		&:hover{
-			.title{
-				strong{
-					color:$color;
-					text-decoration: none;
-				}
-			}
-		}
-	}
-}
 #myAccountOrdersStatus th,
 #myAccountOrdersStatus td{
 	border: 1px solid #ddd;
@@ -1814,26 +1647,26 @@ footer{
 }
 .categoryColumn {
 	#category-image {
-		position:relative;
-		overflow:hidden;
-		margin:0 auto;
+		position: relative;
+		overflow: hidden;
+		margin: 0 auto;
 		img {
 			width: 100%;
 			height: auto;
 		}
-		.cat_desc{
-			position:absolute;
-			left:0;
-			bottom:0;
-			background:rgba(0, 0, 0, 0.5);
-			color:#ededed;
-			font:400 13px/18px $font-custom;
-			padding:20px;
-			margin:0;
+		.cat_desc {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.5);
+			color: #ededed;
+			font: 400 13px/18px $font-custom;
+			padding: 20px;
+			margin: 0;
 		}
 	}
-	#category-image.categoryImg{
-		img{
+	#category-image.categoryImg {
+		img {
 			width: initial;
 		}
 	}
@@ -1841,22 +1674,23 @@ footer{
 		padding: 30px 0;
 		.subcategory-heading {
 			@include sub-heading;
-			text-transform:uppercase;
+			text-transform: uppercase;
 			color: #191919;
 			margin: 0 0 30px 0;
 		}
 		ul {
 			list-style: none;
 			padding-left: 0;
-			li{
+			li {
 				.subcategory-image {
-					display: block;
+					display: flex;
+					align-items: center;
 					border: $border;
 					padding: 9px;
 					position: relative;
 					background: white;
-					margin-bottom: 9px;
-					img{
+					margin-bottom: 3px;
+					img {
 						width: 100%;
 						height: auto;
 					}
@@ -1875,22 +1709,21 @@ footer{
 						border: $border-subcat-hov;
 					}
 				}
-				span{
+				span {
 					color: $color;
 					@include transition;
 					@include product-name;
 					font-size: 14px;
 					display: inline-block;
-					min-height: 36px;
-						&:hover {
-							color: $color;
-						}
-					}	
+					min-height: 42px;
+				}
+				&:hover span {
+					color: $color;
 				}
 			}
 		}
 	}
-
+}
 .content_sortPagiBar {
 	text-align: left;
 	margin: 0 0 30px;
@@ -2450,8 +2283,15 @@ div.buttonRow.forward {
     line-height: 20px;
     width: 100%;
 }
-#productMainImage img {
-    height: 400px;
+#productMainImage {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 400px;
+	img {
+		max-height: 400px;
+		max-width: 99%;
+	}
 }
 #productMainImage a, #reviewsInfoDefaultProductImage a, #productReviewsDefaultProductImage a, #reviewWriteMainImage a {}
 #productMainImage a:hover, #reviewsInfoDefaultProductImage a:hover, #productReviewsDefaultProductImage a:hover, #reviewWriteMainImage a:hover{ }
@@ -2514,7 +2354,7 @@ div.buttonRow.forward {
 
 
 /*==============================
-       -- Breadcrambs -- 
+       -- Breadcrambs --
 ==============================*/
 .breadcrumb {
 	@include breadcrumb_bg;
@@ -2548,7 +2388,7 @@ div.buttonRow.forward {
 			opacity: 1;
 			text-decoration: none;
 			color: $color-hover;
-		}	
+		}
 	}
 	a.home{
 		position: relative;
@@ -2589,7 +2429,7 @@ div.buttonRow.forward {
 	margin: 20px 0;
 }
 /*==============================
-       --  -- 
+       --  --
 ==============================*/
 /* Social icons*/
 div#socialIcons {
@@ -2612,7 +2452,7 @@ div#socialIcons > iframe {
 }
 
 /*==============================
-       -- Product page -- 
+       -- Product page --
 ==============================*/
 #productinfoBody .centerColumn {
 	padding: 0 15px;
@@ -2934,7 +2774,7 @@ div#socialIcons > iframe {
 			margin-left: 1%;
 		}
 		span{
-			overflow:hidden; 
+			overflow:hidden;
 			position:relative;
 			@include transition;
 			img{
@@ -2944,12 +2784,12 @@ div#socialIcons > iframe {
 		}
 		&:hover {
 			border-color:$color;
-		}		
+		}
 	}
 }
 .video_desc{
 	margin:10px 0;
-} 
+}
 .description{
 	font:400 13px/18px $font-custom;
 	color:#777;
@@ -3020,7 +2860,7 @@ h5 {
 	margin:0 4px 4px;
 }
 /*==============================
-		  -- price -- 
+		  -- price --
 ==============================*/
 .cartBoxTotal,
 .productSalePrice,
@@ -3047,7 +2887,7 @@ span.productPriceDiscount {
 
 
 /*==============================
-       -- reviews page -- 
+       -- reviews page --
 ==============================*/
 .reviewslisting{
 	padding:0;
@@ -3281,7 +3121,7 @@ ul.product_list.list > li .product-desc span.grid-desc {
 .prod-info .product-name.name {
 	@include product-name;
 	margin:0;
-	padding:0;	
+	padding:0;
 }
 .product-name {
 	@include product-name;
@@ -3371,12 +3211,12 @@ p.product-desc {
 #pageTwoHeading {
 	margin-bottom:20px;
 }
-#pageTwoMainContent h3 { 
-	margin-bottom:10px; 
-	font-size:15px; 
-	line-height:18px; 
+#pageTwoMainContent h3 {
+	margin-bottom:10px;
+	font-size:15px;
+	line-height:18px;
 }
-#mod_table { 
+#mod_table {
 	margin:10px 0 20px;
 }
 
@@ -3402,25 +3242,25 @@ p.product-desc {
 }
 
 #mod_table .row_ttl1,
-#mod_table .row_ttl1:hover{ 
+#mod_table .row_ttl1:hover{
 	color:#fff;
 	overflow:hidden;
 	padding:10px;
 	@include subpages-elements-bg;
 }
-#mod_table .row-fluid.data{ 
-	text-align:center; 
-	font-size:12px; 
-	line-height:28px; 
-	overflow:hidden;  
+#mod_table .row-fluid.data{
+	text-align:center;
+	font-size:12px;
+	line-height:28px;
+	overflow:hidden;
 	padding: 10px;
 }
-#mod_table .row-fluid.data .span3:first-child{ 
+#mod_table .row-fluid.data .span3:first-child{
 	text-align:left;
 }
-#mod_table .row-fluid.data.on{ 
-	background:#2e3330; 
-	color:#fff; 
+#mod_table .row-fluid.data.on{
+	background:#2e3330;
+	color:#fff;
 	overflow:hidden;
 }
 #mod_table .ttl1{
@@ -3477,7 +3317,7 @@ div.pull-left.info-block {
     .heading a {
     	color: #333;
     }
- 
+
     /* featured products */
 
 .advisory {
@@ -3550,59 +3390,6 @@ div.pull-left.info-block {
 .title_btn3:after,
 .title_btn4:after{
   display: none;
-}
-
-/* Bounce To Bottom */
-.banners1 .item .bounce-to-bottom {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  position: relative;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-}
-.banners1 .item .bounce-to-bottom:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: $color;
-  -webkit-border-radius: 0 0 4px 4px;
-  -mox-border-radius: 0 0 4px 4px;
-  border-radius: 0 0 4px 4px;
-  -webkit-transform: scaleY(0);
-  transform: scaleY(0);
-  -webkit-transform-origin: 50% 0;
-  transform-origin: 50% 0;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.banners1 .item .bounce-to-bottom:hover, 
-.banners1 .item .bounce-to-bottom:focus, 
-.banners1 .item .bounce-to-bottom:active {
-  color: white;
-}
-.banners1 .item:hover .bounce-to-bottom:before, 
-.banners1 .item:hover .bounce-to-bottom:focus:before, 
-.banners1 .item:hover .bounce-to-bottom:active:before {
-  -webkit-transform: scaleY(1);
-  transform: scaleY(1);
-  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
 
 /* --- back to top --- */

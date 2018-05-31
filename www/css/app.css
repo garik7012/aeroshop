@@ -1112,191 +1112,6 @@ div#header_logo a {
   color: #fff;
 }
 
-/*==============================
-         -- Banners -- 
-==============================*/
-.banners1 {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  z-index: 10;
-  margin: -80px 0 19px;
-}
-
-.banners1 .item {
-  position: relative;
-  overflow: hidden;
-}
-
-.banners1 .item a {
-  overflow: hidden;
-  display: block;
-  position: relative;
-  border-radius: 7px;
-  /*			&:before{
-				content:url(../images/ban_hover.png);
-				width: 100%;
-				height: auto;
-				top: 62px;
-				opacity: 0;
-				left: 65px;
-				display: inline-block;
-				position: absolute;
-				z-index: 1;
-				@include transition1;
-			}
-			&:hover:before{
-				opacity: .3;
-				left: 45px;
-			}*/
-}
-
-.banners1 .item a img {
-  position: relative;
-}
-
-.banners1 .item .title {
-  position: relative;
-  left: 0px;
-  top: 0;
-  width: 100%;
-  text-align: left;
-  text-decoration: none;
-}
-
-.banners1 .item .title .capt {
-  padding: 15px 17px 22px;
-  border-top: 3px solid #3499da;
-  background: #1d272a;
-  display: block;
-  width: 100%;
-  -moz-transition: all 0.4s ease 0s;
-  -webkit-transition: all 0.4s ease 0s;
-  -o-transition: all 0.4s ease 0s;
-}
-
-.banners1 .item .title .capt h3 {
-  color: #fff;
-  font: 600 32px/32px "Open Sans", sans-serif;
-  text-transform: uppercase;
-  padding: 0;
-  margin: 0;
-  z-index: 2;
-}
-
-.banners1 .item .title .capt h3 b {
-  color: #3499da;
-  font-weight: 600;
-  -moz-transition: all 0.9s ease 0s;
-  -webkit-transition: all 0.9s ease 0s;
-  -o-transition: all 0.9s ease 0s;
-}
-
-.banners1 .item .title .capt p {
-  font-style: normal;
-  font: 400 14px/19px "Open Sans", sans-serif;
-  color: #fff;
-  margin: 5px 0 0;
-  position: relative;
-  z-index: 1;
-  -moz-transition: all 0.4s ease 0s;
-  -webkit-transition: all 0.4s ease 0s;
-  -o-transition: all 0.4s ease 0s;
-}
-
-.banners1 .item .title .capt p:after {
-  content: "\F138";
-  position: absolute;
-  right: 3px;
-  bottom: -4px;
-  font-size: 17px;
-  color: #fff;
-  font-family: "FontAwesome";
-  display: inline-block;
-}
-
-.banners1 .item .title .link {
-  position: relative;
-}
-
-.banners1 .item .title .link:hover {
-  color: #3499da;
-}
-
-.banners1 .item:hover .title .capt {
-  -moz-transition: all 0.9s ease 0s;
-  -webkit-transition: all 0.9s ease 0s;
-  -o-transition: all 0.9s ease 0s;
-}
-
-.banners1 .item:hover .title .capt h3 b {
-  color: #000;
-  -moz-transition: all 0.9s ease 0s;
-  -webkit-transition: all 0.9s ease 0s;
-  -o-transition: all 0.9s ease 0s;
-}
-
-.banners1 .item:hover .title .capt p {
-  color: #fff !important;
-}
-
-.banners2 {
-  width: 100%;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-
-.banners2 div {
-  position: relative;
-}
-
-.banners2 div .title {
-  position: absolute;
-  left: 8.57%;
-  top: 22%;
-  text-align: left;
-  text-decoration: none;
-}
-
-.banners2 div .title strong {
-  font: 400 14px/18px "Open Sans", sans-serif;
-  text-decoration: underline;
-  color: #333333;
-  text-transform: uppercase;
-  display: block;
-  -moz-transition: all 0.4s ease 0s;
-  -webkit-transition: all 0.4s ease 0s;
-  -o-transition: all 0.4s ease 0s;
-}
-
-.banners2 div .capt h3 {
-  color: #333333;
-  font: 700 53px/54px "Open Sans", sans-serif;
-  text-transform: uppercase;
-  padding: 0;
-  margin: 0 0 4px;
-}
-
-.banners2 div .capt em {
-  font-style: normal;
-  font: 700 28px/28px "Open Sans", sans-serif;
-  color: #3499da;
-  text-transform: uppercase;
-  background: #232323;
-  display: inline-block;
-  padding: 4px 8px 7px 9px;
-  margin-bottom: 14px;
-}
-
-.banners2 div .capt em span {
-  color: #fff;
-}
-
-.banners2 div:hover .title strong {
-  color: #3499da;
-  text-decoration: none;
-}
-
 #myAccountOrdersStatus th,
 #myAccountOrdersStatus td {
   border: 1px solid #ddd;
@@ -2515,12 +2330,17 @@ footer .copyright p {
 }
 
 .categoryColumn #subcategories ul li .subcategory-image {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 1px solid #8d9496;
   padding: 9px;
   position: relative;
   background: white;
-  margin-bottom: 9px;
+  margin-bottom: 3px;
 }
 
 .categoryColumn #subcategories ul li .subcategory-image img {
@@ -2556,10 +2376,10 @@ footer .copyright p {
   text-align: center;
   font-size: 14px;
   display: inline-block;
-  min-height: 36px;
+  min-height: 42px;
 }
 
-.categoryColumn #subcategories ul li span:hover {
+.categoryColumn #subcategories ul li:hover span {
   color: #3499da;
 }
 
@@ -3233,8 +3053,22 @@ div.buttonRow.forward {
   width: 100%;
 }
 
-#productMainImage img {
+#productMainImage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 400px;
+}
+
+#productMainImage img {
+  max-height: 400px;
+  max-width: 99%;
 }
 
 .centerBoxContentsAlsoPurch {
@@ -3293,7 +3127,7 @@ div.buttonRow.forward {
 }
 
 /*==============================
-       -- Breadcrambs -- 
+       -- Breadcrambs --
 ==============================*/
 .breadcrumb {
   background: #f7f7f7;
@@ -3375,7 +3209,7 @@ div.buttonRow.forward {
 }
 
 /*==============================
-       --  -- 
+       --  --
 ==============================*/
 /* Social icons*/
 div#socialIcons {
@@ -3400,7 +3234,7 @@ div#socialIcons > iframe {
 }
 
 /*==============================
-       -- Product page -- 
+       -- Product page --
 ==============================*/
 #productinfoBody .centerColumn {
   padding: 0 15px;
@@ -4006,7 +3840,7 @@ h5 {
 }
 
 /*==============================
-		  -- price -- 
+		  -- price --
 ==============================*/
 .cartBoxTotal,
 .productSalePrice,
@@ -4041,7 +3875,7 @@ span.productPriceDiscount > br {
 }
 
 /*==============================
-       -- reviews page -- 
+       -- reviews page --
 ==============================*/
 .reviewslisting {
   padding: 0;
@@ -4759,65 +4593,6 @@ div.pull-left.info-block {
 .title_btn3:after,
 .title_btn4:after {
   display: none;
-}
-
-/* Bounce To Bottom */
-.banners1 .item .bounce-to-bottom {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-          box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  position: relative;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-}
-
-.banners1 .item .bounce-to-bottom:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #3499da;
-  -mox-border-radius: 0 0 4px 4px;
-  border-radius: 0 0 4px 4px;
-  -webkit-transform: scaleY(0);
-  transform: scaleY(0);
-  -webkit-transform-origin: 50% 0;
-  transform-origin: 50% 0;
-  -webkit-transition-property: transform;
-  -webkit-transition-property: -webkit-transform;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-.banners1 .item .bounce-to-bottom:hover,
-.banners1 .item .bounce-to-bottom:focus,
-.banners1 .item .bounce-to-bottom:active {
-  color: white;
-}
-
-.banners1 .item:hover .bounce-to-bottom:before,
-.banners1 .item:hover .bounce-to-bottom:focus:before,
-.banners1 .item:hover .bounce-to-bottom:active:before {
-  -webkit-transform: scaleY(1);
-  transform: scaleY(1);
-  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
 
 /* --- back to top --- */
@@ -6288,7 +6063,7 @@ div.pull-left.info-block {
 }
 
 .grid li .product-col .grid-desc {
-  height: 38px;
+  height: 52px;
 }
 
 .grid li .product-col .prod-info h5,
@@ -6298,7 +6073,7 @@ div.pull-left.info-block {
 }
 
 .grid li .product-col .prod-info .text {
-  max-height: 36px;
+  max-height: 52px;
   overflow: hidden;
 }
 

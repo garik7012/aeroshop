@@ -11,7 +11,7 @@
     <!-- Fonts -->
     <link href="/css/fonts.css" rel="stylesheet" type="text/css">
 
-    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="{{ mix('css/extras.css') }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">

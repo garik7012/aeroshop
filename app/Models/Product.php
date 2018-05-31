@@ -25,4 +25,9 @@ class Product extends Model
     {
         return $this->hasMany(ProductLangProperty::class);
     }
+
+    public function availability()
+    {
+        return $this->belongsTo(Availability::class);
+    }
 }

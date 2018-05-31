@@ -42,7 +42,7 @@
                                     <div class="tie tie-margin1">
                                         <div class="tie-indent">
                                             <ul class="product_list row grid">
-                                                @foreach($category->products as $product)
+                                                @foreach($categoryProducts as $product)
                                                 <li class="col-xs-12 col-sm-6 col-md-3">
                                                     <div class="product-col" data-match-height="featured">
                                                         <div class="img">
@@ -60,6 +60,7 @@
                                                                 <div class="content_price">
                                                                     <span itemprop="price" class="price product-price"><span class="productSalePrice">{{$product->price}} {{$product->currency}}</span></span>
                                                                     <div class="clearfix"></div>
+                                                                    <div class="product-availability"><strong>{{$product->availability[_lt()]}}</strong></div>
                                                                     <div class="button">
                                                                         <a class="btn add-to-cart" href="">
                                                                             <span class="cssButton normal_button button  button_add_to_cart" onmouseover="this.className='cssButtonHover normal_button button  button_add_to_cart button_add_to_cartHover'" onmouseout="this.className='cssButton normal_button button  button_add_to_cart'">&nbsp;@lang('Add to Cart')&nbsp;</span>
