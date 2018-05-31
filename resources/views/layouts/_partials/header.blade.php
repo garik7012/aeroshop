@@ -39,13 +39,8 @@
                             <span>@lang('This offer is valid on all our store items').</span>
                         </div>
                     </div>
-                    <div class="shopping_cart" id="shopping_cart">
-                        <!-- ========== SHOPPING CART ========== -->
-                        <div class="shop-box-wrap">
-                            <span class="cart_title">@lang('g.Cart')</span><span class="st3"> (@lang('g.empty')) </span>                                </div>
-                        <div class="shopping_cart_content" id="shopping_cart_content">
-                            <div class="none"> @lang('Your cart is empty')</div>                                </div>
-                    </div>
+                    <!-- ========== SHOPPING CART ========== -->
+                    @include('layouts._partials._cart')
                     <!-- =================================== -->
                     <div id="search_block" class="clearfix">
                         <!-- ========== SEARCH ========== -->

@@ -18,5 +18,8 @@ return [
     'empty' => 'пусто',
     'Subcategories' => 'Подкатегории',
     'featured' => 'Рекомендуемые товары',
-    'Details' => 'Подробнее'
+    'Details' => 'Подробнее',
+    'checkout' => 'Оформить',
+    'quantity' => 'Количество',
+    'delete' => 'удалить'
 ];

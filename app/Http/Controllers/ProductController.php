@@ -51,9 +51,9 @@ class ProductController extends Controller
     {
         $category = $categories->findOrFail($id);
         if ($category->old_number) {
-            $categoryProducts = $category->products;
+            $products = $category->products;
 
-            return view('front-side.category.index', compact('category', 'categoryProducts'));
+            return view('front-side.category.index', compact('category', 'products'));
         } else {
             return view('front-side.category.main-category', compact('category'));
         }
@@ -67,7 +67,8 @@ class ProductController extends Controller
     public function showBrandProducts($id, Brand $brands)
     {
         $brand = $brands->findOrFail($id);
+        $products = $brand->products;
 
-        return view('front-side.brand.index', compact('brand'));
+        return view('front-side.brand.index', compact('brand', 'products'));
     }
 }

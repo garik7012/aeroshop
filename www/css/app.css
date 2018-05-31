@@ -4658,6 +4658,10 @@ div.pull-left.info-block {
   margin-bottom: 15px;
 }
 
+.m-b-100 {
+  margin-bottom: 100px;
+}
+
 .slider {
   position: relative;
   top: -3px;

@@ -84,29 +84,26 @@
                                                             @endforeach
                                                         </div>
                                                         <!--eof Attributes Module -->
-
                                                         <div class="add_to_cart_block">
                                                             <!--bof Add to Cart Box -->
                                                             <div id="prod-price">
                                                                 <span class="productSalePrice">{{$product->price}} {{$product->currency}}</span></div>
                                                             <div class="clearfix"></div>
-
                                                             <!--eof Add to Cart Box-->
                                                         </div>
                                                     </div>
-                                                    <div id="button_product">
-                                                        <div class="add_to_cart_row"><strong class="fleft text2"><input
-                                                                        type="text" class="form-control"
-                                                                        name="cart_quantity" value="1" maxlength="6"
-                                                                        size="8"><input type="hidden" name="products_id"
-                                                                                        value="4"></strong><span
-                                                                    class="buttonRow"><input type="submit"
-                                                                                             class="btn btn-success add-to-cart"
-                                                                                             value="@lang('Add to Cart')"></span>
+                                                    <form action="{{route('add-to-cart', $product->id)}}" method="post">
+                                                        @csrf
+                                                        <div id="button_product">
+                                                            <div class="add_to_cart_row">
+                                                                <strong class="fleft text2"><input type="text" class="form-control" name="quantity" value="1" maxlength="6" size="8"></strong>
+                                                                <span class="buttonRow"><input type="submit" class="btn btn-success add-to-cart" value="@lang('Add to Cart')"></span>
+                                                                @if ($errors->has('quantity'))
+                                                                    <span class="invalid-feedback text-danger"> <strong>{{ $errors->first('quantity') }}</strong></span>
+                                                                @endif
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <!-- bof Social Media Icons -->
-                                                    <!-- eof Social Media Icons -->
+                                                    </form>
                                                 </div>
                                             </div>
                                             @include('front-side.product._related')

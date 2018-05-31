@@ -18,5 +18,8 @@ return [
     'empty' => 'empty',
     'Subcategories' => 'Subcategories',
     'featured' => 'Featured Products',
-    'Details' => 'Details'
+    'Details' => 'Details',
+    'checkout' => 'Checkout',
+    'quantity' => 'Quantity',
+    'delete' => 'delete'
 ];

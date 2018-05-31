@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use App\Models\ProductPropertyKey;
 use Illuminate\Http\Request;
-use App\Models\ProductLangProperty;
-use App\Models\Unit;
+use App\Models\Product;
+use Session;
 
 class PagesController extends Controller
 {
@@ -25,7 +23,9 @@ class PagesController extends Controller
 
     public function test()
     {
-        return view('front-side.category.all');
+        session()->forget('cart');
+
+        return view('home');
     }
 
     public function getArr()
