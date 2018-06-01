@@ -21,5 +21,7 @@ return [
     'Details' => 'Details',
     'checkout' => 'Checkout',
     'quantity' => 'Quantity',
-    'delete' => 'delete'
+    'delete' => 'delete',
+    'next' => 'Next',
+    'edit' => 'edit'
 ];

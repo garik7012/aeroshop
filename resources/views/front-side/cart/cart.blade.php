@@ -80,7 +80,7 @@
                                                         onmouseout="this.className='cssButton normal_button button  button_continue_shopping'">&nbsp;@lang('cart.continue')</span>
                                             </a>
                                         </div>
-                                        <a class="btn" href="/"><span class="cssButton normal_button button  button_checkout"
+                                        <a class="btn" href="{{route('checkout')}}"><span class="cssButton normal_button button  button_checkout"
                                                     onmouseover="this.className='cssButtonHover normal_button button  button_checkout button_checkoutHover'"
                                                     onmouseout="this.className='cssButton normal_button button  button_checkout'">&nbsp;@lang('g.checkout')&nbsp;</span>
                                         </a>

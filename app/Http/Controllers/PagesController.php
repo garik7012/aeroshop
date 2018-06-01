@@ -23,9 +23,7 @@ class PagesController extends Controller
 
     public function test()
     {
-        session()->forget('cart');
-
-        return view('home');
+        return view('front-side.cart.successful', ['id' => 4]);
     }
 
     public function getArr()

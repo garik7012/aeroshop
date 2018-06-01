@@ -31,7 +31,7 @@
             <li>
                 <div class="cart-bottom">
                     <a class="btn btn-success" href="{{route('show-cart')}}"><span class="cssButton">@lang('g.Cart')</span></a>
-                    <a class="btn btn-success1" href="#"><span class="cssButton normal_button button  button_checkout"
+                    <a class="btn btn-success1" href="{{route('checkout')}}"><span class="cssButton normal_button button  button_checkout"
                                 onmouseover="this.className='cssButtonHover normal_button button  button_checkout button_checkoutHover'"
                                 onmouseout="this.className='cssButton normal_button button  button_checkout'">&nbsp;@lang('g.checkout')&nbsp;</span></a>
                 </div>

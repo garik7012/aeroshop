@@ -22,6 +22,12 @@ class Cart
         }
     }
 
+    /**
+     * add item to cart
+     * @param $item
+     * @param $id
+     * @param int $quantity
+     */
     public function add($item, $id, $quantity = 1)
     {
         $storedItem = ['qty' => 0, 'product' => $item];
@@ -37,6 +43,10 @@ class Cart
         $this->totalPrice[$item->currency] += $item->price * $quantity;
     }
 
+    /**
+     * delete product from cart
+     * @param $product
+     */
     public function deleteProduct($product)
     {
         $id = $product->id;
