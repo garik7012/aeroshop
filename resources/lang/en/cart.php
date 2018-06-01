@@ -26,6 +26,16 @@ return [
         'dsTitle' => 'Delivery/Shipping Information',
         'sMethod' => 'Shipping Method',
         'special' => 'Special Instructions or Order Comments',
-        'confirm' => 'Confirm Order'
+        'confirm' => 'Confirm Order',
+    ],
+    'success' => [
+        'bread' => 'Checkout Success - Thank You',
+        'title' => 'Thank You! We Appreciate your Business!',
+        'number' => 'Your Order Number is',
+        'dTitle' => 'The order is processed for some time',
+        'descr' =>'After processing our manager will contact you and tell you the card number. Parcels by "Nova Pochta" are sent daily.',
+        'questions' => 'Please direct any questions you have to',
+        'customer' => 'customer service',
+        'thanks' => 'Thanks for shopping with us online!'
     ]
 ];

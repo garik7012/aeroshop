@@ -41,7 +41,7 @@
                                 </a>
                             </li>
                             <li class="  ">
-                                <a href="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=contact_us#">
+                                <a href="#">
                                     <span>@lang('g.contacts')</span>
                                 </a>
                             </li>

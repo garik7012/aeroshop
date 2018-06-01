@@ -6,24 +6,24 @@
                     <h2 class="title_btn1">Quick Links</h2>
                     <div class="ezpagesFooterCol col1" style="width: 100%">
                         <ul>
-                            <li><a href="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=index&amp;zenid=ob0ch2vq2sgrisn45b5st0t236">Home</a></li>
-                            <li><a href="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=products_new&amp;zenid=ob0ch2vq2sgrisn45b5st0t236">New Products</a></li>
-                            <li><a href="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=specials&amp;zenid=ob0ch2vq2sgrisn45b5st0t236">Specials</a></li>
-                            <li><a href="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=products_all&amp;zenid=ob0ch2vq2sgrisn45b5st0t236">All Products</a></li>
-                            <li><a href="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=reviews&amp;zenid=ob0ch2vq2sgrisn45b5st0t236">Reviews</a></li>
-                            <li><a href="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=contact_us&amp;zenid=ob0ch2vq2sgrisn45b5st0t236">Contacts</a></li>
-                            <li><a href="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=gv_faq&amp;zenid=ob0ch2vq2sgrisn45b5st0t236">FAQs</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">New Products</a></li>
+                            <li><a href="#">Specials</a></li>
+                            <li><a href="#">All Products</a></li>
+                            <li><a href="#">Reviews</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">FAQs</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="account col-xs-12 col-sm-3 mb">
                     <h2 class="title_btn2">Customers</h2>
                     <ul class="account_list">
-                        <li><a href="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=login&amp;zenid=ob0ch2vq2sgrisn45b5st0t236">Log In</a></li>
-                        <li><a href="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=create_account&amp;zenid=ob0ch2vq2sgrisn45b5st0t236">Create Account</a></li>
-                        <li><a href="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=shippinginfo&amp;zenid=ob0ch2vq2sgrisn45b5st0t236">Shipping &amp; Returns</a></li>
-                        <li><a href="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=privacy&amp;zenid=ob0ch2vq2sgrisn45b5st0t236">Privacy Notice</a></li>
-                        <li><a href="https://livedemo00.template-help.com/zencart_55417/index.php?main_page=conditions&amp;zenid=ob0ch2vq2sgrisn45b5st0t236">Conditions of Use</a></li>
+                        <li><a href="#">Log In</a></li>
+                        <li><a href="#">Create Account</a></li>
+                        <li><a href="#">Shipping &amp; Returns</a></li>
+                        <li><a href="#">Privacy Notice</a></li>
+                        <li><a href="#">Conditions of Use</a></li>
                     </ul>
                 </div>
                 <div class="social col-xs-12 col-sm-3 mb">

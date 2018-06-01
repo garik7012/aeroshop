@@ -4662,6 +4662,10 @@ div.pull-left.info-block {
   margin-bottom: 100px;
 }
 
+#checkoutSuccessContactLink {
+  margin: 20px 0 50px;
+}
+
 .slider {
   position: relative;
   top: -3px;
