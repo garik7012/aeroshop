@@ -23,10 +23,11 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'mi
     Route::get('/add_to_cart/{id}', "CartController@addOneToCart")->name('one-to-cart');
     Route::post('/add_to_cart/{id}', "CartController@addToCart")->name('add-to-cart');
     Route::get('/delete_from_cart/{id}', "CartController@deleteItemFromCart")->name('delete-from-cart');
-    Route::get('/checkout', 'Admin\OrderController@createOrder')->name('checkout');
-    Route::post('/order-store', 'Admin\OrderController@storeOrder')->name('order.store');
-    Route::get('/order-store', 'Admin\OrderController@showOrder')->name('order.show');
-    Route::post('/checkout', 'Admin\OrderController@confirmOrder')->name('confirm-order');
+    //order
+    Route::get('/checkout', 'OrderController@createOrder')->name('checkout');
+    Route::post('/order-store', 'OrderController@storeOrder')->name('order.store');
+    Route::get('/order-store', 'OrderController@showOrder')->name('order.show');
+    Route::post('/checkout', 'OrderController@confirmOrder')->name('confirm-order');
 });
 
 
