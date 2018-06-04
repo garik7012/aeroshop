@@ -5,7 +5,7 @@
     <section class="content-header">
         <h1>Заказы</h1>
         @include('admin._partials.breadcrumbs', $breadcrumbs = [
-            ['name' => 'Categories', 'active' => true]
+            ['name' => 'Заказы', 'active' => true]
         ])
     </section>
     <!-- Main content -->

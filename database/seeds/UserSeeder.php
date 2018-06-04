@@ -12,12 +12,14 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        $email = env('ADMIN_EMAIL') ?: 'admin@test.com';
+        $pwd = env('ADMIN_PWD') ?: 'secret';
         User::firstOrCreate(
-            ['email' => 'admin@test.com'],
+            ['email' => $email],
             [
             'name' => 'admin',
             'is_admin' => 1,
-            'password' => bcrypt('secret')
+            'password' => bcrypt($pwd)
             ]
         );
     }

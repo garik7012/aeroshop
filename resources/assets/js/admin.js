@@ -4,11 +4,14 @@ const app = {};
 window.$ = $;
 require('datatables.net');
 require('admin-lte/dist/js/adminlte.min.js');
+require('trumbowyg');
 
 $('document').ready(function () {
     $.ajaxSetup({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
     });
+
+    $('textarea.turmbowyg').trumbowyg({autogrow: true, svgPath: '/img/icons.svg'});
 });
 
 app.General = (function() {

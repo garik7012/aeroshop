@@ -6,9 +6,6 @@
 |--------------------------------------------------------------------------
 */
 
-
-Auth::routes();
-
 Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'middleware' => 'lang'], function () {
     Route::get('/test', 'PagesController@test');
     //pages
@@ -34,5 +31,10 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'mi
     Route::get('/order-store', 'OrderController@showOrder')->name('order.show');
     Route::post('/checkout', 'OrderController@confirmOrder')->name('confirm-order');
 });
+
+// Authentication Routes...
+$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+$this->post('login', 'Auth\LoginController@login');
+$this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
 
