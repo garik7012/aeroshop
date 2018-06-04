@@ -25,19 +25,21 @@
                     <div class="contact_fields_wrapper clearfix">
                         <div class="row">
                             <div class="contacts_left_fields col-xs-12 col-sm-5">
-                                <div class="form-group contact-group">
+                                <div class="form-group contact-group {{$errors->has('name') ? ' has-error' : ''}}">
                                     <label for="contactname">@lang('site.contact.name'):</label>
-                                    <input type="text" name="contactname" size="40" id="contactname"
-                                           class="form-control"></div>
-                                <div class="form-group contact-group">
+                                    <input type="text" name="name" size="40" id="contactname" class="form-control" value="{{old('name')}}">
+                                    @if ($errors->has('name')) <span class="help-block text-danger"><strong>{{ $errors->first('name') }}</strong></span>@endif
+                                </div>
+                                <div class="form-group contact-group {{$errors->has('email') ? ' has-error' : ''}}">
                                     <label for="email-address">Email:</label>
-                                    <input type="text" name="email" size="40" id="email-address" class="form-control">
+                                    <input type="text" name="email" size="40" id="email-address" class="form-control"  value="{{old('email')}}">
+                                    @if ($errors->has('email')) <span class="help-block text-danger"><strong>{{ $errors->first('email') }}</strong></span>@endif
                                 </div>
                             </div>
-                            <div class="form-group contact-group-area col-xs-12 col-sm-7">
+                            <div class="form-group contact-group-area col-xs-12 col-sm-7 {{$errors->has('message') ? ' has-error' : ''}}">
                                 <label for="enquiry">@lang('site.contact.message'):</label>
-                                <textarea name="enquiry" cols="20" rows="7" id="enquiry"
-                                          class="form-control"></textarea>
+                                <textarea name="message" cols="20" rows="7" id="enquiry" class="form-control">{{old('message')}}"</textarea>
+                                @if ($errors->has('message')) <span class="help-block text-danger"><strong>{{ $errors->first('message') }}</strong></span>@endif
                             </div>
                         </div>
                     </div>
@@ -50,7 +52,7 @@
             </div>
         </div>
     </form>
-    <h3>График работы</h3>
+    <h3>@lang('site.contact.schedule')</h3>
     <table class="table table-striped table-bordered">
         <tbody>
         <tr>

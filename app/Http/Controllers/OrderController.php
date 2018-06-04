@@ -109,6 +109,6 @@ class OrderController extends Controller
         $token = env('TG_BOT');
         $chat_id = env('TG_CHAT');
         $fp=fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
-        mail('test@test.com', 'PR-webkey заявка', $txt);
+        mail('inbox@aeroshop.com.ua', 'заказ', $txt);
     }
 }

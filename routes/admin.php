@@ -21,4 +21,9 @@ Route::group(['prefix' => 'admin-side'], function () {
         Route::post('/{id}', 'Admin\OrdersController@updateOrder')->name('update');
         Route::get('/delete/{id?}/', 'Admin\OrdersController@deleteOrder')->name('delete');
     });
+    //contact messages
+    Route::group(['prefix' => 'messages', 'as' => 'admin.messages.'], function () {
+        Route::get('/', 'Admin\ContactUsController@showAll')->name('all');
+        Route::get('/delete/{id?}/', 'Admin\ContactUsController@deleteMessage')->name('delete');
+    });
 });

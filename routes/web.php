@@ -11,6 +11,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'mi
     //pages
     Route::get('/', 'PagesController@index')->name('index');
     Route::get('/contact-us', 'PagesController@contactUs')->name('contact-us');
+    Route::post('/contact-us', 'Admin\ContactUsController@storeContact')->name('store-contact');
     Route::get('/faq', 'PagesController@showFAQ')->name('faq');
     Route::get('/delivery', 'PagesController@delivery')->name('delivery');
     //products

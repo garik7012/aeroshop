@@ -45,6 +45,7 @@ class PagesController extends Controller
      * @param PageLang $pageLang
      * @param PageLangService $pageLangService
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function updatePage($id, PageLangRequest $request, PageLang $pageLang, PageLangService $pageLangService)
     {

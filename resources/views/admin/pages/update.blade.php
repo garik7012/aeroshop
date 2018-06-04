@@ -5,8 +5,8 @@
     <section class="content-header">
         <h1>Страница: {{$page->url}}</h1>
         @include('admin._partials.breadcrumbs', $breadcrumbs = [
-            ['name' => 'Pages', 'url' => route('admin.pages.all')],
-            ['name' => 'Update page', 'active' => true]
+            ['name' => 'Страницы', 'url' => route('admin.pages.all')],
+            ['name' => 'Редактирование страницы', 'active' => true]
         ])
     </section>
     <!-- Main content -->
@@ -44,8 +44,8 @@
                             <hr>
                             <h4>СЕО настройки страницы</h4>
                             <div class="form-group {{ $errors->has('seo_title') ? ' has-error' : '' }}">
-                                <label for="InputTitle">Title</label>
-                                <input type="text" name="seo_title" class="form-control" id="InputTitle" value="{{$page->lang->seo_title}}">
+                                <label for="InputSeoTitle">Title</label>
+                                <input type="text" name="seo_title" class="form-control" id="InputSeoTitle" value="{{$page->lang->seo_title}}">
                                 @if ($errors->has('seo_title'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('seo_title') }}</strong>
@@ -53,8 +53,8 @@
                                 @endif
                             </div>
                             <div class="form-group {{ $errors->has('seo_description') ? ' has-error' : '' }}">
-                                <label for="InputTitle">Description</label>
-                                <input type="text" name="seo_description" class="form-control" id="InputTitle" value="{{$page->lang->seo_description}}">
+                                <label for="InputSeoDescr">Description</label>
+                                <input type="text" name="seo_description" class="form-control" id="InputSeoDescr" value="{{$page->lang->seo_description}}">
                                 @if ($errors->has('seo_description'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('seo_description') }}</strong>
@@ -62,8 +62,8 @@
                                 @endif
                             </div>
                             <div class="form-group {{ $errors->has('keywords') ? ' has-error' : '' }}">
-                                <label for="InputTitle">Keyword</label>
-                                <input type="text" name="keywords" class="form-control" id="InputTitle" value="{{$page->lang->keywords}}">
+                                <label for="InputKeyword">Keyword</label>
+                                <input type="text" name="keywords" class="form-control" id="InputKeyword" value="{{$page->lang->keywords}}">
                                 @if ($errors->has('keywords'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('keywords') }}</strong>
@@ -72,7 +72,6 @@
                             </div>
                         </div>
                         <!-- /.box-body -->
-
                         <div class="box-footer">
                             <a href="{{route('admin.pages.all')}}" class="btn btn-default">Назад к списку</a>
                             <button type="submit" class="btn btn-primary">Принять</button>
@@ -86,6 +85,4 @@
         <!-- /.row -->
     </section>
     <!-- /.content -->
-    <!-- /.content -->
-
 @endsection

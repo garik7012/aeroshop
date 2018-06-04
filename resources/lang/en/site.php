@@ -15,6 +15,7 @@ return [
         'name' => 'Full name',
         'message' => 'Your message',
         'send' => 'Send now',
-        'schedule' => 'Schedule'
+        'schedule' => 'Schedule',
+        'back' => 'Back'
     ]
 ];
