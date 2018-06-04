@@ -19,6 +19,7 @@
             </div>
         </div>
     </section>
+    @stack('sections')
     <!-- ========== FOOTER ========== -->
     @include('layouts._partials.footer')
     <!-- ============================ -->

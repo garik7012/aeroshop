@@ -440,14 +440,9 @@ a:hover, a:focus {
 section {
   position: relative;
   padding: 60px 0 35px;
-  background: white;
-  /* Old browsers */
-  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2IyYjJiMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-  background: linear-gradient(to bottom, #b5b5b5 0%, white 110px);
+  background: #e5e5e5;
+  background: linear-gradient(to bottom, #e5e5e5, #ffffff 110px);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5b5b5', endColorstr='#ffffff',GradientType=0 );
-  /* IE6-8 */
 }
 
 .ie9_all {
@@ -530,101 +525,6 @@ div#header_logo a {
   display: inline-block;
 }
 
-/*==============================
-  -- User functions buttons -- 
-==============================*/
-.header_user_info {
-  float: right;
-  position: relative;
-  list-style: none;
-  padding: 0;
-  top: 0;
-  margin: 0 2px 0 0;
-}
-
-.header_user_info > li {
-  margin-left: 15px;
-  float: right;
-}
-
-.header_user_info .login,
-.header_user_info .logoff {
-  background: #3499da;
-  float: right;
-  border-radius: 0 0 4px 4px;
-  color: #fff;
-  padding: 0 27px 0 26px;
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-text-shadow: 0 1px 0 #000;
-  -moz-text-shadow: 0 1px 0 #000;
-  text-shadow: 0 1px 0 #000;
-  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  position: relative;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-}
-
-.header_user_info .login:after,
-.header_user_info .logoff:after {
-  content: "\F023";
-  position: relative;
-  display: inline-block;
-  font-size: 24px;
-  color: #fff;
-  font-weight: 400;
-  font-family: "FontAwesome";
-  line-height: 36px;
-}
-
-.header_user_info .login:before,
-.header_user_info .logoff:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #16679b;
-  border-radius: 0 0 4px 4px;
-  -webkit-transform: scaleY(0);
-  transform: scaleY(0);
-  -webkit-transform-origin: 50% 0;
-  transform-origin: 50% 0;
-  -webkit-transition-property: transform;
-  -webkit-transition-property: -webkit-transform;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-.header_user_info .login:hover:before, .header_user_info .login:hover:focus:before, .header_user_info .login:hover:active:before,
-.header_user_info .logoff:hover:before,
-.header_user_info .logoff:hover:focus:before,
-.header_user_info .logoff:hover:active:before {
-  -webkit-transform: scaleY(1);
-  transform: scaleY(1);
-  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-}
-
-.header_user_info .logoff:after {
-  content: "\F13E";
-}
-
 .header_user_info a {
   float: left;
   display: inline-block;
@@ -638,48 +538,6 @@ div#header_logo a {
 .header_user_info a:hover,
 .header_user_info a.home {
   color: #fff;
-}
-
-/*==============================
-   -- Header EZ pages menu -- 
-==============================*/
-#ezpages {
-  float: right;
-  padding-top: 20px;
-}
-
-#ezpages .ez-menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border: 1px solid 1px solid #d1d1d1;
-  overflow: hidden;
-}
-
-#ezpages li {
-  float: left;
-  margin: 0;
-  border-left: 1px solid 1px solid #d1d1d1;
-}
-
-#ezpages li:first-child {
-  border: none;
-}
-
-#ezpages li a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #333;
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 18px;
-  background: #f5f5f5;
-  display: inline-block;
-  padding: 5px 8px;
-}
-
-#ezpages li a:hover {
-  background: #fbfbfb;
 }
 
 /*==============================
@@ -1231,6 +1089,16 @@ div#header_logo a {
 
 .main-page_heading {
   margin-top: 0;
+}
+
+#indexHomeBody .main-page_description {
+  padding-bottom: 30px;
+}
+
+#indexHomeBody .main-page_description h1 {
+  color: #2d2d2d;
+  font: 600 18px/30px "Open Sans", sans-serif;
+  text-transform: uppercase;
 }
 
 /*==============================

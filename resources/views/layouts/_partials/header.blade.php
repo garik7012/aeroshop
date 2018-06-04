@@ -16,8 +16,8 @@
                 </div>
                 <div class="col-xs-12 col-md-5 col-lg-5">
                     <div class="phone">
-                        <p><a href="tel:8002345679">(800) 234-5678</a></p>
-                        <span><a href="mailto:test@test.com">test@test.com</a></span>
+                        <p><a href="tel:+380972918658">+38(097) 291-86-58</a></p>
+                        <span><a href="mailto:inbox@aeroshop.com.ua">inbox@aeroshop.com.ua</a></span>
                     </div>
                 </div>
             </div>

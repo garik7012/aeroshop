@@ -11,7 +11,12 @@ Auth::routes();
 
 Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'middleware' => 'lang'], function () {
     Route::get('/test', 'PagesController@test');
+    //pages
     Route::get('/', 'PagesController@index')->name('index');
+    Route::get('/contact-us', 'PagesController@contactUs')->name('contact-us');
+    Route::get('/faq', 'PagesController@showFAQ')->name('faq');
+    Route::get('/delivery', 'PagesController@delivery')->name('delivery');
+    //products
     Route::get('/item/{url}', 'ProductController@showProduct')->name('product');
     Route::get('/category', 'ProductController@showAllCategories')->name('all-categories');
     Route::get('/category/{id}', 'ProductController@showCategory')->name('category');

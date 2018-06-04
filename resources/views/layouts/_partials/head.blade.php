@@ -2,12 +2,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @if (isset($page))
+    <meta name="keywords" content="{{$page->lang->keywords}}">
+    <meta name="description" content="{{$page->lang->seo_description}}">
+    @else
     <meta name="keywords" content="@yield('keywords')">
     <meta name="description" content="@yield('description')">
+    @endif
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    @if (isset($page))
+    <title>{{$page->lang->seo_title}}</title>
+    @else
     <title>@yield('title', 'AeroShop')</title>
+    @endif
     <!-- Fonts -->
     <link href="/css/fonts.css" rel="stylesheet" type="text/css">
 

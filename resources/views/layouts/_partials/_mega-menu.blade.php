@@ -40,13 +40,13 @@
                                     <span>@lang('g.articles')</span>
                                 </a>
                             </li>
-                            <li class="  ">
-                                <a href="#">
+                            <li>
+                                <a href="{{route('contact-us')}}">
                                     <span>@lang('g.contacts')</span>
                                 </a>
                             </li>
                             <li class=" last ">
-                                <a href="#">
+                                <a href="{{route('faq')}}">
                                     <span>FAQ</span>
                                 </a>
                             </li>
