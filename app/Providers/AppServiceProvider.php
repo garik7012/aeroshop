@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         if (!app()->runningInConsole()) {
-            $categories = Category::all();
+            $categories = Category::all()->where('is_active', 1);
             View::share(compact('categories'));
         }
     }

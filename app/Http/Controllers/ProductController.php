@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Page;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,8 @@ class ProductController extends Controller
     | This controller shows product, category, brand pages.
     |
     */
+
+    const ALL_CAT_URL = 'category';
 
     /**
      * show single product
@@ -36,9 +39,9 @@ class ProductController extends Controller
      * show all categories
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showAllCategories()
+    public function showAllCategories(Page $page)
     {
-        return view('front-side.category.all');
+        return view('front-side.category.all', ['page' => $page->where('url', self::ALL_CAT_URL)->first()]);
     }
 
     /**
@@ -47,7 +50,7 @@ class ProductController extends Controller
      * @param Category $categories
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showCategory($id, Category $categories, Product $product)
+    public function showCategory($id, Category $categories)
     {
         $category = $categories->findOrFail($id);
         if ($category->old_number) {

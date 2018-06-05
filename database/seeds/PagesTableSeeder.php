@@ -215,6 +215,22 @@ class PagesTableSeeder extends Seeder
                 'seo_title' => '',
                 'seo_description' => '',
                 'keywords' => '',
+            ],
+            [
+                'url' => 'brand',
+                'title' => 'Производители',
+                'description' => '',
+                'seo_title' => 'Производители Aeroshop',
+                'seo_description' => '',
+                'keywords' => '',
+            ],
+            [
+                'url' => 'category',
+                'title' => 'Список категорий',
+                'description' => '',
+                'seo_title' => 'Список категорий',
+                'seo_description' => '',
+                'keywords' => '',
             ]
         ];
     }

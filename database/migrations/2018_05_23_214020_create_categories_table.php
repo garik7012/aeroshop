@@ -20,6 +20,24 @@ class CreateCategoriesTable extends Migration
             $table->string('uk_title');
             $table->integer('parent_id')->default(0);
             $table->integer('old_number')->nullable();
+            $table->string('preview')->nullable();
+            $table->string('image')->nullable();
+            $table->boolean('is_active')->default(1);
+        });
+
+        Schema::create('category_lang', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('category_id');
+            $table->string('locale');
+            $table->text('description')->nullable();
+            $table->string('seo_title')->nullable();
+            $table->string('seo_description')->nullable();
+            $table->string('keywords')->nullable();
+
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');
         });
     }
 
@@ -30,6 +48,7 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('category_lang');
         Schema::dropIfExists('categories');
     }
 }

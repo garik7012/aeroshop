@@ -26,4 +26,11 @@ Route::group(['prefix' => 'admin-side'], function () {
         Route::get('/', 'Admin\ContactUsController@showAll')->name('all');
         Route::get('/delete/{id?}/', 'Admin\ContactUsController@deleteMessage')->name('delete');
     });
+    //categories
+    Route::group(['prefix' => 'categories', 'as' => 'admin.categories.'], function () {
+        Route::get('/', 'Admin\CategoriesController@index')->name('all');
+        Route::get('/{id}/{locale?}', 'Admin\CategoriesController@showCategory')->name('show');
+        Route::post('lang/{id}/{locale}', 'Admin\CategoriesController@updateLangCategory')->name('update-lang');
+        Route::post('/{id}', 'Admin\CategoriesController@updateCategory')->name('update');
+    });
 });

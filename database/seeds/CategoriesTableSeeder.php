@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Category;
+use App\Models\CategoryLang;
 
 class CategoriesTableSeeder extends Seeder
 {
@@ -16,26 +17,43 @@ class CategoriesTableSeeder extends Seeder
         $categories = $this->getCategories();
 
         foreach ($parentCategories as $id => $title) {
-            Category::firstOrCreate(
+            $category = Category::firstOrCreate(
                 ['id' => $id],
                 [
                     'en_title' => trim($title['en']),
                     'ru_title' => trim($title['ru']),
                     'uk_title' => trim($title['uk']),
+                    'image' => "/img/cat/big/{$id}.jpg",
+                    'is_active' => isset($title['not_active']) ? 0 : 1
                 ]
             );
+            foreach (['en', 'ru', 'uk'] as $lcl) {
+                CategoryLang::firstOrCreate(
+                    ['category_id' => $category->id, 'locale' => $lcl],
+                    ['seo_title' => $title[$lcl], 'description' => '']
+                );
+            }
         }
 
         foreach ($categories as $oldNumber => $titleAndId) {
-            Category::firstOrCreate(
+            $category =  Category::firstOrCreate(
                 ['old_number' => $oldNumber],
                 [
                     'en_title' => trim($titleAndId['en']),
                     'ru_title' => trim($titleAndId['ru']),
                     'uk_title' => trim($titleAndId['uk']),
-                    'parent_id' => $titleAndId['parent_id']
+                    'parent_id' => $titleAndId['parent_id'],
+                    'image' => "/img/cat/big/{$oldNumber}.jpg",
+                    'preview' => "/img/cat/small/{$oldNumber}.jpg",
+                    'is_active' => isset($titleAndId['not_active']) ? 0 : 1
                 ]
             );
+            foreach (['en', 'ru', 'uk'] as $lcl) {
+                CategoryLang::firstOrCreate(
+                    ['category_id' => $category->id, 'locale' => $lcl],
+                    ['seo_title' => $titleAndId[$lcl], 'description' => '']
+                );
+            }
         }
     }
 
@@ -52,9 +70,9 @@ class CategoriesTableSeeder extends Seeder
                 'en' => 'Ready-made airbrush kits',
             ],
             2 => [
-                'ru' => 'Аэрографы и запчасти H&S/Hansa',
-                'uk' => 'Аерографи і запчастини H&S/Hansa',
-                'en' => 'Airbrushes and spare parts H&S/Hansa',
+                'ru' => 'Дополнительное оборудование и аксессуары для аэрографии',
+                'uk' => 'Додаткове обладнання та аксесуари для аерографії',
+                'en' => 'Additional equipment and accessories for airbrushing'
             ],
             3 => [
                 'ru' => 'Аэрографы и компрессоры Fengda',
@@ -66,30 +84,32 @@ class CategoriesTableSeeder extends Seeder
                 'uk' => 'Товари для аерографії на нігтях (nail art)',
                 'en' => 'Goods for airbrushing on nails (nail art)',
             ],
-            5 => [
-                'ru' => 'Товары для аэрографии на кондитерских изделиях',
-                'uk' => 'Товари для аерографії на кондитерських виробах',
-                'en' => 'Goods for airbrushing confectionery products',
-            ],
             6 => [
                 'ru' => 'Товары для аэрографии визажистов, гримеров и др.',
                 'uk' => 'Товари для аерографії візажистів, гримерів і ін.',
                 'en' => 'Goods for aerography of make-up artists, make-up artists, etc.',
             ],
+            5 => [
+                'ru' => 'Товары для аэрографии на кондитерских изделиях',
+                'uk' => 'Товари для аерографії на кондитерських виробах',
+                'en' => 'Goods for airbrushing confectionery products',
+            ],
             7 => [
                 'ru' => 'Краски для аэрографии Createx и Wicked Colors',
                 'uk' => 'Фарби для аерографії Createx і Wicked Colors',
                 'en' => 'Paints for airbrushing Createx and Wicked Colors',
+                'not_active' => true
             ],
             8 => [
                 'ru' => 'Краски для аэрографии Auto Air Colors',
                 'uk' => 'Фарби для аерографії Auto Air Colors',
-                'en' => 'Paints for airbrushing Auto Air Colors'
+                'en' => 'Paints for airbrushing Auto Air Colors',
+                'not_active' => true
             ],
             9 => [
-                'ru' => 'Дополнительное оборудование и аксессуары для аэрографии',
-                'uk' => 'Додаткове обладнання та аксесуари для аерографії',
-                'en' => 'Additional equipment and accessories for airbrushing'
+                'ru' => 'Аэрографы и запчасти H&S/Hansa',
+                'uk' => 'Аерографи і запчастини H&S/Hansa',
+                'en' => 'Airbrushes and spare parts H&S/Hansa',
             ]
         ];
     }
@@ -105,55 +125,64 @@ class CategoriesTableSeeder extends Seeder
                 'ru' => 'Наборы Auto Air Color',
                 'uk' => 'Набори Auto Air Color',
                 'en' => 'Auto Air Color Kits',
-                'parent_id' => 8
+                'parent_id' => 8,
+                'not_active' => true
             ],
             4428994 => [
                 'ru' => 'Наборы Wicked Colors',
                 'uk' => 'Набори Wicked Colors',
                 'en' => 'Sets of Wicked Colors',
-                'parent_id' => 7
+                'parent_id' => 7,
+                'not_active' => true
             ],
             4730230 => [
                 'ru' => 'Auto Air добавки и грунт-подложки',
                 'uk' => 'Auto Air добавки і грунт-підкладки',
                 'en' => 'Auto Air Additives and Primer-Substrates',
-                'parent_id' => 8
+                'parent_id' => 8,
+                'not_active' => true
             ],
             4424893 => [
                 'ru' => 'Candy Pigment',
                 'uk' => 'Candy Pigment',
                 'en' => 'Candy Pigment',
-                'parent_id' => 8
+                'parent_id' => 8,
+                'not_active' => true
             ],
             4432006 => [
                 'ru' => 'Transparent',
                 'uk' => 'Transparent',
                 'en' => 'Transparent',
-                'parent_id' => 8
+                'parent_id' => 8,
+                'not_active' => true
             ],
             4442130 => [
                 'ru' => 'Semi Opaque',
                 'uk' => 'Semi Opaque',
                 'en' => 'Semi Opaque',
-                'parent_id' => 8
+                'parent_id' => 8,
+                'not_active' => true
             ],
             4447604 => [
                 'ru' => 'Wicked Colors ',
                 'uk' => 'Wicked Colors',
                 'en' => 'Wicked Colors',
-                'parent_id' => 7
+                'parent_id' => 7,
+                'not_active' => true
             ],
             4447758 => [
                 'ru' => 'Wicked Fluorescent',
                 'uk' => 'Wicked Fluorescent',
                 'en' => 'Wicked Fluorescent',
-                'parent_id' => 7
+                'parent_id' => 7,
+                'not_active' => true
             ],
             4452289 => [
                 'ru' => 'Краски для аэрографии Createx Illustration Colors (США)',
                 'uk' => 'Фарби для аерографії Createx Illustration Colors (США)',
                 'en' => 'Paints for airbrushing Createx Illustration Colors (USA)',
-                'parent_id' => 0
+                'parent_id' => 0,
+                'not_active' => true
             ],
             4611421 => [
                 'ru' => ' Аэрографы',
@@ -171,13 +200,13 @@ class CategoriesTableSeeder extends Seeder
                 'ru' => 'Подставки для аэрографов',
                 'uk' => 'Підставки для аерографів',
                 'en' => 'Stands for airbrushing',
-                'parent_id' => 9
+                'parent_id' => 2
             ],
             6682476 => [
                 'ru' => 'Емкости и бачки для аэрографов',
                 'uk' => 'Ємності і бачки для аерографів',
                 'en' => 'Tanks and tanks for airbrushing',
-                'parent_id' => 9
+                'parent_id' => 2
             ],
             4831323 => [
                 'ru' => 'Краски для аэрографии Airbrush Sector (Украина)',
@@ -189,25 +218,27 @@ class CategoriesTableSeeder extends Seeder
                 'ru' => 'Pearl and Metallic',
                 'uk' => 'Pearl and Metallic',
                 'en' => 'Pearl and Metallic',
-                'parent_id' => 7
+                'parent_id' => 7,
+                'not_active' => true
             ],
             4935903 => [
                 'ru' => 'Wicked Detail',
                 'uk' => 'Wicked Detail',
                 'en' => 'Wicked Detail',
-                'parent_id' => 7
+                'parent_id' => 7,
+                'not_active' => true
             ],
             14689179 => [
                 'ru' => 'Приспособления для очистки аэрографа',
                 'uk' => 'Пристосування для очищення аерографа',
                 'en' => 'Airbrush cleaners',
-                'parent_id' => 9
+                'parent_id' => 2
             ],
             6682450 => [
                 'ru' => 'Шланги',
                 'uk' => 'Шланги',
                 'en' => 'Hoses',
-                'parent_id' => 9
+                'parent_id' => 2
             ],
             18357952 => [
                 'ru' => 'Основные цвета',
@@ -219,13 +250,13 @@ class CategoriesTableSeeder extends Seeder
                 'ru' => 'Переходники, разветвители',
                 'uk' => 'Перехідники, розгалужувачі',
                 'en' => 'Adapters, splitters',
-                'parent_id' => 9
+                'parent_id' => 2
             ],
             6682537 => [
                 'ru' => 'Запчасти для аэрографа',
                 'uk' => 'Запчастини для аерографа',
                 'en' => 'Spare parts for the airbrush',
-                'parent_id' => 9
+                'parent_id' => 2
             ],
             8674005 => [
                 'ru' => 'Товары для моделизма',
@@ -255,19 +286,20 @@ class CategoriesTableSeeder extends Seeder
                 'ru' => 'Аэрографы Harder & Steenbeck ',
                 'uk' => 'Аерографи Harder & Steenbeck',
                 'en' => 'Airbrushes Harder & Steenbeck',
-                'parent_id' => 2
+                'parent_id' => 9
             ],
             12771425 => [
                 'ru' => 'Запчасти для аэрографов Harder & Steenbeck ',
                 'uk' => 'Запчастини для аерографів Harder & Steenbeck',
                 'en' => 'Spare parts for airbrushes Harder & Steenbeck',
-                'parent_id' => 2
+                'parent_id' => 9
             ],
             19403345 => [
                 'ru' => 'Краски для аэрографии Wicked Colors (на розлив)',
                 'uk' => 'Фарби для аерографії Wicked Colors (на розлив)',
                 'en' => 'Paints for airbrushing Wicked Colors (for bottling)',
-                'parent_id' => 7
+                'parent_id' => 7,
+                'not_active' => true
             ],
             7295982 => [
                 'ru' => 'Курсы аэрографии, мастер-классы ',
@@ -291,13 +323,13 @@ class CategoriesTableSeeder extends Seeder
                 'ru' => 'Краска для боди-арта Make Air',
                 'uk' => 'Фарба для боді-арту Make Air',
                 'en' => 'Paint for body art Make Air',
-                'parent_id' => 6
+                'parent_id' => 5
             ],
             9823296 => [
                 'ru' => 'Трафареты для аэрографии (боди-арта, росписи на авто и др.)',
                 'uk' => 'Трафарети для аерографії (боді-арту, розпису на авто та ін.)',
                 'en' => 'Stencils for airbrushing (body art, painting on cars, etc.)',
-                'parent_id' => 6
+                'parent_id' => 5
             ],
             11319292 => [
                 'ru' => 'Аэрографы и компрессоры SPARMAX',
@@ -381,31 +413,32 @@ class CategoriesTableSeeder extends Seeder
                 'ru' => 'Аэрографы кондитерские и аксессуары',
                 'uk' => 'Аерографи кондитерські та аксесуари',
                 'en' => 'Aerografy confectionery and accessories',
-                'parent_id' => 5
+                'parent_id' => 6
             ],
             28454743 => [
                 'ru' => 'Готовые наборы для кондитеров',
                 'uk' => 'Готові набори для кондитерів',
                 'en' => 'Ready-made sets for confectioners',
-                'parent_id' => 5
+                'parent_id' => 6
             ],
             17511314 => [
                 'ru' => 'Аквагрим Senjo-Color',
                 'uk' => 'Аквагрим Senjo-Color',
                 'en' => 'Aquagrim Senjo-Color',
-                'parent_id' => 6
+                'parent_id' => 5
             ],
             29916460 => [
                 'ru' => 'Краски для аэрографии Createx Colors (США)',
                 'uk' => 'Фарби для аерографії Createx Colors (США)',
                 'en' => 'Paints for airbrushing Createx Colors (USA)',
-                'parent_id' => 7
+                'parent_id' => 7,
+                'not_active' => true
             ],
             30045904 => [
                 'ru' => 'Чернила для временного тату Senjo Color',
                 'uk' => 'Чорнило для тимчасового тату Senjo Color',
                 'en' => 'Ink for Temporary Tattoo Senjo Color',
-                'parent_id' => 6
+                'parent_id' => 5
             ],
         ];
     }

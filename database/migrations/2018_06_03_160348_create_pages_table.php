@@ -23,11 +23,11 @@ class CreatePagesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('page_id');
             $table->string('locale');
-            $table->string('title')->default('');
-            $table->text('description');
-            $table->string('seo_title')->default('');
-            $table->string('seo_description')->default('');
-            $table->string('keywords', 750)->default('');
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('seo_title')->nullable();
+            $table->string('seo_description')->nullable();
+            $table->string('keywords', 750)->nullable();
 
             $table->foreign('page_id')
                 ->references('id')

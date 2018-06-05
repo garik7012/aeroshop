@@ -33,6 +33,7 @@ mix.js(config.assets + "/js/list-greed.js", 'www/js/list-greed.js').version();
 
 mix.copy('node_modules/fancybox/dist/img', config.public + '/img', false);
 mix.copy('node_modules/trumbowyg/dist/ui/icons.svg', config.public + '/img/icons.svg', false);
+mix.copy('node_modules/datatables/media/images', config.public + '/images', false);
 
 mix.sass('resources/assets/sass/app.scss', 'www/css')
     .sass('resources/assets/sass/admin.scss', 'www/css')
