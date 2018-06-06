@@ -77,7 +77,7 @@
                             <h4>Изображения категории</h4>
                             <hr>
                             <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
-                                <a href="{{$category->image}}" target="_blank"><img src="{{$category->image}}" alt="" width="400"></a>
+                                <a href="{{asset($category->image)}}" target="_blank"><img src="{{asset($category->image)}}" alt="" width="400"></a>
                                 <label for="exampleInputFile">Большое изображение при открытии категории
                                     <input type="file" id="exampleInputFile" name="image" class="form-control-file">
                                     jpeg, png, bmp, gif или svg
@@ -91,7 +91,7 @@
                             @if ($category->parent_id)
                                 <hr>
                             <div class="form-group{{ $errors->has('preview') ? ' has-error' : '' }}">
-                                <img src="{{$category->preview}}" alt="" width="200">
+                                <img src="{{asset($category->preview)}}" alt="" width="200">
                                 <label for="exampleInputFile">Превью на странице главной категории
                                     <input type="file" id="exampleInputFile" name="preview" class="form-control-file">
                                     jpeg, png, bmp, gif или svg

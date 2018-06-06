@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Exception;
+use Storage;
 
 class CategoryService extends BaseService
 {
@@ -23,7 +24,20 @@ class CategoryService extends BaseService
                 throw new Exception('Category was not saved');
             }
             if ($request->hasFile('image')) {
-                //toDo store image
+                $path = $request->image->store('img/cat/big', 'public');
+                if ($path) {
+                    Storage::disk('public')->delete($category->image);
+                    $category->image = $path;
+                    $category->save();
+                }
+            }
+            if ($request->hasFile('preview')) {
+                $path = $request->preview->store('img/cat/small', 'public');
+                if ($path) {
+                    Storage::disk('public')->delete($category->preview);
+                    $category->preview = $path;
+                    $category->save();
+                }
             }
         } catch (Exception $e) {
             return $this->rollback($e, 'Category update failed');

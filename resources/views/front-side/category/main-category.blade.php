@@ -16,12 +16,14 @@
     <h1 class="centerBoxHeading">{{$category[_lt()]}}</h1>
     <div class="content_scene_cat_bg">
         <div id="category-image" class="categoryImg">
-            <img src="{{$category->image}}" class="img-responsive" alt="" width="1040" height="400">
-            <div class="cat_desc">
-                <div class="catDescContent">
-                    {{$category->lang->description}}
+            <img src="{{asset($category->image)}}" class="img-responsive" alt="" width="1040" height="400">
+            @if ($category->lang->description)
+                <div class="cat_desc">
+                    <div class="catDescContent">
+                        {{$category->lang->description}}
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
     <div id="subcategories">
@@ -31,7 +33,7 @@
             <li class="categoryListBoxContents col-md-3 col-sm-6 col-xs-12">
                 <a href="{{route('category', $categ->id)}}">
                     <div data-match-height="catRow" class="subcategory-image " style="height: 116px;">
-                        <img src="{{$categ->preview}}" class="img-responsive" alt="{{$categ[_lt()]}}">
+                        <img src="{{asset($categ->preview)}}" class="img-responsive" alt="{{$categ[_lt()]}}">
                     </div>
                     <span>{{$categ[_lt()]}}</span>
                 </a>

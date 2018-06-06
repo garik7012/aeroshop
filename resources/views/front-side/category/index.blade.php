@@ -19,12 +19,14 @@
         <h1 class="centerBoxHeading">{{$category[_lt()]}}</h1>
         <div class="content_scene_cat_bg">
             <div id="category-image" class="categoryImg">
-                <img src="{{$category->image}}" class="img-responsive" alt="">
+                <img src="{{asset($category->image)}}" class="img-responsive" alt="">
+                @if ($category->lang->description)
                 <div class="cat_desc">
                     <div class="catDescContent">
                         {{$category->lang->description}}
                     </div>
                 </div>
+                @endif
             </div>
         </div>
         @include('layouts._partials.product-list')

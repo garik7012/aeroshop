@@ -29,8 +29,8 @@ class CategoryRequest extends Request
             'uk_title' => 'required|max:250|min:3',
             'is_active' => 'boolean',
             'parent_id' => 'numeric',
-            'image' => 'image',
-            'preview' => 'image'
+            'image' => 'image|max:2000',
+            'preview' => 'image|max:500'
         ];
     }
 }
