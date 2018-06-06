@@ -38,7 +38,7 @@
                             </div>
                             <div class="form-group contact-group-area col-xs-12 col-sm-7 {{$errors->has('message') ? ' has-error' : ''}}">
                                 <label for="enquiry">@lang('site.contact.message'):</label>
-                                <textarea name="message" cols="20" rows="7" id="enquiry" class="form-control">{{old('message')}}"</textarea>
+                                <textarea name="message" cols="20" rows="7" id="enquiry" class="form-control">{{old('message')}}</textarea>
                                 @if ($errors->has('message')) <span class="help-block text-danger"><strong>{{ $errors->first('message') }}</strong></span>@endif
                             </div>
                         </div>

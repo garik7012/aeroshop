@@ -29,7 +29,7 @@
                                 <th>Адрес дост</th>
                                 <th>Подтвержд</th>
                                 <th>Выполнен</th>
-                                <th>Actions</th>
+                                <th width="65">Actions</th>
                             </tr>
                             </thead>
                             <tbody>

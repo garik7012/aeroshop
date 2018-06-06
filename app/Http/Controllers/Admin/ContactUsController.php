@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\ContactUsRequest;
 use App\Models\Contact;
 use App\Services\ContactService;
 use Illuminate\Http\Request;
@@ -22,13 +21,18 @@ class ContactUsController extends Controller
 
     /**
      * store message from contact us form
-     * @param ContactUsRequest $request
+     * @param Request $request
      * @param ContactService $contactService
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function storeContact(ContactUsRequest $request, ContactService $contactService)
+    public function storeContact(Request $request, ContactService $contactService)
     {
+        $request->validate([
+            'name' => 'required|max:250|min:3',
+            'email' => 'required|email|max:250',
+            'message' => 'required|min:5|max:5000',
+        ]);
         if ($contactService->storeContact($request)) {
             return back()->with('success', 'Ваше сообщение отправленно');
         } else {

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\OrderRequest;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Services\OrderService;
@@ -29,12 +28,18 @@ class OrderController extends Controller
 
     /**
      * store order when click next
-     * @param OrderRequest $request
      * @param OrderService $service
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function storeOrder(OrderRequest $request, OrderService $service)
+    public function storeOrder(Request $request, OrderService $service)
     {
+        $request->validate([
+            'name' => 'required|max:250|min:3',
+            'email' => 'required|email',
+            'phone' => 'required|min:5|max:50',
+            'delivery_option' => 'in:1,2',
+            'delivery' => 'required'
+        ]);
         $order = Order::find(session('order')['id']) ?? new Order();
 
         if ($service->storeOrder($order, $request)) {
@@ -95,20 +100,21 @@ class OrderController extends Controller
         ];
         $txt = '';
         foreach ($arr as $key => $value) {
-            $txt .= "<b>".$key."</b>: ".$value."%0A";
+            $txt .= urlencode("<b>".$key."</b>: ".$value) . "%0A";
         }
         foreach ($order->products as $product) {
-            $txt .= '  ' . $product->getProduct->ru_title . ' - ' .
-                $product->quantity . 'x' . $product->price . ' ' . $product->currency ."%0A";
+            $txt .= urlencode('  ' . $product->getProduct->ru_title . ' - ' .
+                $product->quantity . 'x' . $product->price . ' ' . $product->currency) ."%0A";
         }
         $txt .= '%0A';
-        $txt .= $order->without_call ? "<b>Без звонка</b> %0A": '';
-        $txt .= $order->delivery_option == 1 ? "<b>Курьером по Киеву</b> %0A": "<b>Новой почтой</b> %0A";
-        $txt .= "<b>Язык общения</b>: " . app()->getLocale();
+        $txt .= $order->without_call ? "urlencode(<b>Без звонка</b>)" . "%0A": '';
+        $txt .= $order->delivery_option == 1 ? urlencode("<b>Курьером по Киеву</b>"): urlencode("<b>Новой почтой</b>");
+        $txt .= '%0A';
+        $txt .= urlencode("<b>Язык общения</b>: ") . app()->getLocale();
 
         $token = env('TG_BOT');
         $chat_id = env('TG_CHAT');
-        $fp=fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
+        fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
         mail('inbox@aeroshop.com.ua', 'заказ', $txt);
     }
 }
