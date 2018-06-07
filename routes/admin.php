@@ -33,4 +33,17 @@ Route::group(['prefix' => 'admin-side'], function () {
         Route::post('lang/{id}/{locale}', 'Admin\CategoriesController@updateLangCategory')->name('update-lang');
         Route::post('/{id}', 'Admin\CategoriesController@updateCategory')->name('update');
     });
+    //products
+    Route::group(['prefix' => 'products', 'as' => 'admin.products.'], function () {
+        Route::get('/', 'Admin\ProductsController@index')->name('all');
+        Route::get('/images/{id}', 'Admin\ProductsController@showImages')->name('images');
+        Route::get('/image-main/{product_id}/{image_id}', 'Admin\ProductsController@makeImageMain')->name('image-main');
+        Route::get('/image-delete/{product_id}/{image_id?}', 'Admin\ProductsController@deleteImage')->name('image-delete');
+        Route::post('/images/{id}', 'Admin\ProductsController@addImage')->name('add-image');
+        Route::get('delete-prop/{id}/{prop_id?}', 'Admin\ProductsController@deleteProperty')->name('delete-property');
+        Route::get('/{id}/{locale}', 'Admin\ProductsController@showProduct')->name('show');
+        Route::post('/{id}', 'Admin\ProductsController@updateProduct')->name('update');
+        Route::post('lang/{id}/{locale}', 'Admin\ProductsController@updateProductLang')->name('update-lang');
+        Route::post('add-prop/{id}', 'Admin\ProductsController@addProperty')->name('add-property');
+    });
 });

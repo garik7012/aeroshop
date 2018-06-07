@@ -6,7 +6,7 @@
             <div data-match-height="items-e" class="product-col">
                 <div class="img">
                     <a href="{{route('product', ['url' => $related->url])}}">
-                        <img src="{{explode(', ', $related->images)[0]}}" class="img-responsive" alt="image">
+                        <img src="{{asset($related->mainImage->url)}}" class="img-responsive" alt="image">
                     </a>
                 </div>
                 <div class="prod-info">

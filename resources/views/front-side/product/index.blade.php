@@ -1,7 +1,7 @@
 @extends('layouts.main')
-@section('title', $product[_lt()])
-@section('keywords', $product->pageLang->keywords)
-@section('description', $product->pageLang->seo_description ? $product->pageLang->seo_description: substr(strip_tags($product->pageLang->description), 0, 255))
+@section('title', $product->lang->title ?: $product[_lt()])
+@section('keywords', $product->lang->keywords)
+@section('description', $product->lang->seo_description ? $product->lang->seo_description: substr(strip_tags($product->lang->description), 0, 255))
 @section('breadcrumbs')
     <div class="col-xs-12">
         <div id="navBreadCrumb" class="breadcrumb">  <a class="home" href="{{route('index')}}"></a>
@@ -24,18 +24,18 @@
                          <!--bof Main Product Image -->
                         <div id="productMainImage" class="pull-left image-block">
                             <span class="image">
-                                <a href="{{explode(', ',  $product->images)[0]}}" rel="group1">
-                                    <img src="{{explode(', ',  $product->images)[0]}}" class="img-responsive fancybox" alt="g" >
+                                <a href="{{productImg($product)}}" rel="group1">
+                                    <img src="{{productImg($product)}}" class="img-responsive fancybox" alt="g" >
                                 </a>
                             </span>
                         </div>
                         <!--eof Main Product Image-->
                         <!--bof Additional Product Images -->
                         <ul id="productAdditionalImages">
-                            @foreach (explode(', ',  $product->images) as $image)
+                            @foreach ($product->images as $image)
                             <li class="additionalImages centeredContent back" style="width:20%;">
-                                <a href="{{$image}}" @if($loop->index)rel="group1"@endif>
-                                    <img src="{{$image}}" class="img-responsive" alt="" width="114" height="114">
+                                <a href="/{{$image->url}}" @if($loop->index)rel="group1"@endif>
+                                    <img src="/{{$image->url}}" class="img-responsive" alt="" width="114" height="114">
                                 </a>
                             </li>
                             @endforeach
@@ -44,11 +44,10 @@
                         <div class="video_desc">
                             <div class="row">
                                 <!--bof  -->
-                                @if (false)
-                                    <div id="productYouTube" class="col-xs-12 col-sm-12">
-                                        <iframe src="https://www.youtube-nocookie.com/embed/mZ5Gw7rhYkc?rel=0&amp;showinfo=0&amp;fs=0"
-                                                allowfullscreen=""></iframe>
-                                    </div>
+                            @if ($product->youtube)
+                                <div id="productYouTube" class="col-xs-12 col-sm-12">
+                                    {!! $product->youtube !!}
+                                </div>
                             @endif
                             <!--eof YouTube -->
                             </div>
@@ -59,7 +58,7 @@
                         <h3 class="sub_title">{{$product->availability[_lt()]}}</h3>
                         <!--bof Product description -->
                         <div id="productDescription" class="description biggerText col-sm-12 col-xs-12 col-sm-12 ">
-                            {!! ($product->pageLang->description) !!}
+                            {!! ($product->lang->description) !!}
                         </div>
                         <!--eof Product description -->
                         <!--bof Product details list  -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\ProductPageLang;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Session;
@@ -20,7 +21,7 @@ class PagesController extends Controller
      */
     public function index(Product $product, Page $page)
     {
-        $products = $product->orderBy('is_featured')->limit(8)->get();
+        $products = $product->where('is_active', 1)->orderBy('is_featured', 'desc')->limit(8)->get();
         $locale = \App::getLocale();
         $page = $page->where('url', self::INDEX_URL)->first();
 
@@ -51,6 +52,7 @@ class PagesController extends Controller
 
     public function test()
     {
+        dd(ProductPageLang::where('locale', 'ru')->where('description', 'like', '%' . 'www.youtube.com/' . '%')->pluck('description', 'id')->toArray());
         return view('front-side.cart.successful', ['id' => 4]);
     }
 }

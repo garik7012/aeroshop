@@ -32,7 +32,6 @@ class ProductsSeeder extends Seeder
                 $newProduct->ru_title = $productTitles[$product[20]]['ru'];
                 $newProduct->en_title = $productTitles[$product[20]]['en'];
                 $newProduct->uk_title = $productTitles[$product[20]]['uk'];
-                $newProduct->images = str_replace('https://images.ua.prom.st', '/old_img', $product[11]);
                 $newProduct->price = $product[5];
                 $newProduct->currency = $product[6];
                 $newProduct->brand_id = @Brand::where('title', $product[24])->first()->id;
@@ -43,6 +42,7 @@ class ProductsSeeder extends Seeder
                 $newProduct->save();
 
                 $this->productPageLangSeed($newProduct->id, $product);
+                $this->productImagesSeed($newProduct->id, $product[11]);
                 $this->productLangPropertiesSeed($newProduct->id, $product, $units);
             }
 
@@ -95,6 +95,25 @@ class ProductsSeeder extends Seeder
             }
             $productProperty->unit_id = array_search($product[$i+1], $units) ?: '';
             $productProperty->save();
+        }
+    }
+
+    /**
+     * product images seed
+     * @param $productId
+     * @param $imagesStr
+     */
+    protected function productImagesSeed($productId, $imagesStr)
+    {
+        $imagesArr = explode(', ', str_replace('https://images.ua.prom.st', 'old_img', $imagesStr));
+        foreach ($imagesArr as $index => $image) {
+            $productImage = new \App\Models\ProductImage();
+            $productImage->url = $image;
+            $productImage->product_id = $productId;
+            if ($index == 0) {
+                $productImage->is_main = 1;
+            }
+            $productImage->save();
         }
     }
 

@@ -20,9 +20,9 @@ class CreateProductsTable extends Migration
             $table->string('ru_title');
             $table->string('en_title');
             $table->string('uk_title');
-            $table->string('images', 750);
-            $table->string('price');
-            $table->string('old_price')->nullable();
+            $table->string('youtube')->nullable();
+            $table->integer('price');
+            $table->integer('old_price')->nullable();
             $table->string('currency')->default('UAH');
             $table->integer('brand_id')->nullable();
             $table->integer('category_id')->default(1);
@@ -31,7 +31,6 @@ class CreateProductsTable extends Migration
             $table->integer('availability_id')->default(1);
             $table->boolean('is_active')->default(1);
             $table->boolean('is_featured')->default(0);
-            $table->timestamps();
         });
 
         Schema::create('product_lang_properties', function (Blueprint $table) {
@@ -63,6 +62,18 @@ class CreateProductsTable extends Migration
                 ->on('products')
                 ->onDelete('cascade');
         });
+
+        Schema::create('product_images', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('product_id');
+            $table->string('url');
+            $table->boolean('is_main')->default(0);
+
+            $table->foreign('product_id')
+                ->references('id')
+                ->on('products')
+                ->onDelete('cascade');
+        });
     }
 
     /**
@@ -74,6 +85,7 @@ class CreateProductsTable extends Migration
     {
         Schema::dropIfExists('product_lang_properties');
         Schema::dropIfExists('product_page_lang');
+        Schema::dropIfExists('product_images');
         Schema::dropIfExists('products');
     }
 }

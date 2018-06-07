@@ -10,7 +10,7 @@ if (! function_exists('_lt')) {
 if (! function_exists('productImg')) {
     function productImg($product)
     {
-        return explode(', ', $product->images)[0];
+        return asset($product->mainImage->url);
     }
 }
 

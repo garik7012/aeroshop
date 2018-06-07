@@ -49,6 +49,29 @@ app.General = (function() {
     }
 }());
 
+app.Product = (function () {
+    const initDataTable = function () {
+        $(document).ready(function () {
+            var table = $('#asyncProductTable').DataTable({
+            });
+
+            $('#categoryFilterSelect').on('change select', function () {
+                table.column(2).search($(this).val()).draw();
+            });
+            $('#brandFilterSelect').on('change select', function () {
+                table.column(3).search($(this).val()).draw();
+            });
+            $('#avaiabilityFilterSelect').on('change select', function () {
+                table.column(4).search($(this).val(), false, false, false).draw();
+            });
+        });
+    };
+
+    return {
+        initDataTable: initDataTable
+    }
+}());
+
 if (typeof window.app === 'undefined') {
     window.app = app;
 }

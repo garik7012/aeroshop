@@ -6,7 +6,7 @@
             <div class="product-col" data-match-height="featured">
                 <h5><a class="product-name name" href="#">{{$product[$locale . '_title']}} ({{$product->category[$locale . '_title']}})</a></h5>
                 <div class="img">
-                    <a href="{{route('product', $product->url)}}"><img src="{{explode(', ', $product->images)[0]}}" class="img-responsive" alt="{{$product[_lt()]}}" width="200" height="200"></a>
+                    <a href="{{route('product', $product->url)}}"><img src="{{asset($product->mainImage->url)}}" class="img-responsive" alt="{{$product[_lt()]}}" width="200" height="200"></a>
                     <div class="price">
                         <strong><span class="productSalePrice">{{$product->price}} {{$product->currency}}</span></strong>
                     </div>

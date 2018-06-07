@@ -21,15 +21,15 @@
                     <li class="col-xs-12 col-sm-6 col-md-3">
                         <div class="product-col" data-match-height="featured">
                             <div class="img">
-                                <img src="{{explode(', ', $product->images)[0]}}" class="img-responsive" alt="product image">
+                                <img src="{{asset($product->mainImage->url)}}" class="img-responsive" alt="product image">
                             </div>
                             <div class="prod-info">
                                 <h5 itemprop="name">
                                     <a class="" href="{{route('product', $product->url)}}">{{$product[_lt()]}}</a>
                                 </h5>
                                 <div itemprop="description" class="text">
-                                    <span class="grid-desc">{!! substr(strip_tags($product->pageLang->description), 0, 255) !!}</span>
-                                    <span class="list-desc" style="display: none;">{!!  preg_replace('/<iframe.*?\/iframe>/i','', $product->pageLang->description) !!}</span>
+                                    <span class="grid-desc">{!! substr(strip_tags($product->lang->description), 0, 255) !!}</span>
+                                    <span class="list-desc" style="display: none;">{!!  preg_replace('/<iframe.*?\/iframe>/i','', $product->lang->description) !!}</span>
                                 </div>
                                 <div class="product-buttons">
                                     <div class="content_price">
