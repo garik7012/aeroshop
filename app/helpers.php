@@ -14,6 +14,20 @@ if (! function_exists('productImg')) {
     }
 }
 
+if (! function_exists('getPathWithoutLang')) {
+    function getPathWithoutLang()
+    {
+        $path = Request::path();
+        if (app()->getLocale() != 'ru') {
+            $path = explode('/', $path);
+            unset($path[0]);
+            $path = implode('/', $path);
+        }
+
+        return $path;
+    }
+}
+
 if (!function_exists('is_route_active')) {
     /**
      * return 'active' if current route name has $mask

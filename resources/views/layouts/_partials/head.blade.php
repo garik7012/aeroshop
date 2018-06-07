@@ -16,6 +16,11 @@
     @else
     <title>@yield('title', 'AeroShop')</title>
     @endif
+    <!-- Alternate -->
+    <link rel="alternate" hreflang="ru" href="{{url(getPathWithoutLang())}}" />
+    <link rel="alternate" hreflang="uk" href="{{url('uk/' . getPathWithoutLang())}}" />
+    <link rel="alternate" hreflang="en" href="{{url('en/' . getPathWithoutLang())}}" />
+
     <!-- Fonts -->
     <link href="/css/fonts.css" rel="stylesheet" type="text/css">
 
