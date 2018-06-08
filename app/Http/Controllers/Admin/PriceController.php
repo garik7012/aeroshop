@@ -1,72 +1,57 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Page;
-use App\Models\ProductPageLang;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Product;
-use Session;
+use Bukashk0zzz\YmlGenerator\Model\Offer\OfferParam;
+use Bukashk0zzz\YmlGenerator\Model\Offer\OfferSimple;
+use Bukashk0zzz\YmlGenerator\Model\Category;
+use Bukashk0zzz\YmlGenerator\Model\Currency;
+use Bukashk0zzz\YmlGenerator\Model\Delivery;
+use Bukashk0zzz\YmlGenerator\Model\ShopInfo;
+use Bukashk0zzz\YmlGenerator\Settings;
+use Bukashk0zzz\YmlGenerator\Generator;
 
-class PagesController extends Controller
+class PriceController extends Controller
 {
-    const INDEX_URL = '/';
-    const CONTACTS_URL = 'contact-us';
-    const FAQ_URL = 'faq';
-    const DELIVERY_URL = 'delivery';
+    const PRICE_PATH = 'price/AeroshopYMLPrice.xml';
 
     /**
-     * show index page
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(Product $product, Page $page)
+    public function index()
     {
-        $products = $product->where('is_active', 1)->orderBy('is_featured', 'desc')->limit(8)->get();
-        $locale = \App::getLocale();
-        $page = $page->where('url', self::INDEX_URL)->first();
-
-
-        return view('index', compact('products', 'locale', 'page'));
+        return view('admin.price', ['pricePath' => self::PRICE_PATH]);
     }
 
-    public function contactUs(Page $page)
+    public function generate()
     {
-        $page = $page->where('url', self::CONTACTS_URL)->first();
-
-        return view('front-side.contact-us', compact('page'));
+        if ($this->generateYML()) {
+            return back()->with('success', 'Прайс успешно обновлен');
+        } else {
+            return back()->with('danger', 'Не удалось обновить прайс');
+        }
     }
 
-    public function showFAQ(Page $page)
+    private function generateYML()
     {
-        $page = $page->where('url', self::FAQ_URL)->first();
-
-        return view('front-side.faq', compact('page'));
-    }
-
-    public function delivery(Page $page)
-    {
-        $page = $page->where('url', self::DELIVERY_URL)->first();
-
-        return view('front-side.delivery', compact('page'));
-    }
-
-    public function test()
-    {
-        $file = public_path('YMLPrice.xml');
+        $file = public_path(self::PRICE_PATH);
 
         $settings = (new Settings())
             ->setOutputFile($file)
             ->setEncoding('utf-8')
         ;
 
-// Creating ShopInfo object (https://yandex.ru/support/webmaster/goods-prices/technical-requirements.xml#shop)
+        // Creating ShopInfo object (https://yandex.ru/support/webmaster/goods-prices/technical-requirements.xml#shop)
         $shopInfo = (new ShopInfo())
             ->setName('AeroShop')
             ->setCompany('Интернет магазин AeroShop')
             ->setUrl('http://aeroshop.com.ua')
         ;
 
-// Creating currencies array (https://yandex.ru/support/webmaster/goods-prices/technical-requirements.xml#currencies)
+        // Creating currencies array (https://yandex.ru/support/webmaster/goods-prices/technical-requirements.xml#currencies)
         $currencies = [];
         foreach (\App\Models\Currency::all() as $currency) {
             $currencies[] = (new Currency())
@@ -75,7 +60,7 @@ class PagesController extends Controller
         }
 
 
-// Creating categories array (https://yandex.ru/support/webmaster/goods-prices/technical-requirements.xml#categories)
+        // Creating categories array (https://yandex.ru/support/webmaster/goods-prices/technical-requirements.xml#categories)
         $categories = [];
         foreach (\App\Models\Category::all() as $category) {
             if ($category->parent_id > 0) {
@@ -90,7 +75,7 @@ class PagesController extends Controller
             }
         }
 
-// Creating offers array (https://yandex.ru/support/webmaster/goods-prices/technical-requirements.xml#offers)
+        // Creating offers array (https://yandex.ru/support/webmaster/goods-prices/technical-requirements.xml#offers)
         $offers = [];
         foreach (Product::where('availability_id', '<>', 5)->get() as $product) {
             $offer = (new OfferSimple())
@@ -109,7 +94,7 @@ class PagesController extends Controller
                         '<$1$2>',
                         strip_tags($product->lang->description, '<p><b><strong><h2><h3><h4>')
                     )
-                        . ']]>');
+                    . ']]>');
             foreach ($product->images as $image) {
                 $offer->addPicture(url($image->url));
             }
@@ -140,7 +125,7 @@ class PagesController extends Controller
             $categories,
             $offers
         );
-        dd($yml);
-        return view('front-side.cart.successful', ['id' => 4]);
+
+        return $yml;
     }
 }

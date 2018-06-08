@@ -46,4 +46,9 @@ Route::group(['prefix' => 'admin-side'], function () {
         Route::post('lang/{id}/{locale}', 'Admin\ProductsController@updateProductLang')->name('update-lang');
         Route::post('add-prop/{id}', 'Admin\ProductsController@addProperty')->name('add-property');
     });
+    //YML generate
+    Route::group(['prefix' => 'price', 'as' => 'admin.price.'], function () {
+        Route::get('/', 'Admin\PriceController@index')->name('index');
+        Route::post('/', 'Admin\PriceController@generate')->name('generate');
+    });
 });

@@ -11,6 +11,7 @@
             <li class="{{is_route_active('admin.products.*')}}"><a href="{{route('admin.products.all')}}"><i class="fa fa-list"></i> <span>Продукты</span></a></li>
             <li class="{{is_route_active('admin.orders.*')}}"><a href="{{route('admin.orders.all')}}"><i class="fa fa-shopping-cart"></i> <span>Заказы</span></a></li>
             <li class="{{is_route_active('admin.messages.*')}}"><a href="{{route('admin.messages.all')}}"><i class="fa fa-envelope"></i> <span>Сообщения</span></a></li>
+            <li class="{{is_route_active('admin.price.index')}}"><a href="{{route('admin.price.index')}}"><i class="fa fa-code"></i> <span>YML прайс</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>
