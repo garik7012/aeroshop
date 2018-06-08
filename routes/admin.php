@@ -58,6 +58,7 @@ Route::group(['prefix' => 'admin-side'], function () {
         Route::get('properties', 'Admin\ParametersController@showProperties')->name('properties');
         Route::get('units', 'Admin\ParametersController@showUnits')->name('units');
         Route::post('add-item', 'Admin\ParametersController@addItem')->name('add-item');
+        Route::post('update-item', 'Admin\ParametersController@updateItem')->name('update-item');
     });
     //currencies
     Route::group(['prefix' => 'currencies', 'as' => 'admin.currencies.'], function () {

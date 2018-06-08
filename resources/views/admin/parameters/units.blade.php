@@ -18,28 +18,7 @@
                         <h3 class="box-title">Таблица</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body table-responsive">
-                        <table id="adminSimpleDataTable" class="table table-hover table-striped">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Название (рус)</th>
-                                <th>Название (укр)</th>
-                                <th>Название (eng)</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($units as $unit)
-                                <tr>
-                                    <td>{{$unit->id}}</td>
-                                    <td>{{$unit->ru_title}}</td>
-                                    <td>{{$unit->uk_title}}</td>
-                                    <td>{{$unit->en_title}}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                @include('admin.parameters._table', ['items' => $units, 'model' => 'Unit'])
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <form action="{{route('admin.params.add-item')}}" method="post">

@@ -18,28 +18,7 @@
                         <h3 class="box-title">Список стран</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body table-responsive">
-                        <table id="adminSimpleDataTable" class="table table-hover table-striped">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Название (рус)</th>
-                                <th>Название (укр)</th>
-                                <th>Название (eng)</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($countries as $country)
-                                <tr>
-                                    <td>{{$country->id}}</td>
-                                    <td>{{$country->ru_title}}</td>
-                                    <td>{{$country->uk_title}}</td>
-                                    <td>{{$country->en_title}}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                    @include('admin.parameters._table', ['items' => $countries, 'model' => 'Country'])
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <form action="{{route('admin.params.add-item')}}" method="post">

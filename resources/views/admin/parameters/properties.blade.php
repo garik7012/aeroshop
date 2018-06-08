@@ -18,28 +18,7 @@
                         <h3 class="box-title">Список параметров</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body table-responsive">
-                        <table id="adminSimpleDataTable" class="table table-hover table-striped">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Название (рус)</th>
-                                <th>Название (укр)</th>
-                                <th>Название (eng)</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($properties as $parameter)
-                                <tr>
-                                    <td>{{$parameter->id}}</td>
-                                    <td>{{$parameter->ru_title}}</td>
-                                    <td>{{$parameter->uk_title}}</td>
-                                    <td>{{$parameter->en_title}}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                    @include('admin.parameters._table', ['items' => $properties, 'model' => 'ProductPropertyKey'])
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <form action="{{route('admin.params.add-item')}}" method="post">

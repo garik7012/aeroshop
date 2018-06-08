@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\ProductParametersRequest;
 use App\Models\Availability;
 use App\Models\Country;
 use App\Models\ProductPropertyKey;
@@ -53,18 +54,11 @@ class ParametersController extends Controller
 
     /**
      * add country or availability or product property or unit
-     * @param Request $request
+     * @param ProductParametersRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function addItem(Request $request)
+    public function addItem(ProductParametersRequest $request)
     {
-        $request->validate([
-            'ru_title' => 'required|max:250',
-            'uk_title' => 'required|max:250',
-            'en_title' => 'required|max:250',
-            'model' => 'required|in:Country,Availability,ProductPropertyKey,Unit'
-        ]);
-
         $model = '\App\Models\\' . $request->model;
         $model = new $model();
         $model->ru_title = $request->ru_title;
@@ -73,5 +67,23 @@ class ParametersController extends Controller
         $model->save();
 
         return back()->with('success', 'Успешно добавлено');
+    }
+
+    /**
+     * edit parameter item
+     * @param ProductParametersRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function updateItem(ProductParametersRequest $request)
+    {
+        $model = '\App\Models\\' . $request->model;
+        $model = new $model();
+        $model = $model::findOrFail($request->id);
+        $model->ru_title = $request->ru_title;
+        $model->uk_title = $request->uk_title;
+        $model->en_title = $request->en_title;
+        $model->save();
+
+        return back()->with('success', 'Успешно изменено');
     }
 }
