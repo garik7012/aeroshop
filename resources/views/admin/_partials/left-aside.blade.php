@@ -11,6 +11,18 @@
             <li class="{{is_route_active('admin.products.*')}}"><a href="{{route('admin.products.all')}}"><i class="fa fa-list"></i> <span>Продукты</span></a></li>
             <li class="{{is_route_active('admin.orders.*')}}"><a href="{{route('admin.orders.all')}}"><i class="fa fa-shopping-cart"></i> <span>Заказы</span></a></li>
             <li class="{{is_route_active('admin.messages.*')}}"><a href="{{route('admin.messages.all')}}"><i class="fa fa-envelope"></i> <span>Сообщения</span></a></li>
+            <li class="treeview {{is_route_active('admin.params.*')}}">
+                <a href="#">
+                    <i class="fa fa-list-ul"></i> <span>Дополнительно</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                </a>
+                <ul class="treeview-menu" style="display: none;">
+                    <li class="{{is_route_active('admin.params.avaiabilities')}}"><a href="{{route('admin.params.availabilities')}}"><i class="fa fa-clock-o"></i> <span>Доступность</span></a></li>
+                    <li class="{{is_route_active('admin.params.countries')}}"><a href="{{route('admin.params.countries')}}"><i class="fa fa-map-marker"></i> <span>Страны</span></a></li>
+                    <li class="{{is_route_active('admin.params.properties')}}"><a href="{{route('admin.params.properties')}}"><i class="fa fa-filter"></i> <span>Праметры товара</span></a></li>
+                    <li class="{{is_route_active('admin.params.units')}}"><a href="{{route('admin.params.units')}}"><i class="fa fa-university"></i> <span>Единицы измерения</span></a></li>
+                </ul>
+            </li>
             <li class="{{is_route_active('admin.price.index')}}"><a href="{{route('admin.price.index')}}"><i class="fa fa-code"></i> <span>YML прайс</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->

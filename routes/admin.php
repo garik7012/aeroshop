@@ -51,4 +51,16 @@ Route::group(['prefix' => 'admin-side'], function () {
         Route::get('/', 'Admin\PriceController@index')->name('index');
         Route::post('/', 'Admin\PriceController@generate')->name('generate');
     });
+    //added parameters
+    Route::group(['prefix' => 'params', 'as' => 'admin.params.'], function () {
+        Route::get('availabilities', 'Admin\ParametersController@showAvailabilities')->name('availabilities');
+        Route::get('countries', 'Admin\ParametersController@showCountries')->name('countries');
+        Route::get('properties', 'Admin\ParametersController@showProperties')->name('properties');
+        Route::get('units', 'Admin\ParametersController@showUnits')->name('units');
+        Route::post('add-item', 'Admin\ParametersController@addItem')->name('add-item');
+    });
+    //currencies
+    Route::group(['prefix' => 'currencies', 'as' => 'admin.currencies.'], function () {
+        Route::get('/', 'Admin\CurrenciesController@index')->name('all');
+    });
 });
