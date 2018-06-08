@@ -23,6 +23,7 @@
                     <li class="{{is_route_active('admin.params.units')}}"><a href="{{route('admin.params.units')}}"><i class="fa fa-university"></i> <span>Единицы измерения</span></a></li>
                 </ul>
             </li>
+            <li class="{{is_route_active('admin.currencies.*')}}"><a href="{{route('admin.currencies.all')}}"><i class="fa fa-money"></i> <span>Валюты. Курс валют</span></a></li>
             <li class="{{is_route_active('admin.price.index')}}"><a href="{{route('admin.price.index')}}"><i class="fa fa-code"></i> <span>YML прайс</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->

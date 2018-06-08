@@ -62,5 +62,7 @@ Route::group(['prefix' => 'admin-side'], function () {
     //currencies
     Route::group(['prefix' => 'currencies', 'as' => 'admin.currencies.'], function () {
         Route::get('/', 'Admin\CurrenciesController@index')->name('all');
+        Route::post('/change', 'Admin\CurrenciesController@changeRate')->name('change');
+        Route::post('/add', 'Admin\CurrenciesController@addCurrency')->name('add');
     });
 });
