@@ -9,7 +9,6 @@ use Bukashk0zzz\YmlGenerator\Model\Offer\OfferParam;
 use Bukashk0zzz\YmlGenerator\Model\Offer\OfferSimple;
 use Bukashk0zzz\YmlGenerator\Model\Category;
 use Bukashk0zzz\YmlGenerator\Model\Currency;
-use Bukashk0zzz\YmlGenerator\Model\Delivery;
 use Bukashk0zzz\YmlGenerator\Model\ShopInfo;
 use Bukashk0zzz\YmlGenerator\Settings;
 use Bukashk0zzz\YmlGenerator\Generator;
@@ -26,6 +25,10 @@ class PriceController extends Controller
         return view('admin.price', ['pricePath' => self::PRICE_PATH]);
     }
 
+    /**
+     * generate new price
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function generate()
     {
         if ($this->generateYML()) {
@@ -35,6 +38,10 @@ class PriceController extends Controller
         }
     }
 
+    /**
+     * generate xml
+     * @return bool
+     */
     private function generateYML()
     {
         $file = public_path(self::PRICE_PATH);
