@@ -100,21 +100,36 @@ class OrderController extends Controller
         ];
         $txt = '';
         foreach ($arr as $key => $value) {
-            $txt .= urlencode("<b>".$key."</b>: ".$value) . "%0A";
+            $txt .= "<b>$key</b>: $value %0A";
         }
         foreach ($order->products as $product) {
-            $txt .= urlencode('  ' . $product->getProduct->ru_title . ' - ' .
-                $product->quantity . 'x' . $product->price . ' ' . $product->currency) ."%0A";
+            $txt .= '  ' . $product->getProduct->ru_title . ' - ' .
+                $product->quantity . 'x' . $product->price . ' ' . $product->currency ."%0A";
         }
         $txt .= '%0A';
-        $txt .= $order->without_call ? "urlencode(<b>Без звонка</b>)" . "%0A": '';
-        $txt .= $order->delivery_option == 1 ? urlencode("<b>Курьером по Киеву</b>"): urlencode("<b>Новой почтой</b>");
+        $txt .= $order->without_call ? '<b>Без звонка</b>' . "%0A": '';
+        $txt .= $order->delivery_option == 1 ? "<b>Курьером по Киеву</b>": "<b>Новой почтой</b>";
         $txt .= '%0A';
-        $txt .= urlencode("<b>Язык общения</b>: ") . app()->getLocale();
+        $txt .= "<b>Язык общения</b>: " . app()->getLocale();
 
         $token = env('TG_BOT');
         $chat_id = env('TG_CHAT');
-        fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
+
+
+        $website="https://api.telegram.org/bot" . $token;
+        $params=[
+            'chat_id' => $chat_id,
+            'text' => $txt,
+        ];
+        $ch = curl_init($website . '/sendMessage');
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, ($params));
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        curl_close($ch);
+
         mail('inbox@aeroshop.com.ua', 'заказ', $txt);
     }
 }
