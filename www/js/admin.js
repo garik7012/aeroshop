@@ -17163,7 +17163,35 @@ app.General = function () {
 app.Product = function () {
     var initDataTable = function initDataTable() {
         __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
-            var table = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#asyncProductTable').DataTable({});
+            var table = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#asyncProductTable').DataTable({
+                "ajax": {
+                    "dataType": "json",
+                    "type": "POST"
+                },
+                "columnDefs": [{
+                    "targets": 5,
+                    "data": 5,
+                    "render": function render(data, type, row, meta) {
+                        var str = data ? '<i class="fa fa-check"></i>' : '';
+                        return str;
+                    }
+                }, {
+                    "targets": 6,
+                    "data": 6,
+                    "render": function render(data, type, row, meta) {
+                        var str = data ? '<i class="fa fa-check"></i>' : '';
+                        return str;
+                    }
+                }, {
+                    "targets": 7,
+                    "data": 7,
+                    "render": function render(data, type, row, meta) {
+                        var str = '<a href="/item/' + data[0] + '" class="btn btn-info" target="_blank" title="Показать на сайте"><i class="fa fa-eye"></i></a>\n' + '<a href="products/' + data[1] + '/ru" class="btn btn-primary" target="_blank" title="Редактировать"><i class="fa fa-edit"></i></a>\n' + '<a href="products/images/' + data[1] + '" class="btn btn-success" target="_blank" title="Изображения"><i class="fa fa-picture-o"></i></a>';
+                        return str;
+                    }
+                }],
+                "deferRender": true
+            });
 
             __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#categoryFilterSelect').on('change select', function () {
                 table.column(2).search(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).val()).draw();

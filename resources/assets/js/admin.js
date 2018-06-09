@@ -53,6 +53,38 @@ app.Product = (function () {
     const initDataTable = function () {
         $(document).ready(function () {
             var table = $('#asyncProductTable').DataTable({
+                "ajax":{
+                    "dataType": "json",
+                    "type": "POST",
+                },
+                "columnDefs": [
+                    {
+                        "targets": 5,
+                        "data": 5,
+                        "render": function ( data, type, row, meta ) {
+                            var str = data ? '<i class="fa fa-check"></i>' : '';
+                            return str;
+                        }
+                    },
+                    {
+                        "targets": 6,
+                        "data": 6,
+                        "render": function ( data, type, row, meta ) {
+                            var str = data ? '<i class="fa fa-check"></i>' : '';
+                            return str;
+                        }
+                    },
+                    {
+                    "targets": 7,
+                    "data": 7,
+                    "render": function ( data, type, row, meta ) {
+                        var str = '<a href="/item/'+ data[0] +'" class="btn btn-info" target="_blank" title="Показать на сайте"><i class="fa fa-eye"></i></a>\n' +
+                            '<a href="products/'+ data[1] +'/ru" class="btn btn-primary" target="_blank" title="Редактировать"><i class="fa fa-edit"></i></a>\n' +
+                            '<a href="products/images/'+ data[1] +'" class="btn btn-success" target="_blank" title="Изображения"><i class="fa fa-picture-o"></i></a>';
+                        return str;
+                    }
+                } ],
+                "deferRender": true
             });
 
             $('#categoryFilterSelect').on('change select', function () {

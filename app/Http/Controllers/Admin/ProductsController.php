@@ -21,17 +21,38 @@ class ProductsController extends Controller
 {
     /**
      * show products table
-     * @param Product $product
+     * @param Brand $brand
+     * @param Category $category
+     * @param Availability $availability
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(Product $product, Brand $brand, Category $category, Availability $availability)
+    public function index(Brand $brand, Category $category, Availability $availability)
     {
-        $products = $product->all();
         $brands = $brand->pluck('title')->toArray();
         $availabilities = $availability->all();
         $categories = $category->all();
 
-        return view('admin.products.index', compact('brands', 'categories', 'products', 'availabilities'));
+        return view('admin.products.index', compact('brands', 'categories', 'availabilities'));
+    }
+
+    public function getProducts(Product $product)
+    {
+        $products = $product->all();
+        $data = [];
+        foreach ($products as $product) {
+            $data[] = [
+                $product->id,
+                $product->ru_title,
+                $product->category->ru_title,
+                $product->brand ? $product->brand->title : '',
+                $product->availability->ru_title,
+                $product->is_featured,
+                $product->is_active,
+                [$product->url, $product->id]
+            ];
+        }
+
+        return response()->json(['data' => $data]);
     }
 
     /**
