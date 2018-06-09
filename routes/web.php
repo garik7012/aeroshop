@@ -7,7 +7,7 @@
 */
 
 Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'middleware' => 'lang'], function () {
-    Route::get('/test', 'PagesController@test');
+    Route::any('/test', 'PagesController@test');
     //pages
     Route::get('/', 'PagesController@index')->name('index');
     Route::get('/contact-us', 'PagesController@contactUs')->name('contact-us');

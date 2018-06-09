@@ -8,6 +8,7 @@
 
 Route::group(['prefix' => 'admin-side'], function () {
     Route::get('/', 'Admin\DashboardController@index');
+    Route::post('/upload-image', 'Admin\DashboardController@uploadImage');
     //pages
     Route::group(['prefix' => 'pages', 'as' => 'admin.pages.'], function () {
         Route::get('/', 'Admin\PagesController@index')->name('all');

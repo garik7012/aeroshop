@@ -5,13 +5,46 @@ window.$ = $;
 require('datatables.net');
 require('admin-lte/dist/js/adminlte.min.js');
 require('trumbowyg');
+require('trumbowyg/dist/plugins/upload/trumbowyg.upload');
 
 $('document').ready(function () {
     $.ajaxSetup({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
     });
 
-    $('textarea.turmbowyg').trumbowyg({autogrow: true, svgPath: '/img/icons.svg'});
+    $('textarea.turmbowyg').trumbowyg({
+        autogrow: true,
+        svgPath: '/img/icons.svg',
+        btnsDef: {
+            // Create a new dropdown
+            image: {
+                dropdown: ['insertImage', 'upload'],
+                ico: 'insertImage'
+            }
+        },
+        // Redefine the button pane
+        btns: [
+            ['viewHTML'],
+            ['formatting'],
+            ['strong', 'em', 'del'],
+            ['superscript', 'subscript'],
+            ['link'],
+            ['image'], // Our fresh created dropdown
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeformat'],
+            ['fullscreen']
+        ],
+        plugins: {
+            // Add imagur parameters to upload plugin for demo purposes
+            upload: {
+                serverPath: '/admin-side/upload-image',
+                fileFieldName: 'image',
+                urlPropertyName: 'image_url'
+            }
+        }
+    });
 });
 
 app.General = (function() {
