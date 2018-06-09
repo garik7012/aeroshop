@@ -33,7 +33,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'mi
     Route::get('/order-store', 'OrderController@showOrder')->name('order.show');
     Route::post('/checkout', 'OrderController@confirmOrder')->name('confirm-order');
 });
-
+Route::get('/article/{id}', 'PagesController@showArticle');
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');

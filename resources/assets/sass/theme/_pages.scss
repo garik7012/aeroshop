@@ -12,6 +12,10 @@
     margin-bottom:30px;
   }
 
+  img.card-img-top {
+    height: 240px;
+    object-fit: cover;
+  }
   .card {
     background-color: #FFF;
     border: 1px solid #eceaea;
@@ -20,6 +24,8 @@
 
   .card-block {
     padding: 15px;
+    position: relative;
+    height: 200px;
   }
 
   .btn.btn-default {
@@ -30,5 +36,16 @@
     font-size: 13px;
     font-weight: 600;
     margin-top: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    right: 30px;
+  }
+  .image-container {
+    float: left;
+    margin-right: 15px;
+    img {
+      max-width: 450px;
+    }
   }
 }
