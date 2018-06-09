@@ -96,20 +96,20 @@ class OrderController extends Controller
             "Имя" => htmlspecialchars($order->name),
             "Телефон" => htmlspecialchars($order->phone),
             "Email" => $order->email,
-            "Товары" => ''
+            "Способ доставки" => $order->delivery_option == 1 ? "Курьером по Киеву": "Новой почтой",
+            "Адрес" => htmlspecialchars($order->delivery),
+            "Товары" => '',
         ];
         $txt = '';
         foreach ($arr as $key => $value) {
-            $txt .= "<b>$key</b>: $value %0A";
+            $txt .= "<b>$key</b>: $value \r\n";
         }
         foreach ($order->products as $product) {
             $txt .= '  ' . htmlspecialchars($product->getProduct->ru_title) . ' - ' .
-                $product->quantity . 'x' . $product->price . ' ' . $product->currency ."%0A";
+                $product->quantity . 'x' . $product->price . ' ' . $product->currency . "\r\n";
         }
-        $txt .= '%0A';
-        $txt .= $order->without_call ? '<b>Без звонка</b>' . "%0A": '';
-        $txt .= $order->delivery_option == 1 ? "<b>Курьером по Киеву</b>": "<b>Новой почтой</b>";
-        $txt .= '%0A';
+        $txt .= "\r\n";
+        $txt .= $order->without_call ? "<b>Без звонка</b> \r\n": "\r\n";
         $txt .= "<b>Язык общения</b>: " . app()->getLocale();
 
         $token = env('TG_BOT');
