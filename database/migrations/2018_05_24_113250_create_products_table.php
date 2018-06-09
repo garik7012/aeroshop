@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code')->default('');
+            $table->string('code')->nullable();
             $table->string('url')->unique();
             $table->string('ru_title');
             $table->string('en_title');
@@ -37,10 +37,10 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('product_id');
             $table->string('key_id');
-            $table->string('unit_id')->default('');
-            $table->string('ru_value')->default('');
-            $table->string('en_value')->default('');
-            $table->string('uk_value')->default('');
+            $table->string('unit_id')->nullable();
+            $table->string('ru_value')->nullable();
+            $table->string('en_value')->nullable();
+            $table->string('uk_value')->nullable();
 
             $table->foreign('product_id')
                 ->references('id')
@@ -53,9 +53,9 @@ class CreateProductsTable extends Migration
             $table->unsignedInteger('product_id');
             $table->string('locale');
             $table->text('description');
-            $table->string('title')->default('');
-            $table->string('keywords', 750)->default('');
-            $table->string('seo_description')->default('');
+            $table->string('title')->nullable();
+            $table->string('keywords', 750)->nullable();
+            $table->string('seo_description')->nullable();
 
             $table->foreign('product_id')
                 ->references('id')
