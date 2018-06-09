@@ -8,7 +8,7 @@
                         <ul>
                             <li><a href="{{route('index')}}">@lang('site.menu.home')</a></li>
                             <li><a href="{{route('all-categories')}}">@lang('site.menu.categories')</a></li>
-                            <li><a href="{{route('index')}}">@lang('g.articles')</a></li>
+                            <li><a href="{{route('articles')}}">@lang('g.articles')</a></li>
                         </ul>
                     </div>
                 </div>

@@ -12,6 +12,7 @@ class PagesController extends Controller
     const CONTACTS_URL = 'contact-us';
     const FAQ_URL = 'faq';
     const DELIVERY_URL = 'delivery';
+    const ARTICLES_URL = 'articles';
 
     /**
      * show index page
@@ -19,7 +20,7 @@ class PagesController extends Controller
      */
     public function index(Product $product, Page $page)
     {
-        $products = $product->where('is_active', 1)->orderBy('is_featured', 'desc')->limit(8)->get();
+        $products = $product->where('is_active', 1)->orderBy('is_featured', 'desc')->limit(12)->get();
         $locale = \App::getLocale();
         $page = $page->where('url', self::INDEX_URL)->first();
 
@@ -63,8 +64,15 @@ class PagesController extends Controller
         return view('front-side.delivery', compact('page'));
     }
 
+    public function articles(Page $page)
+    {
+        $page = $page->where('url', self::ARTICLES_URL)->first();
+
+        return view('front-side.articles', compact('page'));
+    }
+
     public function test()
     {
-       //
+       return view('home');
     }
 }

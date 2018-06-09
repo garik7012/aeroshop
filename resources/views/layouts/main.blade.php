@@ -9,12 +9,8 @@
         <div class="container">
             <div class="row">
                 @yield('breadcrumbs')
-                <div class="main-col left_column col-sm-12 ">
-                    <div class="row">
-                        <div class="center_column col-xs-12 col-sm-12 with_col ">
-                        @yield('content')
-                        </div>
-                    </div>
+                <div class="col-sm-12 ">
+                    @yield('content')
                 </div>
             </div>
         </div>

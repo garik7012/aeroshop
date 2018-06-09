@@ -15,8 +15,8 @@
     <section class="main-page_description">
         <div class="container">
             <div class="row">
-                <div class="main-col left_column col-sm-12 ">
-                    <div class="centerBoxWrapper clearfix">
+                <div class="main-col left_column col-sm-12">
+                    <div class="centerBoxWrapper clearfix" data-aos="zoom-out-up" data-aos-delay="300" data-aos-duration="1200">
                         <h1>{{$page->lang->title}}</h1>
                         {!! $page->lang->description !!}
                 </div>

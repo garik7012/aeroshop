@@ -36,7 +36,7 @@
                     <nav>
                         <ul class="ez-menu">
                             <li class="first">
-                                <a href="#">
+                                <a href="{{route('articles')}}">
                                     <span>@lang('g.articles')</span>
                                 </a>
                             </li>
