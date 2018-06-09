@@ -53,22 +53,6 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($products as $product)
-                                <tr>
-                                    <td>{{$product->id}}</td>
-                                    <td>{{$product->ru_title}}</td>
-                                    <td>{{$product->category->ru_title}}</td>
-                                    <td>{{$product->brand ? $product->brand->title : ''}}</td>
-                                    <td>{{$product->availability->ru_title}}</td>
-                                    <td>{!! $product->is_featured ? '<i class="fa fa-check"></i>' : ''!!}</td>
-                                    <td>{!! $product->is_active ? '<i class="fa fa-check"></i>' : ''!!}</td>
-                                    <td>
-                                        <a href="/item/{{$product->url}}" class="btn btn-info" target="_blank" title="Показать на сайте"><i class="fa fa-eye"></i></a>
-                                        <a href="{{route('admin.products.show', ['id' => $product->id, 'locale' => 'ru'])}}" class="btn btn-primary" title="Редактировать"><i class="fa fa-edit"></i></a>
-                                        <a href="{{route('admin.products.images', $product->id)}}" class="btn btn-success" title="Изображения"><i class="fa fa-picture-o"></i></a>
-                                    </td>
-                                </tr>
-                            @endforeach
                             </tbody>
                         </table>
                     </div>

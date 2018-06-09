@@ -1,0 +1,51 @@
+/******************************************************************************
+						Site Pages
+*******************************************************************************/
+
+//-----articles-------
+.articles__page {
+  h1 {
+    color: #4C4C4C;
+    word-spacing: 5px;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom:30px;
+  }
+
+  img.card-img-top {
+    height: 240px;
+    object-fit: cover;
+  }
+  .card {
+    background-color: #FFF;
+    border: 1px solid #eceaea;
+    margin: 20px 0px;
+  }
+
+  .card-block {
+    padding: 15px;
+    position: relative;
+    height: 200px;
+  }
+
+  .btn.btn-default {
+    background-color: #5db4c0;
+    border-radius: 0;
+    border: none;
+    padding: 13px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    right: 30px;
+  }
+  .image-container {
+    float: left;
+    margin-right: 15px;
+    img {
+      max-width: 450px;
+    }
+  }
+}

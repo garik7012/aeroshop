@@ -16,3 +16,4 @@ yarn-error.log
 /www/old_img
 /www/img/cat
 /www/price/*
+/www/uploads/*

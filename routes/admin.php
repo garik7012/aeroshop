@@ -8,6 +8,7 @@
 
 Route::group(['prefix' => 'admin-side'], function () {
     Route::get('/', 'Admin\DashboardController@index');
+    Route::post('/upload-image', 'Admin\DashboardController@uploadImage');
     //pages
     Route::group(['prefix' => 'pages', 'as' => 'admin.pages.'], function () {
         Route::get('/', 'Admin\PagesController@index')->name('all');
@@ -36,6 +37,7 @@ Route::group(['prefix' => 'admin-side'], function () {
     //products
     Route::group(['prefix' => 'products', 'as' => 'admin.products.'], function () {
         Route::get('/', 'Admin\ProductsController@index')->name('all');
+        Route::post('/', 'Admin\ProductsController@getProducts')->name('all-json');
         Route::get('/images/{id}', 'Admin\ProductsController@showImages')->name('images');
         Route::get('/image-main/{product_id}/{image_id}', 'Admin\ProductsController@makeImageMain')->name('image-main');
         Route::get('/image-delete/{product_id}/{image_id?}', 'Admin\ProductsController@deleteImage')->name('image-delete');

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
 //        $this->call(ProductPropertyKeysSeeder::class);
 //        $this->call(ProductsSeeder::class);
 //        $this->call(PagesTableSeeder::class);
-        $this->call(CurrencyTableSeeder::class);
+//        $this->call(CurrencyTableSeeder::class);
+        $this->call(ArticlesTableSeeder::class);
     }
 }

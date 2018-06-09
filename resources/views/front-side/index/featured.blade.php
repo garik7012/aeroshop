@@ -1,8 +1,8 @@
 <div class="centerBoxWrapper clearfix" id="featuredProducts">
     <h1 class="centerBoxHeading main-page_heading">@lang('g.featured')</h1>
-    <ul class="prod-list1 clearfix w25">
+    <ul class="prod-list1 row w25">
         @foreach($products as $product)
-        <li class="centerBoxContentsFeatured centeredContent back  i{{$loop->iteration < 5 ? $loop->iteration: $loop->iteration - 4}}" style="width:25%;">
+        <li class="centerBoxContentsFeatured centeredContent col-lg-3 col-md-4 col-sm-6 col-xs-12" >
             <div class="product-col" data-match-height="featured">
                 <h5><a class="product-name name" href="#">{{$product[$locale . '_title']}} ({{$product->category[$locale . '_title']}})</a></h5>
                 <div class="img">
