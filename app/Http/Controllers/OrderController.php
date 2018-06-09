@@ -93,8 +93,8 @@ class OrderController extends Controller
     {
         $arr = [
             "Заказ номер" => $order->id,
-            "Имя" => $order->name,
-            "Телефон" => $order->phone,
+            "Имя" => htmlspecialchars($order->name),
+            "Телефон" => htmlspecialchars($order->phone),
             "Email" => $order->email,
             "Товары" => ''
         ];
@@ -103,7 +103,7 @@ class OrderController extends Controller
             $txt .= "<b>$key</b>: $value %0A";
         }
         foreach ($order->products as $product) {
-            $txt .= '  ' . $product->getProduct->ru_title . ' - ' .
+            $txt .= '  ' . htmlspecialchars($product->getProduct->ru_title) . ' - ' .
                 $product->quantity . 'x' . $product->price . ' ' . $product->currency ."%0A";
         }
         $txt .= '%0A';
@@ -119,6 +119,7 @@ class OrderController extends Controller
         $website="https://api.telegram.org/bot" . $token;
         $params=[
             'chat_id' => $chat_id,
+            'parse_mode' => 'HTML',
             'text' => $txt,
         ];
         $ch = curl_init($website . '/sendMessage');
