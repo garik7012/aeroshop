@@ -6,6 +6,7 @@ use Exception;
 use App\Models\Contact;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Log\Logger;
+use Mail;
 
 class ContactService extends BaseService
 {
@@ -37,21 +38,39 @@ class ContactService extends BaseService
             if (!$contact->save()) {
                 throw new Exception('Contact was not saved');
             }
-            $txt = '';
-            $txt .= "<b>Было оставленно сообщение от</b> %0A";
-            $txt .= "<b>Имя:</b>" . $contact->name . "%0A";
-            $txt .= "<b>email:</b>" . $contact->email . "%0A";
-            $txt .= "<b>Сообщение:</b>" . $contact->message . "%0A";
-
-            $token = env('TG_BOT');
-            $chat_id = env('TG_CHAT');
-            $fp=fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
-            mail('inbox@aeroshop.com.ua', 'сообщение с сайта', $txt);
 
         } catch (Exception $e) {
             return $this->rollback($e, 'Message send failed');
         }
         $this->commit();
+
+        $txt = '';
+        $txt .= "<b>Было оставленно сообщение от</b> \r\n";
+        $txt .= "<b>Имя:</b> " . htmlspecialchars($contact->name) . "\r\n";
+        $txt .= "<b>email:</b> " . $contact->email . "\r\n";
+        $txt .= "<b>Сообщение:</b> " . htmlspecialchars($contact->message) . "\r\n";
+
+        $token = env('TG_BOT');
+        $chat_id = env('TG_CHAT');
+        $website="https://api.telegram.org/bot" . $token;
+        $params=[
+            'chat_id' => $chat_id,
+            'parse_mode' => 'HTML',
+            'text' => $txt,
+        ];
+        $ch = curl_init($website . '/sendMessage');
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, ($params));
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        Mail::raw($txt, function ($m) {
+            $m->from('inbox@aeroshop.com.ua');
+            $m->to('inbox@aeroshop.com.ua')->subject('Сообщение из связаться с нами');
+        });
 
         return true;
     }

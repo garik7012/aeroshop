@@ -81,9 +81,9 @@
     </table>
     {!! $page->lang->description !!}
 
-    <a href="{{route('index')}}"><span class="cssButton normal_button button  button_back pull-left"
+    <a href="{{route('index')}}"><span class="cssButton normal_button button  button_back"
                                        onmouseover="this.className='cssButtonHover normal_button button  button_back button_backHover'"
-                                       onmouseout="this.className='cssButton normal_button button  button_back'">&nbsp;Back&nbsp;</span></a>
+                                       onmouseout="this.className='cssButton normal_button button  button_back'">&nbsp;@lang('g.back')&nbsp;</span></a>
     <div class="m-b-100"></div>
 </div>
 @endsection

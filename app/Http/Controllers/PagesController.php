@@ -88,8 +88,9 @@ class PagesController extends Controller
     public function showArticle($id, Article $article)
     {
         $article = $article->findOrFail($id);
+        $canonical = true;
 
-        return view('front-side.article', compact('article'));
+        return view('front-side.article', compact('article', 'canonical'));
     }
 
     public function test()

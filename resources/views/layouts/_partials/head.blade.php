@@ -16,11 +16,14 @@
     @else
     <title>@yield('title', 'AeroShop')</title>
     @endif
+    @if (isset($canonical))
+    <link rel="canonical" href="{{url(getPathWithoutLang())}}"/>
+    @else
     <!-- Alternate -->
     <link rel="alternate" hreflang="ru" href="{{url(getPathWithoutLang())}}" />
     <link rel="alternate" hreflang="uk" href="{{url('uk/' . getPathWithoutLang())}}" />
     <link rel="alternate" hreflang="en" href="{{url('en/' . getPathWithoutLang())}}" />
-
+    @endif
     <!-- Fonts -->
     <link href="/css/fonts.css" rel="stylesheet" type="text/css">
 

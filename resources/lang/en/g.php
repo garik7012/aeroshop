@@ -23,5 +23,6 @@ return [
     'quantity' => 'Quantity',
     'delete' => 'delete',
     'next' => 'Next',
+    'back' => 'Back',
     'edit' => 'edit'
 ];

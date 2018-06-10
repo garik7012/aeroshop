@@ -1,5 +1,7 @@
 @extends('layouts.main')
-
+@section('title', $article->title)
+@section('keywords', $article->keywords)
+@section('description', $article->seo_description ?:  substr(strip_tags($article->description), 0, 255))
 @section('breadcrumbs')
     <div class="col-xs-12">
         <div id="navBreadCrumb" class="breadcrumb"><a class="home" href="{{route('index')}}"></a>

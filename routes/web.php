@@ -15,6 +15,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'mi
     Route::get('/faq', 'PagesController@showFAQ')->name('faq');
     Route::get('/delivery', 'PagesController@delivery')->name('delivery');
     Route::get('/articles', 'PagesController@articles')->name('articles');
+    Route::get('/article/{id}', 'PagesController@showArticle')->name('article');
     //products
     Route::get('/item/{url}', 'ProductController@showProduct')->name('product');
     Route::get('/category', 'ProductController@showAllCategories')->name('all-categories');
@@ -33,7 +34,6 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'mi
     Route::get('/order-store', 'OrderController@showOrder')->name('order.show');
     Route::post('/checkout', 'OrderController@confirmOrder')->name('confirm-order');
 });
-Route::get('/article/{id}', 'PagesController@showArticle');
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
