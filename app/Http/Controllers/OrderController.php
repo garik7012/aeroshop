@@ -7,7 +7,8 @@ use App\Models\Order;
 use App\Services\OrderService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Auth;
+use Mail;
+
 
 class OrderController extends Controller
 {
@@ -131,6 +132,10 @@ class OrderController extends Controller
         $result = curl_exec($ch);
         curl_close($ch);
 
-        mail('inbox@aeroshop.com.ua', 'заказ', $txt);
+        Mail::raw($txt, function ($m) {
+            $m->from('inbox@aeroshop.com.ua');
+            $m->to('inbox@aeroshop.com.ua')->subject('Заказ с сайта');
+        });
+        //mail('inbox@aeroshop.com.ua', 'заказ', $txt);
     }
 }
