@@ -68,4 +68,12 @@ Route::group(['prefix' => 'admin-side'], function () {
         Route::post('/change', 'Admin\CurrenciesController@changeRate')->name('change');
         Route::post('/add', 'Admin\CurrenciesController@addCurrency')->name('add');
     });
+    //articles
+    Route::group(['prefix' => 'articles', 'as' => 'admin.articles.'], function () {
+        Route::get('/', 'Admin\ArticlesController@index')->name('all');
+        Route::get('/add', 'Admin\ArticlesController@createArticle')->name('add');
+        Route::get('/{id?}/edit', 'Admin\ArticlesController@editArticle')->name('edit');
+        Route::post('/create', 'Admin\ArticlesController@storeArticle')->name('create');
+        Route::post('/{id}/update', 'Admin\ArticlesController@updateArticle')->name('update');
+    });
 });
