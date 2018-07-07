@@ -55,7 +55,7 @@
                     </div>
                     <div class="pb-center-column col-xs-12 col-sm-6">
                         <h1 class="title_product">{{$product[_lt()]}}</h1>
-                        <h3 class="sub_title">{{$product->availability[_lt()]}}</h3>
+                        <h3 class="sub_title">{{$product->availability[_lt()]}}<span style="font-weight: normal;"> | Код: {{$product->code}}</span></h3>
                         <!--bof Product description -->
                         <div id="productDescription" class="description biggerText col-sm-12 col-xs-12 col-sm-12 ">
                             {!! ($product->lang->description) !!}

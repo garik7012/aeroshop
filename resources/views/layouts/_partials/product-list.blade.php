@@ -35,6 +35,7 @@
                                     <div class="content_price">
                                         <span itemprop="price" class="price product-price"><span class="productSalePrice">{{$product->price}} {{$product->currency}}</span></span>
                                         <div class="clearfix"></div>
+                                        <div>Код: {{$product->code}}</div>
                                         <div class="product-availability"><strong>{{$product->availability[_lt()]}}</strong></div>
                                         <div class="button">
                                             <a class="btn add-to-cart" href="{{route('one-to-cart', $product->id)}}">
