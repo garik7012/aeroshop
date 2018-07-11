@@ -56,10 +56,15 @@ class ProductsController extends Controller
     }
 
     /**
-     * show lang product
+     * show Product
      * @param $id
      * @param $locale
      * @param Product $product
+     * @param Brand $brand
+     * @param Category $category
+     * @param Country $country
+     * @param Unit $unit
+     * @param ProductPropertyKey $propertyKey
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function showProduct(
@@ -84,6 +89,60 @@ class ProductsController extends Controller
             'admin.products.update',
             compact('product', 'locale', 'brands', 'categories', 'countries', 'units', 'propertyKeys')
         );
+    }
+
+    /**
+     * show create product form
+     * @param Brand $brand
+     * @param Category $category
+     * @param Country $country
+     * @param Unit $unit
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function createProduct(Brand $brand, Category $category, Country $country, Unit $unit)
+    {
+        $brands = $brand->all();
+        $countries = $country->all();
+        $categories = $category->where('old_number', '>', 0)->orderBy('parent_id')->get();
+        $units = $unit->all();
+
+        return view(
+            'admin.products.add',
+            compact('brands', 'categories', 'countries', 'units')
+        );
+    }
+
+    /**
+     * store Product
+     * @param Request $request
+     * @param ProductService $productService
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function storeProduct(Request $request, ProductService $productService)
+    {
+        $request->validate([
+            'ru_title' => 'required|max:250|min:3',
+            'en_title' => 'required|max:250|min:3',
+            'uk_title' => 'required|max:250|min:3',
+            'price' => 'numeric',
+            'currency' => 'required|in:UAH,USD,GBP,EUR,JPY',
+            'unit_id' => 'required',
+            'availability_id' => 'required|numeric',
+            'youtube' => 'max:255',
+            'code' => 'max:255',
+            'url' => 'required|unique:products',
+            'category_id' => 'required|numeric',
+            'is_active' => 'boolean',
+            'is_featured' => 'boolean',
+        ]);
+        $newProduct = $productService->storeProduct($request);
+        if ($newProduct) {
+            return redirect()->route('admin.products.show', ['id' => $newProduct->id, 'locale' => 'ru'])
+                ->with('success', 'Продукт был успешно создан. Продолжайте заполнение полей');
+        } else {
+            return back()->with('danger', 'product create failed');
+        }
     }
 
     /**

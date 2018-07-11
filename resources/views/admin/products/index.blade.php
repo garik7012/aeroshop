@@ -3,7 +3,7 @@
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Продукты</h1>
+        <h1>Продукты <a href="{{route('admin.products.create')}}" class="btn btn-success">Создать новый продукт</a></h1>
         @include('admin._partials.breadcrumbs', $breadcrumbs = [
             ['name' => 'Продукты', 'active' => true]
         ])

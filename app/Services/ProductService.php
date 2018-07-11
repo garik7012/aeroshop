@@ -2,7 +2,9 @@
 
 namespace App\Services;
 
+use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\ProductPageLang;
 use Exception;
 use Storage;
 
@@ -30,6 +32,38 @@ class ProductService extends BaseService
         $this->commit();
 
         return true;
+    }
+
+    /**
+     * store product
+     * @param $request
+     * @return Product|bool
+     * @throws Exception
+     */
+    public function storeProduct($request)
+    {
+        $this->beginTransaction();
+        $product = new Product();
+        try {
+            $product->fill($request->except('_token'));
+            $product->url = $request->url;
+            if (!$product->save()) {
+                throw new Exception('Product was not saved');
+            }
+            foreach (['ru', 'en', 'uk'] as $locale) {
+                $productLang = new ProductPageLang();
+                $productLang->product_id = $product->id;
+                $productLang->locale = $locale;
+                $productLang->description = '';
+                $productLang->save();
+            }
+
+        } catch (Exception $e) {
+            return $this->rollback($e, 'Product update failed');
+        }
+        $this->commit();
+
+        return $product;
     }
 
     /**
