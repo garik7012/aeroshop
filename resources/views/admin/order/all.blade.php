@@ -28,7 +28,7 @@
                                 <th>Способ дост</th>
                                 <th>Адрес дост</th>
                                 <th>Подтвержд</th>
-                                <th>Выполнен</th>
+                                <th>Статус</th>
                                 <th width="65">Actions</th>
                             </tr>
                             </thead>
@@ -42,7 +42,7 @@
                                     <td>{{$order->delivery_option == 1 ? "по Киеву" : 'Новой почтой'}}</td>
                                     <td>{{$order->delivery}}</td>
                                     <td>@if($order->is_confirm)<i class="fa fa-check"></i>@endif</td>
-                                    <td>@if($order->is_complete)<i class="fa fa-check"></i>@endif</td>
+                                    <td><b>{{$statuses[$order->is_complete]}}</b></td>
                                     <td>
                                         <a href="{{route('admin.orders.show', [$order->id])}}" class="btn btn-primary" title="show"><i class="fa fa-eye"></i></a>
                                         <a href="{{route('admin.orders.delete')}}" class="btn btn-danger need-confirm" data-id='{{$order->id}}' data-item="order"><i class="fa fa-trash"></i></a>

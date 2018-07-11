@@ -10,6 +10,19 @@ use App\Http\Controllers\Controller;
 class OrdersController extends Controller
 {
     /**
+     * OrdersController constructor.
+     */
+    public function __construct()
+    {
+        view()->share('statuses', [
+            0 => 'Новый',
+            1 => 'Выполняется',
+            2 => 'Выполнен',
+            -1 => 'Отменен'
+        ]);
+    }
+
+    /**
      * show order list
      * @param Order $order
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -42,10 +55,10 @@ class OrdersController extends Controller
      * @param Order $orders
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function updateOrder($id, Order $orders)
+    public function updateOrder($id, Request $request, Order $orders)
     {
         $order = $orders->findOrFail($id);
-        $order->is_complete = 1;
+        $order->is_complete = +$request->status;
         $order->save();
 
         return back()->with('success', 'Успешно обновлено');

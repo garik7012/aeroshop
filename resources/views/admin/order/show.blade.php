@@ -36,6 +36,7 @@
                     <tr>
                         <th width="30">@lang('g.quantity')</th>
                         <th>@lang('cart.itemName')</th>
+                        <th>Код товара</th>
                         <th>@lang('cart.total')</th>
                     </tr>
                     </thead>
@@ -45,6 +46,7 @@
                         <tr>
                             <td>{{$product->quantity}}&nbsp;x</td>
                             <td><a href="/item/{{$product->getProduct->url}}" target="_blank">{{$product->getProduct->ru_title}}</a></td>
+                            <td>{{$product->getProduct->code}}</td>
                             <td>{{$product->price * $product->quantity}} {{$product->currency}}</td>
                         </tr>
                     @endforeach
@@ -61,15 +63,21 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12">
-                <h4>Статус заказа: @if($order->is_complete) <b>Выполнен</b> @else <b>Не выполнен</b> @endif</h4>
-            </div>
-            <!-- /.box-body -->
             <form action="{{route('admin.orders.update', $order->id)}}" method="post">
-            <div class="box-footer">
-                <a href="{{route('admin.orders.all')}}" class="btn btn-default">Назад к заказам</a>
-                @if(!$order->is_complete)<button type="submit" class="btn btn-primary">Отметить как выполненым</button>@endif
-            </div>
+                <div class="col-xs-12">
+                    <h4>Статус заказа:
+                        <select name="status" required class="form-control" style="display: inline; width: 250px; font-size: 16px;">
+                            @foreach($statuses as $code => $status)
+                                <option value="{{$code}}" {{$code == $order->is_complete ? 'selected' : ''}}>{{$status}}</option>
+                            @endforeach
+                        </select>
+                    </h4>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <a href="{{route('admin.orders.all')}}" class="btn btn-default">Назад к заказам</a>
+                    <button type="submit" class="btn btn-primary">Сохранить статус</button>
+                </div>
             {{csrf_field()}}
             </form>
         </div>
