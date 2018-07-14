@@ -62,16 +62,40 @@ class ProductController extends Controller
         }
     }
 
+    /**
+     * @param Brand $brand
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showBrands(Brand $brand)
     {
         return view('front-side.brand.brands', ['brands' => $brand->all()]);
     }
 
+    /**
+     * @param $id
+     * @param Brand $brands
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showBrandProducts($id, Brand $brands)
     {
         $brand = $brands->findOrFail($id);
         $products = $brand->products;
 
         return view('front-side.brand.index', compact('brand', 'products'));
+    }
+
+    public function searchProduct(Request $request, Product $product)
+    {
+        $search = $request->search;
+        if (!$search) {
+            return back();
+        }
+
+        $searchResult = $product
+            ->where(_lt(), 'like', '%' . $search . '%')
+            ->orWhere('code', 'like', $search)
+            ->get();
+
+        return view('front-side.search', compact('searchResult', 'search'));
     }
 }

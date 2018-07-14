@@ -24,5 +24,6 @@ return [
     'delete' => 'delete',
     'next' => 'Next',
     'back' => 'Back',
-    'edit' => 'edit'
+    'edit' => 'edit',
+    'search' => 'Search'
 ];
